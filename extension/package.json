@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "subgraph:test": "yarn workspace @se-2/subgraph test",
+    "stop-node": "yarn workspace @se-2/subgraph stop-node",
+    "clean-node": "yarn workspace @se-2/subgraph clean-node",
+    "run-node": "yarn workspace @se-2/subgraph run-node",
+    "local-create": "yarn workspace @se-2/subgraph local-create",
+    "local-ship": "yarn workspace @se-2/subgraph local-ship",
+    "abi-copy": "yarn workspace @se-2/subgraph abi-copy",
+    "codegen": "yarn workspace @se-2/subgraph codegen",
+    "graph": "yarn workspace @se-2/subgraph graph"
+  }
+}
