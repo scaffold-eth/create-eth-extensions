@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { NextPage } from "next";
 import useSWRMutation from "swr/mutation";
@@ -27,8 +27,6 @@ const Home: NextPage = () => {
     "/api/verify",
     postMutationFetcher<VerifyRequestBody>
   );
-
-  // IF NOT CONNECTED ASK TO CONNECT
 
   const typedData = {
     domain: EIP_712_DOMAIN,
@@ -88,6 +86,12 @@ const Home: NextPage = () => {
     }
   };
 
+  useEffect(() => {
+    if (!connectedAddress) {
+      setSignature(undefined);
+    }
+  }, [connectedAddress]);
+
   return (
     <div className="flex items-center flex-col flex-grow pt-10 px-8">
       <div className="flex flex-col gap-4 items-center">
@@ -112,11 +116,22 @@ const Home: NextPage = () => {
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
-        <button className="btn btn-primary btn-sm" onClick={signTypedData}>
+
+        {!connectedAddress && <span>⚠️ Connect wallet to sign data</span>}
+
+        <button
+          className="btn btn-primary btn-sm"
+          onClick={signTypedData}
+          disabled={!connectedAddress}
+        >
           Sign
         </button>
-        <div className="font-bold">Signature:</div>
-        <div className="break-all">{signature}</div>
+        {signature && (
+          <div className="text-center">
+            <div className="font-bold">Signature:</div>
+            <div className="break-all">{signature}</div>
+          </div>
+        )}
         <button
           className="btn btn-primary btn-sm"
           onClick={verifyOnFrontend}
