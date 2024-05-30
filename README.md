@@ -3,5 +3,5 @@
 Description: `ToDo`
 
 ```bash
-npx create-eth@latest -e eip712
+npx create-eth@latest -e eip-712
 ```

@@ -1,10 +1,16 @@
 import { NextResponse } from "next/server";
 import { recoverTypedDataAddress } from "viem";
-import { EIP_712_DOMAIN, EIP_712_TYPE, VerifyRequestBody, generateMessageToBob } from "~~/utils/eip712";
+import {
+  EIP_712_DOMAIN,
+  EIP_712_TYPE,
+  VerifyRequestBody,
+  generateMessageToBob,
+} from "~~/utils/eip-712";
 
 export async function POST(req: Request) {
   try {
-    const { fromName, message, signature, signer } = (await req.json()) as VerifyRequestBody;
+    const { fromName, message, signature, signer } =
+      (await req.json()) as VerifyRequestBody;
 
     const recoveredAddress = await recoverTypedDataAddress({
       domain: EIP_712_DOMAIN,
@@ -15,12 +21,18 @@ export async function POST(req: Request) {
     });
 
     if (recoveredAddress !== signer) {
-      return NextResponse.json({ error: "Recovered address does not match signer" }, { status: 401 });
+      return NextResponse.json(
+        { error: "Recovered address does not match signer" },
+        { status: 401 }
+      );
     }
 
     return NextResponse.json({ message: "Success!" }, { status: 200 });
   } catch (e) {
     console.error(e);
-    return NextResponse.json({ error: "Something went wrong" }, { status: 500 });
+    return NextResponse.json(
+      { error: "Something went wrong" },
+      { status: 500 }
+    );
   }
 }

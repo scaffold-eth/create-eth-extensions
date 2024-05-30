@@ -1,7 +1,7 @@
 import { Address, SignTypedDataReturnType } from "viem";
 
 export const EIP_712_DOMAIN = {
-  name: "EIP 712 Extension",
+  name: "EIP-712 Extension",
   version: "1",
 } as const;
 
