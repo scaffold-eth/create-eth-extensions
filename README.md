@@ -12,7 +12,7 @@ npx create-eth@latest -e eip-712
 
 - **Send Typed Messages**: Easily send typed messages to a specified recipient (e.g., Bob).
 - **Sign Messages**: Sign typed messages securely.
-- **Verify Messages**: Verify the signed messages on both frontend and backend.
+- **Verify Messages**: Verify the signed messages on both frontend and backend. The name and message used for verification are taken from an input field and a textarea, respectively. These values can be changed to check the verification process.
 
 ### Frontend Verification
 
