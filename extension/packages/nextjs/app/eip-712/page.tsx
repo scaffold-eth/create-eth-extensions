@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import type { NextPage } from "next";
-import useSWRMutation from "swr/mutation";
 import { SignTypedDataReturnType } from "viem/accounts";
 import { useAccount, useSignTypedData, useVerifyTypedData } from "wagmi";
 import {
@@ -13,7 +12,6 @@ import {
   generateMessageToBob,
 } from "~~/utils/eip-712";
 import { getParsedError, notification } from "~~/utils/scaffold-eth";
-import { postMutationFetcher } from "~~/utils/swr";
 
 const Eip712: NextPage = () => {
   const { address: connectedAddress } = useAccount();
