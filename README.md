@@ -16,8 +16,8 @@ npx create-eth@latest -e eip-712
 
 ### Frontend Verification
 
-To verify a message on the frontend, the `useVerifyTypedData` hook from the `wagmi` library is used.
+To verify a message on the frontend, the `useVerifyTypedData` hook from the `wagmi` library is used. For more details, refer to the `/app/eip-712/page.tsx` file.
 
 ### Backend Verification
 
-For backend verification, the `recoverTypedDataAddress` function from the `viem` library is used.
+For backend verification, the `recoverTypedDataAddress` function from the `viem` library is used. For more details, refer to the `/app/api/verify/route.ts` file.

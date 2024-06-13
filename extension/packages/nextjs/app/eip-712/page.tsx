@@ -12,10 +12,10 @@ import {
   VerifyRequestBody,
   generateMessageToBob,
 } from "~~/utils/eip-712";
-import { notification } from "~~/utils/scaffold-eth";
+import { getParsedError, notification } from "~~/utils/scaffold-eth";
 import { postMutationFetcher } from "~~/utils/swr";
 
-const Home: NextPage = () => {
+const Eip712: NextPage = () => {
   const { address: connectedAddress } = useAccount();
   const [signature, setSignature] = useState<SignTypedDataReturnType>();
   const { signTypedDataAsync } = useSignTypedData();
@@ -46,10 +46,14 @@ const Home: NextPage = () => {
   });
 
   const signTypedData = async () => {
-    const signature = await signTypedDataAsync(typedData);
-
-    setSignature(signature);
-    return signature;
+    try {
+      const signature = await signTypedDataAsync(typedData);
+      setSignature(signature);
+      return signature;
+    } catch (e) {
+      const errorMessage = getParsedError(e);
+      notification.error(errorMessage);
+    }
   };
 
   const verifyOnFrontend = () => {
@@ -151,4 +155,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default Eip712;
