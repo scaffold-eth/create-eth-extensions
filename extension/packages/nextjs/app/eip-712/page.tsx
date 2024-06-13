@@ -23,11 +23,6 @@ const Eip712: NextPage = () => {
   const [name, setName] = useState("");
   const [message, setMessage] = useState("");
 
-  const { trigger: verify } = useSWRMutation(
-    "/api/verify",
-    postMutationFetcher<VerifyRequestBody>
-  );
-
   const typedData = {
     domain: EIP_712_DOMAIN,
     types: EIP_712_TYPE,
@@ -76,17 +71,28 @@ const Eip712: NextPage = () => {
       return;
     }
 
+    const requestBody: VerifyRequestBody = {
+      fromName: name,
+      message,
+      signature,
+      signer: connectedAddress,
+    };
+
     try {
-      await verify({
-        fromName: name,
-        message,
-        signature,
-        signer: connectedAddress,
+      const res = await fetch("/api/verify", {
+        method: "POST",
+        body: JSON.stringify(requestBody),
       });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || `Error verifying data on backend`);
+      }
       notification.success("Success!");
     } catch (err) {
-      console.log(err);
-      notification.error("Verification failed");
+      const errorMessage = getParsedError(err);
+      notification.error(errorMessage);
     }
   };
 
