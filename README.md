@@ -1,26 +1,23 @@
-# 🔌 create-eth Extensions
+# EIP-712 extension
 
-This repository holds all the BG curated extensions for [create-eth](https://github.com/scaffold-eth/create-eth), so you can extend the functionality of your Scaffold-ETH project.
+This extension provides an example implementation of EIP-712, allowing you to send, sign, and verify typed messages in a user-friendly manner.
 
-## Usage
-
-You can install any of the extensions in this repository by running the following command:
+## Installation
 
 ```bash
-npx create-eth@latest -e <extension-name>
+npx create-eth@latest -e eip-712
 ```
 
-## Available extensions
+## Features
 
-- [subgraph](https://github.com/scaffold-eth/create-eth-extensions/tree/subgraph): Easily extract data from your contracts and expose it through a GraphQL API.
+- **Send Typed Messages**: Easily send typed messages to a specified recipient (e.g., Bob).
+- **Sign Messages**: Sign typed messages securely.
+- **Verify Messages**: Verify the signed messages on both frontend and backend. The name and message used for verification are taken from an input field and a textarea, respectively. These values can be changed to check the verification process.
 
-## Create your own extension
+### Frontend Verification
 
-You can extend Scaffold-ETH by creating your own extension. To do so, you need to create a new repository with the following structure:
+To verify a message on the frontend, the `useVerifyTypedData` hook from the `wagmi` library is used. For more details, refer to the `/app/eip-712/page.tsx` file.
 
-`ToDo`
+### Backend Verification
 
-```bash
-npx create-eth@latest -e your-github-username/your-extension-repository:branch-name # branch-name is optional
-```
-
+For backend verification, the `recoverTypedDataAddress` function from the `viem` library is used. For more details, refer to the `/app/api/verify/route.ts` file.
