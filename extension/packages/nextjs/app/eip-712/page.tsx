@@ -108,14 +108,27 @@ const Eip712: NextPage = () => {
   return (
     <div className="flex items-center flex-col flex-grow pt-10 px-8">
       <div className="flex flex-col gap-4 items-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold">EIP-712</h1>
+          <div className="max-w-2xl">
+            EIP-712 defines a standard for hashing and signing typed structured
+            data in Ethereum. It enhances security and usability by enabling the
+            creation of more readable and secure signed messages, reducing the
+            risk of phishing attacks and user errors. For more details, visit
+            the{" "}
+            <Link
+              href="https://eips.ethereum.org/EIPS/eip-712"
+              className="underline font-bold text-nowrap"
+            >
+              EIP-712 specification
+            </Link>
+            .
+          </div>
+        </div>
+        <div className="divider" />
+
         <div className="text-xl font-bold">
-          Send message to Bob using{" "}
-          <Link
-            className="underline"
-            href="https://eips.ethereum.org/EIPS/eip-712"
-          >
-            EIP-712
-          </Link>
+          Send message to Bob using EIP-712
         </div>
         <input
           placeholder="Your name"
@@ -140,7 +153,7 @@ const Eip712: NextPage = () => {
           Sign
         </button>
         {signature && (
-          <div className="text-center">
+          <div className="text-center max-w-2xl">
             <div className="font-bold">Signature:</div>
             <div className="break-all">{signature}</div>
           </div>
