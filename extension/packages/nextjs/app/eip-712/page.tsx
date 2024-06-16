@@ -120,7 +120,7 @@ const Eip712: NextPage = () => {
         />
         <textarea
           placeholder="Your message"
-          className="textarea textarea-bordered rounded-lg w-full sm:w-96"
+          className="textarea textarea-bordered rounded-lg w-full sm:w-96 text-base"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
