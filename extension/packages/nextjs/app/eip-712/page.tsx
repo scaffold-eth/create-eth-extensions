@@ -16,6 +16,7 @@ import { getParsedError, notification } from "~~/utils/scaffold-eth";
 const Eip712: NextPage = () => {
   const { address: connectedAddress } = useAccount();
   const [signature, setSignature] = useState<SignTypedDataReturnType>();
+  const [isLoading, setIsLoading] = useState(false);
   const { signTypedDataAsync } = useSignTypedData();
 
   const [name, setName] = useState("");
@@ -76,6 +77,8 @@ const Eip712: NextPage = () => {
       signer: connectedAddress,
     };
 
+    setIsLoading(true);
+
     try {
       const res = await fetch("/api/verify", {
         method: "POST",
@@ -91,6 +94,8 @@ const Eip712: NextPage = () => {
     } catch (err) {
       const errorMessage = getParsedError(err);
       notification.error(errorMessage);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -148,7 +153,7 @@ const Eip712: NextPage = () => {
           Verify (frontend)
         </button>
         <button
-          className="btn btn-primary btn-sm"
+          className={`btn btn-primary btn-sm${isLoading ? " loading" : ""}`}
           onClick={verifyOnBackend}
           disabled={!signature}
         >
