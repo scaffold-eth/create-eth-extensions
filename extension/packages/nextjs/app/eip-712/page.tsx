@@ -167,10 +167,11 @@ const Eip712: NextPage = () => {
           Verify (frontend)
         </button>
         <button
-          className={`btn btn-primary btn-sm${isLoading ? " loading" : ""}`}
+          className={`btn btn-primary btn-sm`}
           onClick={verifyOnBackend}
-          disabled={!signature}
+          disabled={!signature || isLoading}
         >
+          {isLoading && <span className="loading loading-spinner" />}
           Verify (backend)
         </button>
       </div>
