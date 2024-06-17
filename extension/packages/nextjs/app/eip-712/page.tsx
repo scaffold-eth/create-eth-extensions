@@ -116,12 +116,13 @@ const Eip712: NextPage = () => {
             creation of more readable and secure signed messages, reducing the
             risk of phishing attacks and user errors. For more details, visit
             the{" "}
-            <Link
+            <a
+              target="_blank"
               href="https://eips.ethereum.org/EIPS/eip-712"
               className="underline font-bold text-nowrap"
             >
               EIP-712 specification
-            </Link>
+            </a>
             .
           </div>
         </div>
