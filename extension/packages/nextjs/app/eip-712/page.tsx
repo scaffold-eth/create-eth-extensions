@@ -125,8 +125,15 @@ const Eip712: NextPage = () => {
             </a>
             .
           </div>
+
+        <div className="divider my-0" />
+        <div>
+            Get started by editing{" "}
+          <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all [word-spacing:-0.5rem] inline-block">
+            packages / nextjs / app / eip-712.tsx
+            </code>
         </div>
-        <div className="divider" />
+        <div className="divider my-0" />
 
         <div className="text-xl font-bold">
           Send message to Bob using EIP-712
