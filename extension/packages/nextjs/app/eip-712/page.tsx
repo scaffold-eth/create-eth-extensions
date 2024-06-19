@@ -152,7 +152,10 @@ const Eip712: NextPage = () => {
           onChange={(e) => setMessage(e.target.value)}
         />
 
-        {!connectedAddress && <span>⚠️ Connect wallet to sign data</span>}
+        <span>
+          Use Metamask or another wallet supporting
+          &quot;eth_signTypedData_v4&quot; to review typed data before signing.
+        </span>
 
         <button
           className="btn btn-primary btn-sm"
