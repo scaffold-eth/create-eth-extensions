@@ -21,9 +21,6 @@ export const globalStyles = `@layer base {
     --bg-primary: theme(colors.indigo.600);
     --bg-primary-hover: theme(colors.indigo.700);
     --bg-primary-active: theme(colors.indigo.800);
-    --bg-secondary: theme(colors.slate.200);
-    --bg-secondary-hover: theme(colors.slate.300);
-    --bg-secondary-active: theme(colors.slate.400);
     --bg-error: theme(colors.rose.600);
     --bg-warning: theme(colors.orange.600);
     --bg-success: theme(colors.lime.300);
