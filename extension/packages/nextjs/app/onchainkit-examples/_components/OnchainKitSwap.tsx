@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { Swap, SwapAmountInput, SwapButton, SwapMessage, SwapToggleButton } from "@coinbase/onchainkit/swap";
 import type { BuildSwapTransaction } from "@coinbase/onchainkit/swap";
 import type { Token } from "@coinbase/onchainkit/token";
-import { ConnectAccount } from "@coinbase/onchainkit/wallet";
+import { ConnectWallet } from "@coinbase/onchainkit/wallet";
 import { useAccount, useSendTransaction } from "wagmi";
 
 export function OnchainKitSwap() {
@@ -53,6 +53,6 @@ export function OnchainKitSwap() {
       <SwapMessage />
     </Swap>
   ) : (
-    <ConnectAccount />
+    <ConnectWallet />
   );
 }
