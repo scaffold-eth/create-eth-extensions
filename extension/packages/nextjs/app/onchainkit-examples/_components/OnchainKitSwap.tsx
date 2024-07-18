@@ -1,13 +1,10 @@
-import { useCallback } from "react";
 import { Swap, SwapAmountInput, SwapButton, SwapMessage, SwapToggleButton } from "@coinbase/onchainkit/swap";
-import type { BuildSwapTransaction } from "@coinbase/onchainkit/swap";
 import type { Token } from "@coinbase/onchainkit/token";
 import { ConnectWallet } from "@coinbase/onchainkit/wallet";
-import { useAccount, useSendTransaction } from "wagmi";
+import { useAccount } from "wagmi";
 
 export function OnchainKitSwap() {
   const { address } = useAccount();
-  const { sendTransaction } = useSendTransaction();
 
   const ETHToken: Token = {
     address: "",
@@ -29,27 +26,12 @@ export function OnchainKitSwap() {
 
   const swappableTokens: Token[] = [ETHToken, USDCToken];
 
-  const onSubmit = useCallback(
-    async (swapTransaction: BuildSwapTransaction) => {
-      const { transaction } = swapTransaction;
-      console.log("Prepared swapTransaction:", transaction);
-      // Transaction submission sample code
-      const result = await sendTransaction({
-        to: transaction.to,
-        value: transaction.value,
-        data: transaction.data,
-      });
-      console.log(result);
-    },
-    [sendTransaction],
-  );
-
   return address ? (
     <Swap address={address}>
       <SwapAmountInput label="Sell" swappableTokens={swappableTokens} token={ETHToken} type="from" />
       <SwapToggleButton />
       <SwapAmountInput label="Buy" swappableTokens={swappableTokens} token={USDCToken} type="to" />
-      <SwapButton onSubmit={onSubmit} />
+      <SwapButton />
       <SwapMessage />
     </Swap>
   ) : (
