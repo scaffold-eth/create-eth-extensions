@@ -20,7 +20,7 @@ Run \`\`\`yarn ponder:dev\`\`\` to start the Ponder development server, for inde
 
 With the dev server running, open http://localhost:42069 in your browser to use the GraphiQL interface. GraphiQL is a useful tool for exploring your schema and testing queries during development. (https://ponder.sh/docs/query/graphql)
 
-You can query data on a page using \`\`\`urql\`\`\`. Check the code at \`\`\`packages/nextjs/app/greetings/page.ts\`\`\` to get the greetings updates data and show it.
+You can query data on a page using \`\`\`@tanstack/react-query\`\`\`. Check the code at \`\`\`packages/nextjs/app/greetings/page.ts\`\`\` to get the greetings updates data and show it.
 
 ### Deploy
 
