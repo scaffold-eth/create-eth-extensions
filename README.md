@@ -34,4 +34,8 @@ You can query data on a page using `@tanstack/react-query`. Check the code at `p
 
 To deploy the Ponder indexer please refer to the Ponder Deploy documentation https://ponder.sh/docs/production/deploy
 
+At **Settings** -> **Deploy** -> you must set **Custom Start Command** to `yarn ponder:start`.
+
+For faster indexing, you can add the ***startBlock*** to each deployed contract on the file `packages/nextjs/contracts/deployedContracts.ts`.
+
 And then you have to set up the `NEXT_PUBLIC_PONDER_URL` env variable on your SE-2 dapp to use the deployed ponder indexer.
