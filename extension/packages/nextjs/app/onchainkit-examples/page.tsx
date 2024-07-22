@@ -8,25 +8,26 @@ import type { NextPage } from "next";
 
 const OnchainKitExample: NextPage = () => {
   return (
-    <div className="flex flex-col flex-grow items-center gap-8 px-5 pt-10">
-      <a target="_blank" href="https://onchainkit.xyz/identity/introduction" className="text-2xl underline">
-        Identity
-      </a>
+    <div className="flex flex-col flex-grow items-center gap-2 px-5 pt-10">
+      <h1 className="text-2xl font-bold">Onchainkit Examples</h1>
+
+      <div className="text-lg">
+        For detailed information, please visit the{" "}
+        <a target="_blank" href="https://onchainkit.xyz/getting-started" className="underline">
+          Onchainkit Documentation
+        </a>
+      </div>
+
+      <div className="mt-6 text-xl text-center font-bold">Identity</div>
       <OnchainKitIdentity />
 
-      <a target="_blank" href="https://onchainkit.xyz/swap/swap" className="text-2xl underline">
-        Swap
-      </a>
+      <div className="mt-6 text-xl text-center font-bold">Swap</div>
       <OnchainKitSwap />
 
-      <a target="_blank" href="https://onchainkit.xyz/token/introduction" className="text-2xl underline">
-        Tokens
-      </a>
+      <div className="mt-6 text-xl text-center font-bold">Tokens</div>
       <OnchainKitTokens />
 
-      <a target="_blank" href="https://onchainkit.xyz/wallet/wallet" className="text-2xl underline">
-        Wallet
-      </a>
+      <div className="mt-6 text-xl text-center font-bold">Wallet</div>
       <OnchainKitWallet />
     </div>
   );
