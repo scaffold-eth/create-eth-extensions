@@ -2,6 +2,8 @@
 
 This extension allows to use Ponder (https://ponder.sh/) for event indexing on an SE-2 dapp.
 
+Ponder is an open-source framework for blockchain application backends. With Ponder, you can rapidly build & deploy an API that serves custom data from smart contracts on any EVM blockchain.
+
 ## Config
 
 Ponder config (`packages/ponder/ponder.config.ts`) is set automatically from the deployed contracts and using the first blockchain network setup at `packages/nextjs/scaffold.config.ts`.
