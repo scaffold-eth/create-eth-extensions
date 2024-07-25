@@ -2,6 +2,10 @@
 
 Uses a subgraph from The Graph to index and query blockchain data.
 
+```shell
+npx create-eth@latest -e subgraph
+```
+
 ## 🧑🏼‍🚀 The Graph
 
 [The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
