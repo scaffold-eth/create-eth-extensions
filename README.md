@@ -1,26 +1,22 @@
-# 🔌 create-eth Extensions
+# Onchainkit extension
 
-This repository holds all the BG curated extensions for [create-eth](https://github.com/scaffold-eth/create-eth), so you can extend the functionality of your Scaffold-ETH project.
+This Scaffold-ETH 2 extension comes pre-configured with [onchainkit](https://onchainkit.xyz/), providing an example to help you get started quickly.
 
-## Usage
-
-You can install any of the extensions in this repository by running the following command:
+## Installation
 
 ```bash
-npx create-eth@latest -e <extension-name>
+npx create-eth@latest -e onchainkit
 ```
 
-## Available extensions
+Create the file `packages/nextjs/env.local` and copy the contents of `packages/nextjs/env.example` into it.
 
-- [subgraph](https://github.com/scaffold-eth/create-eth-extensions/tree/subgraph): Easily extract data from your contracts and expose it through a GraphQL API.
+Get OnchainKit Api Key: https://portal.cdp.coinbase.com/products/onchainkit and add it to `packages/nextjs/env.local`
 
-## Create your own extension
+### Documentation
 
-You can extend Scaffold-ETH by creating your own extension. To do so, you need to create a new repository with the following structure:
+https://onchainkit.xyz/getting-started
 
-`ToDo`
+### Notes
 
-```bash
-npx create-eth@latest -e your-github-username/your-extension-repository:branch-name # branch-name is optional
-```
-
+- Supported chains: 10, 8453, 84532 (OP Mainnet, Base Mainnet, Base Sepolia).
+- Some components works only on Base Mainnet
