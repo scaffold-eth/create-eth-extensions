@@ -1,6 +1,6 @@
 # Onchainkit extension
 
-This extension provides an example implementation of EIP-712, allowing you to send, sign, and verify typed messages in a user-friendly manner.
+This Scaffold-ETH 2 extension comes pre-configured with [onchainkit](https://onchainkit.xyz/), providing an example to help you get started quickly.
 
 ## Installation
 
