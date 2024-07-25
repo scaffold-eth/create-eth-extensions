@@ -35,7 +35,6 @@ To get started with Scaffold-ETH 2, follow the steps below:
 
 ```
 cd my-dapp-example
-yarn install
 ```
 
 2. Run a local network in the first terminal:
