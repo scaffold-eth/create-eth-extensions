@@ -1,4 +1,4 @@
-# ERC-20 Token Extension for Scaffold-ETH 2
+export const extraContents = `## 🚀 Setup ERC-20 Token Extension
 
 This extension introduces an ERC-20 token contract, and how to use it, like getting a user balance or transferring tokens.
 
@@ -8,24 +8,18 @@ For example, an ERC-20 Token acts just like the ETH, meaning that 1 Token is and
 
 The ERC-20 token contract is implemented using the [ERC-20 token implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol) from the OpenZeppelin library, which is a library for secure smart contract development.
 
-## Installation
+### Setup
 
-You can install any of the extensions in this repository by running the following command:
+**Hardhat:** set your burner wallet address in the deploy script at \`\`\`packages/hardhat/deploy/01_deploy_se2_token.ts\`\`\`, line 25 (const frontendAddress).
 
-```bash
-npx create-eth@latest -e erc-20
-```
+**Foundry:** set your burner wallet address in the deploy script at \`\`\`packages/foundry/script/Deploy.s.sol\`\`\`, line 30 (address frontendAddress).
 
-## 🚀 Setup extension
+Deploy your contract running \`\`\`yarn deploy\`\`\`
 
-**Hardhat:** set your burner wallet address in the deploy script at `packages/hardhat/deploy/01_deploy_se2_token.ts`, line 25 (const frontendAddress).
+### Interact with the token
 
-**Foundry:** set your burner wallet address in the deploy script at `packages/foundry/script/Deploy.s.sol`, line 30 (address frontendAddress).
+Start frontend with \`\`\`yarn start\`\`\` and go to */erc20* to interact with your deployed ERC-20 token.
 
-Deploy your contract running `yarn deploy`
+You can check the code at \`\`\`packages/nextjs/app/erc20/page.tsx\`\`\`.
 
-## Interact with the token
-
-Start frontend with `yarn start` and go to `/erc20` to interact with your deployed ERC-20 token.
-
-You can check the code at `packages/nextjs/app/erc20/page.tsx`.
+`;
