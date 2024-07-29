@@ -22,7 +22,7 @@ const deploySe2Token: DeployFunction = async function (hre: HardhatRuntimeEnviro
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  const frontendAddress = "0xB012A608e5B4b2a661659ca861A2e3842B670928";
+  const frontendAddress = "YOUR_ADDRESS";
 
   await deploy("SE2Token", {
     from: deployer,
