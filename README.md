@@ -20,12 +20,12 @@ npx create-eth@latest -e erc-20
 
 **Hardhat:** set your burner wallet address in the deploy script at `packages/hardhat/deploy/01_deploy_se2_token.ts`, line 25 (const frontendAddress).
 
-**Foundry:** set your burner wallet address in the deploy script at `packages/foundry/script/Deploy.s.sol`, line 30 (address frontendAddress).
+**Foundry:** set your burner wallet address in the deploy script at `packages/foundry/script/Deploy.s.sol`, line 36 (address frontendAddress).
 
 Deploy your contract running `yarn deploy`
 
 ## Interact with the token
 
-Start frontend with `yarn start` and go to `/erc20` to interact with your deployed ERC-20 token.
+Start frontend with `yarn start` and go to */erc20* to interact with your deployed ERC-20 token.
 
 You can check the code at `packages/nextjs/app/erc20/page.tsx`.

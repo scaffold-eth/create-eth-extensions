@@ -12,7 +12,7 @@ The ERC-20 token contract is implemented using the [ERC-20 token implementation]
 
 **Hardhat:** set your burner wallet address in the deploy script at \`\`\`packages/hardhat/deploy/01_deploy_se2_token.ts\`\`\`, line 25 (const frontendAddress).
 
-**Foundry:** set your burner wallet address in the deploy script at \`\`\`packages/foundry/script/Deploy.s.sol\`\`\`, line 30 (address frontendAddress).
+**Foundry:** set your burner wallet address in the deploy script at \`\`\`packages/foundry/script/Deploy.s.sol\`\`\`, line 36 (address frontendAddress).
 
 Deploy your contract running \`\`\`yarn deploy\`\`\`
 
