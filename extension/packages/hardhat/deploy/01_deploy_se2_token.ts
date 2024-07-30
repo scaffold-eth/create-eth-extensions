@@ -22,8 +22,6 @@ const deploySe2Token: DeployFunction = async function (hre: HardhatRuntimeEnviro
   const { deployer } = await hre.getNamedAccounts();
   const { deploy } = hre.deployments;
 
-  const frontendAddress = "YOUR_ADDRESS";
-
   await deploy("SE2Token", {
     from: deployer,
     log: true,
@@ -31,10 +29,6 @@ const deploySe2Token: DeployFunction = async function (hre: HardhatRuntimeEnviro
     // automatically mining the contract deployment transaction. There is no effect on live networks.
     autoMine: true,
   });
-
-  // Get the deployed contract to interact with it after deploying.
-  const se2Token = await hre.ethers.getContract<Contract>("SE2Token", deployer);
-  await se2Token.transfer(frontendAddress, parseEther("1000"));
 };
 
 export default deploySe2Token;

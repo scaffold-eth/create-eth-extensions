@@ -19,6 +19,11 @@ const ERC20: NextPage = () => {
     args: [connectedAddress],
   });
 
+  const { data: totalSupply } = useScaffoldReadContract({
+    contractName: "SE2Token",
+    functionName: "totalSupply",
+  });
+
   const { writeContractAsync: writeSE2TokenAsync } = useScaffoldWriteContract("SE2Token");
 
   return (
@@ -64,20 +69,6 @@ const ERC20: NextPage = () => {
           <h2 className="text-3xl font-bold mt-4">Getting Started</h2>
           <div>
             <p>
-              <strong>Hardhat: </strong>set your burner wallet address in the deploy script at{" "}
-              <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all [word-spacing:-0.5rem] inline-block">
-                packages / hardhat / deploy / 01_deploy_se2_token.ts
-              </code>
-              , line 25 (const frontendAddress).
-            </p>
-            <p>
-              <strong>Foundry: </strong>set your burner wallet address in the deploy script at{" "}
-              <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all [word-spacing:-0.5rem] inline-block">
-                packages / foundry / script / Deploy.s.sol
-              </code>
-              , line 30 (address frontendAddress).
-            </p>
-            <p>
               Deploy your contract running{" "}
               <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all [word-spacing:-0.5rem] inline-block">
                 yarn deploy
@@ -89,8 +80,10 @@ const ERC20: NextPage = () => {
           <h2 className="text-3xl font-bold mt-4">Interact with the token</h2>
 
           <div>
-            <p>Below you can see your token balance.</p>
-            <p>Your balance should be 1000 tokens if you set your address before deploying the contract.</p>
+            <p>Below you can see the total token supply. This is the total amount of minted tokens.</p>
+            <p>You can see your token balance too.</p>
+            <p>You can use the <strong>Mint 100 Tokens</strong> buttons to get 100 new tokens.</p>
+            <p>After minting tokens, you should see the updated total supply and balance.</p>
             <p>
               You can also transfer tokens to another address. Just fill in the address and the amount of tokens you
               want to send and click the send button.
@@ -103,9 +96,23 @@ const ERC20: NextPage = () => {
         </div>
 
         <div className="flex flex-col justify-center items-center bg-base-300 w-full mt-8 px-8 pt-6 pb-12">
-          <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row mb-6">
-            <p className="my-2 mr-2 font-bold text-2xl">Balance:</p>
+          <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
+            <p className="my-2 mr-2 font-bold text-2xl">Total Supply:</p>
+            <p className="text-xl">{totalSupply ? formatEther(totalSupply) : 0} tokens</p>
+          </div>
+          <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
+            <p className="my-2 mr-2 font-bold text-2xl">Your Balance:</p>
             <p className="text-xl">{balance ? formatEther(balance) : 0} tokens</p>
+          </div>
+          <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row mb-6">
+            <button
+              className="btn btn-primary text-lg px-12 mt-2"
+              onClick={async () => {
+                await writeSE2TokenAsync({ functionName: "mint", args: [connectedAddress, parseEther("100")] });
+              }}
+            >
+              Mint 100 Tokens
+            </button>
           </div>
           <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center w-2/4 rounded-3xl">
             <h3 className="text-2xl font-bold">Transfer Tokens</h3>

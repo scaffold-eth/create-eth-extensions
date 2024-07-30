@@ -16,10 +16,6 @@ npx create-eth@latest -e erc-20
 
 ## 🚀 Setup extension
 
-**Hardhat:** set your burner wallet address in the deploy script at `packages/hardhat/deploy/01_deploy_se2_token.ts`, line 25 (const frontendAddress).
-
-**Foundry:** set your burner wallet address in the deploy script at `packages/foundry/script/Deploy.s.sol`, line 36 (address frontendAddress).
-
 Deploy your contract running `yarn deploy`
 
 ## Interact with the token
