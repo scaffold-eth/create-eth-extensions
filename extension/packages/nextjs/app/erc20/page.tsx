@@ -33,11 +33,10 @@ const ERC20: NextPage = () => {
           <h1 className="text-4xl font-bold">ERC-20 Token</h1>
           <div>
             <p>
-              This extension introduces an ERC-20 token contract, and how to use it, like getting a user balance or
-              transferring tokens.
+              This extension introduces an ERC-20 token contract and demonstrates how to use interact with it, including getting a holder balance and transferring tokens.
             </p>
             <p>
-              The ERC-20 introduces a standard for Fungible Tokens (
+              The ERC-20 Token Standard introduces a standard for Fungible Tokens (
               <a
                 target="_blank"
                 href="https://eips.ethereum.org/EIPS/eip-20"
@@ -45,12 +44,7 @@ const ERC20: NextPage = () => {
               >
                 EIP-20
               </a>
-              ), in other words, they have a property that makes each Token be exactly the same (in type and value) as
-              another Token.
-            </p>
-            <p>
-              For example, an ERC-20 Token acts just like the ETH, meaning that 1 Token is and will always be equal to
-              all the other Tokens.
+              ), in other words, each Token is exactly the same (in type and value) as any other Token.
             </p>
             <p>
               The ERC-20 token contract is implemented using the{" "}
@@ -61,7 +55,7 @@ const ERC20: NextPage = () => {
               >
                 ERC-20 token implementation
               </a>{" "}
-              from the OpenZeppelin library, which is a library for secure smart contract development.
+              from OpenZeppelin.
             </p>
           </div>
 
