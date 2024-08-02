@@ -61,21 +61,11 @@ const ERC20: NextPage = () => {
           </div>
 
           <div className="divider my-0" />
-          <h2 className="text-3xl font-bold mt-4">Getting Started</h2>
-          <div>
-            <p>
-              Deploy your contract running{" "}
-              <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-                yarn deploy
-              </code>
-            </p>
-          </div>
-          <div className="divider my-0" />
 
           <h2 className="text-3xl font-bold mt-4">Interact with the token</h2>
 
           <div>
-            <p>Below you can see the total token supply (total amount of minted tokens) and your token balance too.</p>
+            <p>Below you can see the total token supply (total amount of minted tokens) and your token balance.</p>
             <p>
               You can use the <strong>Mint 100 Tokens</strong> button to get 100 new tokens (for free! Check the
               contract implementation)
@@ -99,7 +89,7 @@ const ERC20: NextPage = () => {
           </div>
           <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row mb-6">
             <button
-              className="btn btn-primary text-lg px-12 mt-2"
+              className="btn btn-accent text-lg px-12 mt-2"
               onClick={async () => {
                 await writeSE2TokenAsync({ functionName: "mint", args: [connectedAddress, parseEther("100")] });
               }}
