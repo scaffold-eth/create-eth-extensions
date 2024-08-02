@@ -33,7 +33,8 @@ const ERC20: NextPage = () => {
           <h1 className="text-4xl font-bold">ERC-20 Token</h1>
           <div>
             <p>
-              This extension introduces an ERC-20 token contract and demonstrates how to use interact with it, including getting a holder balance and transferring tokens.
+              This extension introduces an ERC-20 token contract and demonstrates how to use interact with it, including
+              getting a holder balance and transferring tokens.
             </p>
             <p>
               The ERC-20 Token Standard introduces a standard for Fungible Tokens (
@@ -64,7 +65,7 @@ const ERC20: NextPage = () => {
           <div>
             <p>
               Deploy your contract running{" "}
-              <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all [word-spacing:-0.5rem] inline-block">
+              <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
                 yarn deploy
               </code>
             </p>
@@ -74,17 +75,15 @@ const ERC20: NextPage = () => {
           <h2 className="text-3xl font-bold mt-4">Interact with the token</h2>
 
           <div>
-            <p>Below you can see the total token supply. This is the total amount of minted tokens.</p>
-            <p>You can see your token balance too.</p>
-            <p>You can use the <strong>Mint 100 Tokens</strong> buttons to get 100 new tokens.</p>
-            <p>After minting tokens, you should see the updated total supply and balance.</p>
+            <p>Below you can see the total token supply (total amount of minted tokens) and your token balance too.</p>
             <p>
-              You can also transfer tokens to another address. Just fill in the address and the amount of tokens you
-              want to send and click the send button.
+              You can use the <strong>Mint 100 Tokens</strong> button to get 100 new tokens (for free! Check the
+              contract implementation)
             </p>
             <p>
-              You can test it by opening this page on an incognito window and sending tokens to this new burner wallet
-              address.
+              You can also transfer tokens to another address. Just fill in the address and the amount of tokens you
+              want to send and click the send button. Test it by opening this page on an incognito window and sending
+              tokens to the new generated burner wallet address.
             </p>
           </div>
         </div>
