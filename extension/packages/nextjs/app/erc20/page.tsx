@@ -84,7 +84,7 @@ const ERC20: NextPage = () => {
             <p className="text-xl">{totalSupply ? formatEther(totalSupply) : 0} tokens</p>
           </div>
           <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
-            <p className="my-2 mr-2 font-bold text-2xl">Your Balance:</p>
+            <p className="y-2 mr-2 font-bold text-2xl">Your Balance:</p>
             <p className="text-xl">{balance ? formatEther(balance) : 0} tokens</p>
           </div>
           <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row mb-6">
@@ -97,16 +97,16 @@ const ERC20: NextPage = () => {
               Mint 100 Tokens
             </button>
           </div>
-          <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center w-2/4 rounded-3xl">
+          <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center w-full md:w-2/4 rounded-3xl mt-10">
             <h3 className="text-2xl font-bold">Transfer Tokens</h3>
-            <div className="flex items-center justify-between w-3/5 px-2 mt-4">
-              <div className="font-bold">Send To:</div>
+            <div className="flex flex-col items-center justify-between w-full lg:w-3/5 px-2 mt-4">
+              <div className="font-bold mb-2">Send To:</div>
               <div>
                 <AddressInput value={toAddress} onChange={setToAddress} placeholder="Address" />
               </div>
             </div>
-            <div className="flex items-center justify-between w-3/5 p-2">
-              <div>
+            <div className="flex flex-col items-center justify-between w-full lg:w-3/5 p-2 mt-4">
+              <div className="flex gap-2 mb-2">
                 <div className="font-bold">Amount:</div>
                 <div>
                   <button
