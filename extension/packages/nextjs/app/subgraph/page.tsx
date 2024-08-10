@@ -70,10 +70,7 @@ const Subgraph: NextPage = () => {
               <p className="text-center text-lg">
                 Create Graph Client runtime artifact with{" "}
                 <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-                  yarn install
-                </code>
-                <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-                  yarn graphclient-build
+                  yarn client
                 </code>
               </p>
             </div>

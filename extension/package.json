@@ -9,6 +9,7 @@
     "abi-copy": "yarn workspace @se-2/subgraph abi-copy",
     "codegen": "yarn workspace @se-2/subgraph codegen",
     "graph": "yarn workspace @se-2/subgraph graph",
-    "graphclient-build": "yarn workspace @se-2/nextjs run graphclient build"
+    "client": "yarn workspace @se-2/nextjs client",
+    "graphiql": "yarn workspace @se-2/nextjs graphiql"
   }
 }
