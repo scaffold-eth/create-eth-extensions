@@ -68,7 +68,7 @@ const Subgraph: NextPage = () => {
             <div className="flex flex-col bg-base-100 px-10 py-10 text-center items-center max-w-xs rounded-3xl">
               <PlusIcon className="h-8 w-8 fill-secondary" />
               <p className="text-center text-lg">
-                Create Graph Client runtime artifact with{" "}
+                Create Graph Client runtime artifact directory with{" "}
                 <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
                   yarn client
                 </code>
