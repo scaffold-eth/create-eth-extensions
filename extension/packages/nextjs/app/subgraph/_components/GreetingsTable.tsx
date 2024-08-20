@@ -2,26 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { Address } from "~~/components/scaffold-eth";
-
-let GetGreetingsDocument: any, execute: any;
-try {
-  ({ GetGreetingsDocument, execute } = require("~~/.graphclient"));
-} catch (err) {
-  console.warn("Graph client not found, skipping data fetch.");
-}
+import { GetGreetingsDocument, execute } from "~~/.graphclient";
 
 const GreetingsTable = () => {
   const [greetingsData, setGreetingsData] = useState<any>(null);
-  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<any>(null);
 
   useEffect(() => {
     const fetchData = async () => {
       if (!execute || !GetGreetingsDocument) {
-        setLoading(false);
         return;
       }
-
       try {
         const { data: result } = await execute(GetGreetingsDocument, {});
         setGreetingsData(result);
@@ -29,7 +20,6 @@ const GreetingsTable = () => {
       } catch (err) {
         setError(err);
       } finally {
-        setLoading(false);
       }
     };
 
