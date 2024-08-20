@@ -2,18 +2,20 @@
 
 import { useEffect, useState } from "react";
 import { Address } from "~~/components/scaffold-eth";
+import { GetGreetingsDocument, execute } from "~~/.graphclient";
 
-let GetGreetingsDocument: any, execute: any;
-try {
-  ({ GetGreetingsDocument, execute } = require("~~/.graphclient"));
-} catch (err) {
-  console.warn("Graph client not found, skipping data fetch.");
+interface Greeting {
+  id: string;
+  sender: {
+    address: string;
+  };
+  greeting: string;
 }
 
 const GreetingsTable = () => {
-  const [greetingsData, setGreetingsData] = useState<any>(null);
+  const [greetingsData, setGreetingsData] = useState<{ greetings: Greeting[] } | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<any>(null);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,7 +29,7 @@ const GreetingsTable = () => {
         setGreetingsData(result);
         console.log(result);
       } catch (err) {
-        setError(err);
+        setError(err.message || "An error occurred");
       } finally {
         setLoading(false);
       }
@@ -36,8 +38,12 @@ const GreetingsTable = () => {
     fetchData();
   }, []);
 
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   if (error) {
-    return null;
+    return <div>Error: {error}</div>;
   }
 
   return (
@@ -52,7 +58,7 @@ const GreetingsTable = () => {
             </tr>
           </thead>
           <tbody>
-            {greetingsData?.greetings?.map((greeting: any, index: number) => (
+            {greetingsData?.greetings?.map((greeting, index) => (
               <tr key={greeting.id}>
                 <th>{index + 1}</th>
                 <td>
