@@ -2,28 +2,48 @@
 
 import Link from "next/link";
 import type { NextPage } from "next";
-import { gql, useQuery } from "urql";
+import { useQuery } from "@tanstack/react-query";
+import { gql, request } from "graphql-request";
 import { formatEther } from "viem";
 import { Address } from "~~/components/scaffold-eth";
 
-const Greetings: NextPage = () => {
-  const GreetingsQuery = gql`
-    query Greetings {
-      greetings(orderBy: "timestamp", orderDirection: "desc") {
-        items {
-          id
-          text
-          setterId
-          premium
-          value
-          timestamp
+type Greeting = {
+  id: string;
+  text: string;
+  setterId: `0x${string}`;
+  premium: boolean;
+  value: bigint;
+  timestamp: number;
+};
+
+type GreetingsData = { greetings: { items: Greeting[] } };
+
+const PonderGreetings: NextPage = () => {
+  const fetchGreetings = async () => {
+    const GreetingsQuery = gql`
+      query Greetings {
+        greetings(orderBy: "timestamp", orderDirection: "desc") {
+          items {
+            id
+            text
+            setterId
+            premium
+            value
+            timestamp
+          }
         }
       }
-    }
-  `;
+    `;
+    const data = await request<GreetingsData>(
+      process.env.NEXT_PUBLIC_PONDER_URL || "http://localhost:42069",
+      GreetingsQuery
+    );
+    return data;
+  };
 
-  const [{ data: greetingsData }] = useQuery({
-    query: GreetingsQuery,
+  const { data: greetingsData } = useQuery<GreetingsData>({
+    queryKey: ["greetings"],
+    queryFn: fetchGreetings,
   });
 
   return (
@@ -132,7 +152,7 @@ const Greetings: NextPage = () => {
           )}
           {greetingsData && greetingsData.greetings.items.length && (
             <div className="flex flex-col items-center">
-              {greetingsData.greetings.items.map((greeting: any) => (
+              {greetingsData.greetings.items.map((greeting: Greeting) => (
                 <div key={greeting.id} className="flex items-center space-x-2">
                   <p className="my-2 font-medium">{greeting.text}</p>
                   <p>from</p>
@@ -150,4 +170,4 @@ const Greetings: NextPage = () => {
   );
 };
 
-export default Greetings;
+export default PonderGreetings;
