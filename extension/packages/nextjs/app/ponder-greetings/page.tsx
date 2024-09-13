@@ -1,9 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import type { NextPage } from "next";
 import { useQuery } from "@tanstack/react-query";
 import { gql, request } from "graphql-request";
+import type { NextPage } from "next";
 import { formatEther } from "viem";
 import { Address } from "~~/components/scaffold-eth";
 
@@ -18,30 +18,30 @@ type Greeting = {
 
 type GreetingsData = { greetings: { items: Greeting[] } };
 
-const PonderGreetings: NextPage = () => {
-  const fetchGreetings = async () => {
-    const GreetingsQuery = gql`
-      query Greetings {
-        greetings(orderBy: "timestamp", orderDirection: "desc") {
-          items {
-            id
-            text
-            setterId
-            premium
-            value
-            timestamp
-          }
+const fetchGreetings = async () => {
+  const GreetingsQuery = gql`
+    query Greetings {
+      greetings(orderBy: "timestamp", orderDirection: "desc") {
+        items {
+          id
+          text
+          setterId
+          premium
+          value
+          timestamp
         }
       }
-    `;
-    const data = await request<GreetingsData>(
-      process.env.NEXT_PUBLIC_PONDER_URL || "http://localhost:42069",
-      GreetingsQuery
-    );
-    return data;
-  };
+    }
+  `;
+  const data = await request<GreetingsData>(
+    process.env.NEXT_PUBLIC_PONDER_URL || "http://localhost:42069",
+    GreetingsQuery,
+  );
+  return data;
+};
 
-  const { data: greetingsData } = useQuery<GreetingsData>({
+const PonderGreetings: NextPage = () => {
+  const { data: greetingsData } = useQuery({
     queryKey: ["greetings"],
     queryFn: fetchGreetings,
   });
@@ -54,15 +54,22 @@ const PonderGreetings: NextPage = () => {
           <div>
             <p>
               This extension allows using{" "}
-              <a target="_blank" href="https://ponder.sh/" className="underline font-bold text-nowrap">
+              <a
+                target="_blank"
+                href="https://ponder.sh/"
+                className="underline font-bold text-nowrap"
+              >
                 Ponder
               </a>{" "}
               for event indexing on a SE-2 dapp.
             </p>
-            <p>Ponder is an open-source framework for blockchain application backends.</p>
             <p>
-              With Ponder, you can rapidly build & deploy an API that serves custom data from smart contracts on any EVM
-              blockchain.
+              Ponder is an open-source framework for blockchain application
+              backends.
+            </p>
+            <p>
+              With Ponder, you can rapidly build & deploy an API that serves
+              custom data from smart contracts on any EVM blockchain.
             </p>
           </div>
 
@@ -75,7 +82,11 @@ const PonderGreetings: NextPage = () => {
                 packages / ponder / ponder.schema.tsx
               </code>{" "}
               following the Ponder documentation at{" "}
-              <a target="_blank" href="https://ponder.sh/docs/schema" className="underline font-bold text-nowrap">
+              <a
+                target="_blank"
+                href="https://ponder.sh/docs/schema"
+                className="underline font-bold text-nowrap"
+              >
                 https://ponder.sh/docs/schema
               </a>
             </p>
@@ -117,7 +128,11 @@ const PonderGreetings: NextPage = () => {
                 packages / ponder / README.md
               </code>{" "}
               or the{" "}
-              <a target="_blank" href="https://ponder.sh" className="underline font-bold text-nowrap">
+              <a
+                target="_blank"
+                href="https://ponder.sh"
+                className="underline font-bold text-nowrap"
+              >
                 Ponder website
               </a>
             </p>
@@ -127,7 +142,10 @@ const PonderGreetings: NextPage = () => {
           <h2 className="text-3xl font-bold mt-4">Greetings example</h2>
 
           <div>
-            <p>Below you can see a list of greetings fetched from Ponder GraphQL API.</p>
+            <p>
+              Below you can see a list of greetings fetched from Ponder GraphQL
+              API.
+            </p>
             <p>
               Add a greeting from the{" "}
               <Link href="/debug" passHref className="link">
@@ -147,7 +165,9 @@ const PonderGreetings: NextPage = () => {
           )}
           {greetingsData && !greetingsData.greetings.items.length && (
             <div className="flex items-center flex-col flex-grow pt-4">
-              <p className="text-center text-xl font-bold">No greetings found</p>
+              <p className="text-center text-xl font-bold">
+                No greetings found
+              </p>
             </div>
           )}
           {greetingsData && greetingsData.greetings.items.length && (
@@ -158,8 +178,15 @@ const PonderGreetings: NextPage = () => {
                   <p>from</p>
                   <Address address={greeting.setterId} />
                   <p>at</p>
-                  <p className="my-2 font-medium">{new Date(greeting.timestamp * 1000).toLocaleString()}</p>
-                  {greeting.premium && <p className="my-2 font-medium"> - Premium (Ξ{formatEther(greeting.value)})</p>}
+                  <p className="my-2 font-medium">
+                    {new Date(greeting.timestamp * 1000).toLocaleString()}
+                  </p>
+                  {greeting.premium && (
+                    <p className="my-2 font-medium">
+                      {" "}
+                      - Premium (Ξ{formatEther(greeting.value)})
+                    </p>
+                  )}
                 </div>
               ))}
             </div>
