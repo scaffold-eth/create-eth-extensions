@@ -7,8 +7,6 @@ This extension comes with an example frontend interaction with the `EIP5792_Exam
 
 ## Installation
 
-You can install any of the extensions in this repository by running the following command:
-
 ```bash
 npx create-eth@latest -e eip-5792
 ```
