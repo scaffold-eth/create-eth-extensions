@@ -59,7 +59,7 @@ export const EIP5792Example = () => {
           isPaymasterSupported && Boolean(paymasterURL)
             ? {
                 paymasterService: {
-                  url: `${paymasterURL}/api/paymaster`,
+                  url: paymasterURL,
                 },
               }
             : undefined,
