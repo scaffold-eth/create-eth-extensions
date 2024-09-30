@@ -9,7 +9,7 @@ const EIP5792Page = () => {
           <span className="block text-4xl font-bold">EIP-5792 example</span>
         </h1>
         <p className="my-0 text-center">
-          This extension demonstrates on how to use{" "}
+          This extension demonstrates how to use{" "}
           <a href="https://eips.ethereum.org/EIPS/eip-5792" className="underline-offset-1 underline" target="_blank">
             EIP-5792
           </a>{" "}
