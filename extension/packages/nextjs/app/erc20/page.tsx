@@ -91,7 +91,11 @@ const ERC20: NextPage = () => {
             <button
               className="btn btn-accent text-lg px-12 mt-2"
               onClick={async () => {
-                await writeSE2TokenAsync({ functionName: "mint", args: [connectedAddress, parseEther("100")] });
+                try {
+                  await writeSE2TokenAsync({ functionName: "mint", args: [connectedAddress, parseEther("100")] });
+                } catch (e) {
+                  console.error("Error while minting token", e);
+                }
               }}
             >
               Mint 100 Tokens
@@ -131,9 +135,13 @@ const ERC20: NextPage = () => {
                 className="btn btn-primary text-lg px-12 mt-2"
                 disabled={!toAddress || !amount}
                 onClick={async () => {
-                  await writeSE2TokenAsync({ functionName: "transfer", args: [toAddress, parseEther(amount)] });
-                  setToAddress("");
-                  setAmount("");
+                  try {
+                    await writeSE2TokenAsync({ functionName: "transfer", args: [toAddress, parseEther(amount)] });
+                    setToAddress("");
+                    setAmount("");
+                  } catch (e) {
+                    console.error("Error while transfering token", e);
+                  }
                 }}
               >
                 Send
