@@ -13,9 +13,9 @@ const EIP5792Page = () => {
           <a href="https://eips.ethereum.org/EIPS/eip-5792" className="underline-offset-1 underline" target="_blank">
             EIP-5792
           </a>{" "}
-          wallet capabilities. This EIP introduces new JSON-RPC methods for communication between apps and wallets.
-          Which allows for more advanced interactions like submitting multiple onchain calls as part of a single
-          transaction or sponsoring users transactions via ERC-4337 paymasters.
+          wallet capabilities. This EIP introduces new JSON-RPC methods for communication between apps and wallets. This
+          allows for more advanced interactions like submitting multiple onchain calls as part of a single transaction
+          or sponsoring users transactions via ERC-4337 paymasters.
         </p>
         <p className="my-0 text-center">
           Below you can see an example of interacting with a contract using EIP-5792 compliant wallet (Coinbase Smart
