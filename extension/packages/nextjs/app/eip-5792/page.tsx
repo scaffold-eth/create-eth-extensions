@@ -18,8 +18,8 @@ const EIP5792Page = () => {
           transaction or sponsoring users transactions via ERC-4337 paymasters.
         </p>
         <p className="my-0 text-center">
-          Below you can see an example of interacting with a contract using EIP-5792 compliant wallet (coinbase smart
-          wallet). We can change the state of the contract by setting new greetings or incrementing the counter
+          Below you can see an example of interacting with a contract using EIP-5792 compliant wallet (Coinbase Smart
+          Wallet). We can change the state of the contract by setting new greetings or incrementing the counter
           individually or use the &quot;Batch(setGreetings + increment)&quot; button to send batched transaction.
         </p>
       </div>
