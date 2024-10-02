@@ -1,7 +1,0 @@
-{
-  "resolutions": {
-    "@tanstack/react-query": "5.29.0",
-    "viem": "2.17.5",
-    "wagmi": "2.11.2"
-  }
-}
