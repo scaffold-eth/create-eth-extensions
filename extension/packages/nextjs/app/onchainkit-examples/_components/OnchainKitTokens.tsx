@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
-import { Token, TokenChip, TokenRow, TokenSearch, getTokens } from "@coinbase/onchainkit/token";
+import { getTokens } from "@coinbase/onchainkit/api";
+import { Token, TokenChip, TokenRow, TokenSearch } from "@coinbase/onchainkit/token";
 
 export const OnchainKitTokens = () => {
   const [filteredTokens, setFilteredTokens] = useState<Token[]>([]);
