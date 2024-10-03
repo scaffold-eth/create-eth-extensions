@@ -1,6 +1,6 @@
 # ERC-5792 Extension for Scaffold-ETH 2
 
-This extension demonstrates on how to use [EIP-5792](https://eips.ethereum.org/EIPS/eip-5792) wallet capabilities. This EIP introduces new JSON-RPC methods for communication between apps and wallets. Which allows for more advanced interactions like submitting multiple onchain calls as part of a single
+This extension demonstrates on how to use [EIP-5792](https://eips.ethereum.org/EIPS/eip-5792) wallet capabilities. This EIP introduces new JSON-RPC methods for communication between apps and wallets. Which allows more advanced interactions like submitting multiple onchain calls as part of a single
 transaction or sponsoring users transactions via ERC-4337 paymasters.
 
 This extension comes with an example frontend interaction with the `EIP5792_Example.sol` contract, the code demonstrates on how to make an batched transaction that sets new greetings and increments the counter in a single transaction using wagmi's experimental hooks and coinbase smart wallet.
