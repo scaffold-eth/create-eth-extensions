@@ -17,6 +17,7 @@ npx create-eth@latest -e <extension-name>
 - [ponder](https://github.com/scaffold-eth/create-eth-extensions/tree/ponder): This Scaffold-ETH 2 extension comes pre-configured with [ponder.sh](https://ponder.sh), providing an example to help you get started quickly.
 - [onchainkit](https://github.com/scaffold-eth/create-eth-extensions/tree/onchainkit): This Scaffold-ETH 2 extension comes pre-configured with [onchainkit](https://onchainkit.xyz/), providing an example to help you get started quickly.
 - [erc-20](https://github.com/scaffold-eth/create-eth-extensions/tree/erc-20): This extension introduces an ERC-20 token contract and demonstrates how to interact with it, including getting a holder balance and transferring tokens.
+- [eip-5792](https://github.com/scaffold-eth/create-eth-extensions/tree/eip-5792): This extension shows how to use [EIP-5792](https://eips.ethereum.org/EIPS/eip-5792) wallet capabilities. It comes with an example frontend interaction with the `EIP5792_Example.sol` contract. The code demonstrates how to make a batched transaction that sets new greetings and increments the counter in a single transaction using Wagmi's experimental hooks and Coinbase smart wallet.
 
 ## Create your own extension
 
