@@ -20,3 +20,6 @@ export const menuObjects = `{
     href: "/ipfsDownload",
     icon: <ArrowDownTrayIcon className="h-4 w-4" />,
   }`;
+
+export const logoText = "SRE Challenges";
+export const logoDescription = "#0: Simple NFT";
