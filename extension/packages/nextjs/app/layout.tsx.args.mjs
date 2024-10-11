@@ -1,4 +1,4 @@
-export const metadata = `{
+export const metadata = {
   title: "Challenge #0 | SpeedRunEthereum",
-  description: "Built with 🏗 Scaffold-ETH 2"
-}`
+  description: "Built with 🏗 Scaffold-ETH 2",
+};
