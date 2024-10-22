@@ -1,30 +1,25 @@
-# 🔌 create-eth Extensions
+# ERC-721 NFT Extension for Scaffold-ETH 2
 
-This repository holds all the BG curated extensions for [create-eth](https://github.com/scaffold-eth/create-eth), so you can extend the functionality of your Scaffold-ETH project.
+This extension introduces an ERC-721 token contract and demonstrates how to use it, including getting the total supply and holder balance, listing all NFTs from the collection and NFTs from the connected address, and how to transfer NFTs.
 
-## Usage
+The ERC-721 Token Standard introduces a standard for Non-Fungible Tokens ([EIP-721](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol)), in other words, each token is unique.
 
-You can install any of the extensions in this repository by running the following command:
+The ERC-721 token contract is implemented using the [ERC-721 token implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol) from OpenZeppelin.
 
-```bash
-npx create-eth@latest -e <extension-name>
-```
+The ERC-721 token implementation uses the [ERC-721 Enumerable extension](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721Enumerable.sol) from OpenZeppelin to list all tokens from the collection and all the tokens owned by an address. You can remove this if you plan to use an indexer, like a Subgraph or Ponder ([extensions available](https://scaffoldeth.io/extensions)).
 
-## Available Extensions
-
-- [subgraph](https://github.com/scaffold-eth/create-eth-extensions/tree/subgraph): This Scaffold-ETH 2 extension helps you build and test subgraphs locally for your contracts. It also enables interaction with the front-end and facilitates easy deployment to Subgraph Studio.
-- [eip-712](https://github.com/scaffold-eth/create-eth-extensions/tree/eip-712): An implementation of EIP-712, allowing you to send, sign, and verify typed messages in a user-friendly manner.
-- [ponder](https://github.com/scaffold-eth/create-eth-extensions/tree/ponder): This Scaffold-ETH 2 extension comes pre-configured with [ponder.sh](https://ponder.sh), providing an example to help you get started quickly.
-- [onchainkit](https://github.com/scaffold-eth/create-eth-extensions/tree/onchainkit): This Scaffold-ETH 2 extension comes pre-configured with [onchainkit](https://onchainkit.xyz/), providing an example to help you get started quickly.
-- [erc-20](https://github.com/scaffold-eth/create-eth-extensions/tree/erc-20): This extension introduces an ERC-20 token contract and demonstrates how to interact with it, including getting a holder balance and transferring tokens.
-- [eip-5792](https://github.com/scaffold-eth/create-eth-extensions/tree/eip-5792): This extension shows how to use [EIP-5792](https://eips.ethereum.org/EIPS/eip-5792) wallet capabilities. It comes with an example frontend interaction with the `EIP5792_Example.sol` contract. The code demonstrates how to make a batched transaction that sets new greetings and increments the counter in a single transaction using Wagmi's experimental hooks and Coinbase smart wallet.
-
-## Create your own extension
-
-You can extend Scaffold-ETH by creating your own extension. To do so, you need to create a new repository with the following structure:
-
-`ToDo`
+## Installation
 
 ```bash
-npx create-eth@latest -e your-github-username/your-extension-repository:branch-name # branch-name is optional
+npx create-eth@latest -e erc-721
 ```
+
+## 🚀 Setup extension
+
+Deploy your contract running `yarn deploy`
+
+## Interact with the NFT
+
+Start the front-end with `yarn start` and go to the _/erc721_ page to interact with your deployed ERC-721 token.
+
+You can check the code at `packages/nextjs/app/erc721`.
