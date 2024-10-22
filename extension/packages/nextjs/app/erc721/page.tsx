@@ -23,7 +23,7 @@ const ERC721: NextPage = () => {
           <div>
             <p>
               This extension introduces an ERC-721 token contract and demonstrates how to use it, including getting the
-              total supply and holder balance, listing all NFTs and NFTs from an address, and how to transfer.
+              total supply and holder balance, listing all NFTs from the collection and NFTs from the connected address, and how to transfer NFTs.
             </p>
             <p>
               The ERC-721 Token Standard introduces a standard for Non-Fungible Tokens (
@@ -34,7 +34,7 @@ const ERC721: NextPage = () => {
               >
                 EIP-721
               </a>
-              ), in other words, each Token is unique.
+              ), in other words, each token is unique.
             </p>
             <p>
               The ERC-721 token contract is implemented using the{" "}
@@ -57,7 +57,15 @@ const ERC721: NextPage = () => {
                 ERC-721 Enumerable extension
               </a>{" "}
               from OpenZeppelin to list all tokens and all the tokens owned by an address. You can remove this if you
-              plan to use an indexer, like a Subgraph or Ponder (extensions available).
+              plan to use an indexer, like a Subgraph or Ponder (
+              <a
+                target="_blank"
+                href="https://scaffoldeth.io/extensions"
+                className="underline font-bold text-nowrap"
+              >
+                extensions available
+              </a>
+              ).
             </p>
           </div>
 
@@ -68,7 +76,7 @@ const ERC721: NextPage = () => {
           <div>
             <p>Below you can mint an NFT for yourself or to another address.</p>
             <p>
-              You can see your balance and your NFTs and after that you can see the total supply and all the NFTs
+              You can see your balance and your NFTs, and below that, you can see the total supply and all the NFTs
               minted.
             </p>
             <p>
@@ -111,7 +119,7 @@ const ERC721: NextPage = () => {
                       await writeSE2TokenAsync({ functionName: "mintItem", args: [toAddress] });
                       setToAddress("");
                     } catch (e) {
-                      console.error("Error while transfering token", e);
+                      console.error("Error while minting token", e);
                     }
                   }}
                 >

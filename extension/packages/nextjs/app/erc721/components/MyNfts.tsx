@@ -54,7 +54,7 @@ export const MyNfts = () => {
             name: metadata.name,
           });
         } catch (e) {
-          notification.error("Error fetching your NTFs");
+          notification.error("Error fetching your NFTs");
           setLoading(false);
           console.log(e);
         }
@@ -78,7 +78,7 @@ export const MyNfts = () => {
   return (
     <>
       <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
-        <p className="y-2 mr-2 font-bold text-2xl">Your Balance:</p>
+        <p className="y-2 mr-2 font-bold text-2xl my-2">Your Balance:</p>
         <p className="text-xl">{balance ? balance.toString() : 0} tokens</p>
       </div>
       {myNfts.length > 0 && (

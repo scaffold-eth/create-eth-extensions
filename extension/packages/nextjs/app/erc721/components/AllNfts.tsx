@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { NFTCard } from "./NFTCard";
-import { useAccount } from "wagmi";
 import { useScaffoldContract, useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 import { notification } from "~~/utils/scaffold-eth";
 
@@ -15,7 +14,7 @@ export interface Collectible {
 }
 
 export const AllNfts = () => {
-  const [myNfts, setMyNfts] = useState<Collectible[]>([]);
+  const [allNfts, setAllNfts] = useState<Collectible[]>([]);
   const [loading, setLoading] = useState(false);
 
   const { data: se2NftContract } = useScaffoldContract({
@@ -29,13 +28,12 @@ export const AllNfts = () => {
   });
 
   useEffect(() => {
-    const updateMyNfts = async (): Promise<void> => {
+    const updateAllNfts = async (): Promise<void> => {
       if (totalSupply === undefined || se2NftContract === undefined) return;
 
       setLoading(true);
       const collectibleUpdate: Collectible[] = [];
-      const totalBalance = parseInt(totalSupply.toString());
-      for (let tokenIndex = 0; tokenIndex < totalBalance; tokenIndex++) {
+      for (let tokenIndex = 0; tokenIndex < parseInt(totalSupply.toString()); tokenIndex++) {
         try {
           const tokenId = await se2NftContract.read.tokenByIndex([BigInt(tokenIndex)]);
 
@@ -53,17 +51,17 @@ export const AllNfts = () => {
             name: metadata.name,
           });
         } catch (e) {
-          notification.error("Error fetching your NTFs");
+          notification.error("Error fetching NTFs");
           setLoading(false);
           console.log(e);
         }
       }
       collectibleUpdate.sort((a, b) => a.id - b.id);
-      setMyNfts(collectibleUpdate);
+      setAllNfts(collectibleUpdate);
       setLoading(false);
     };
 
-    updateMyNfts();
+    updateAllNfts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [totalSupply]);
 
@@ -77,12 +75,12 @@ export const AllNfts = () => {
   return (
     <>
       <div className="flex justify-center items-center space-x-2 flex-col sm:flex-row">
-        <p className="y-2 mr-2 font-bold text-2xl">Total Supply:</p>
+        <p className="y-2 mr-2 font-bold text-2xl my-2">Total Supply:</p>
         <p className="text-xl">{totalSupply ? totalSupply.toString() : 0} tokens</p>
       </div>
-      {myNfts.length > 0 && (
+      {allNfts.length > 0 && (
         <div className="flex flex-wrap gap-4 my-8 px-5 justify-center">
-          {myNfts.map(item => (
+          {allNfts.map(item => (
             <NFTCard nft={item} key={item.id} />
           ))}
         </div>
