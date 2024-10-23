@@ -21,5 +21,5 @@ export const menuObjects = `{
     icon: <ArrowDownTrayIcon className="h-4 w-4" />,
   }`;
 
-export const logoText = "SRE Challenges";
-export const logoDescription = "#0: Simple NFT";
+export const logoTitle = "SRE Challenges";
+export const logoSubtitle = "#0 Simple NFT";
