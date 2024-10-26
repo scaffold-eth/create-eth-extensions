@@ -1,8 +1,8 @@
 {
   "dependencies": {
-    "@coinbase/onchainkit": "^0.33.3",
-    "@tanstack/react-query": "^5.59.0",
-    "viem": "^2.21.17",
-    "wagmi": "^2.12.16"
+    "@coinbase/onchainkit": "^0.35.1",
+    "@tanstack/react-query": "^5.59.16",
+    "viem": "^2.21.35",
+    "wagmi": "^2.12.25"
   }
 }
