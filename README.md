@@ -10,9 +10,9 @@ npx create-eth@latest -e subgraph
 
 [The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
 
-- 🗃️ **Decentralized Indexing**: The Graph enables open APIs ("subgraphs") to efficiently index and organize blockchain data.
-- 🔎 **Efficient Querying**: The protocol uses GraphQL for streamlined querying blockchain data.
-- 🙌 **Community Ecosystem**: The Graph fosters collaboration by empowering developers to build, deploy, and share subgraphs!
+-   🗃️ **Decentralized Indexing**: The Graph enables open APIs ("subgraphs") to efficiently index and organize blockchain data.
+-   🔎 **Efficient Querying**: The protocol uses GraphQL for streamlined querying blockchain data.
+-   🙌 **Community Ecosystem**: The Graph fosters collaboration by empowering developers to build, deploy, and share subgraphs!
 
 For detailed instructions and more context, check out the [Getting Started Guide](https://thegraph.com/docs/en/cookbook/quick-start).
 
@@ -20,10 +20,10 @@ For detailed instructions and more context, check out the [Getting Started Guide
 
 Before you begin, you need to install the following tools:
 
-- [Node (>= v18.17)](https://nodejs.org/en/download/)
-- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
-- [Git](https://git-scm.com/downloads)
-- [Docker](https://docs.docker.com/get-docker/)
+-   [Node (>= v18.17)](https://nodejs.org/en/download/)
+-   Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
+-   [Git](https://git-scm.com/downloads)
+-   [Docker](https://docs.docker.com/get-docker/)
 
 ## Quickstart
 
@@ -63,9 +63,9 @@ Visit your app on: `http://localhost:3000`. You can interact with your smart con
 
 Run smart contract test with `yarn hardhat:test`
 
-- Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
-- Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
-- Edit your deployment scripts in `packages/hardhat/deploy`
+-   Edit your smart contract `YourContract.sol` in `packages/hardhat/contracts`
+-   Edit your frontend homepage at `packages/nextjs/app/page.tsx`. For guidance on [routing](https://nextjs.org/docs/app/building-your-application/routing/defining-routes) and configuring [pages/layouts](https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts) checkout the Next.js documentation.
+-   Edit your deployment scripts in `packages/hardhat/deploy`
 
 ## 🚀 Setup The Graph Integration
 
@@ -149,11 +149,11 @@ yarn local-ship
 
 > This command does the following all in one… 🚀🚀🚀
 
-- Copies the contracts ABI from the hardhat/deployments folder
-- Generates the networks.json file
-- Generates AssemblyScript types from the subgraph schema and the contract ABIs.
-- Compiles and checks the mapping functions.
-- … and deploy a local subgraph!
+-   Copies the contracts ABI from the hardhat/deployments folder
+-   Generates the networks.json file
+-   Generates AssemblyScript types from the subgraph schema and the contract ABIs.
+-   Compiles and checks the mapping functions.
+-   … and deploy a local subgraph!
 
 > If you get an error ts-node you can install it with the following command
 
@@ -195,6 +195,20 @@ Go ahead and head over to your subgraph endpoint and take a look!
 ```
 
 > If all is well and you’ve sent a transaction to your smart contract then you will see a similar data output!
+
+#### ✅ Step 4: Create Graph Client Artifacts ✅
+
+The Graph Client is a tool used to query GraphQL based applications and contains a lot of advanced features, such as client side composition or automatic pagination. A complete list of features and goals of this project can be found [here].(https://github.com/graphprotocol/graph-client?tab=readme-ov-file#features-and-goals)
+
+In order to utilize Graph-Client in our application, we need to build the artifacts needed for our frontend. To do this simply run...
+
+```
+yarn graphclient:build
+```
+
+After doing so, navigate to http://localhost:3000/subgraph and you should be able to see the GraphQL rendered in your application. If you don't see anything, make sure you've triggered an event in your smart contract.
+
+If you want to look at the query code for this, it can be found the component located in the subgraph folder `packages/nextjs/app/subgraph/_components/GreetingsTable.tsx`
 
 #### ✅ Side Quest: Run a Matchstick Test ✅
 
@@ -241,40 +255,40 @@ All 1 tests passed! 😎
 
 1. Update the `packages/subgraph/subgraph.yaml` file with your contract address, network name, start block number(optional) :
 
-   ```diff
-   ...
-   -     network: localhost
-   +     network: sepolia
-         source:
-           abi: YourContract
-   +       address: "0x54FE7f8Db97e102D3b7d86cc34D885B735E31E8e"
-   +       startBlock: 5889410
-   ...
-   ```
+    ```diff
+    ...
+    -     network: localhost
+    +     network: sepolia
+          source:
+            abi: YourContract
+    +       address: "0x54FE7f8Db97e102D3b7d86cc34D885B735E31E8e"
+    +       startBlock: 5889410
+    ...
+    ```
 
-   TIP: For `startBlock` you can use block number of your deployed contract, which can be found by visiting deployed transaction hash in blockexplorer.
+    TIP: For `startBlock` you can use block number of your deployed contract, which can be found by visiting deployed transaction hash in blockexplorer.
 
 2. Create a new subgraph on [Subgraph Studio](https://thegraph.com/studio) and get "SUBGRAPH SLUG" and "DEPLOY KEY".
 
 3. Authenticate with the graph CLI:
 
-   ```sh
-   yarn graph auth --studio <DEPLOY KEY>
-   ```
+    ```sh
+    yarn graph auth --studio <DEPLOY KEY>
+    ```
 
 4. Deploy the subgraph to TheGraph Studio:
 
-   ```sh
-   yarn graph deploy --studio <SUBGRAPH SLUG>
-   ```
+    ```sh
+    yarn graph deploy --studio <SUBGRAPH SLUG>
+    ```
 
-   Once deployed, the CLI should output the Subgraph endpoints. Copy the HTTP endpoint and test your queries.
+    Once deployed, the CLI should output the Subgraph endpoints. Copy the HTTP endpoint and test your queries.
 
 5. Update `packages/nextjs/components/ScaffoldEthAppWithProviders.tsx` to use the above HTTP subgraph endpoint:
-   ```diff
-   - const subgraphUri = "http://localhost:8000/subgraphs/name/scaffold-eth/your-contract";
-   + const subgraphUri = 'YOUR_SUBGRAPH_ENDPOINT';
-   ```
+    ```diff
+    - const subgraphUri = "http://localhost:8000/subgraphs/name/scaffold-eth/your-contract";
+    + const subgraphUri = 'YOUR_SUBGRAPH_ENDPOINT';
+    ```
 
 ## A list of all available commands
 
