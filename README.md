@@ -16,6 +16,8 @@ npx create-eth@latest -e subgraph
 
 For detailed instructions and more context, check out the [Getting Started Guide](https://thegraph.com/docs/en/cookbook/quick-start).
 
+Having problems? Join the [👩‍🚀 🏗 Scaffold-ETH Subgraph Extension Support](https://t.me/+fafK-afX2aM0ZWZh) channel on Telegram!
+
 ## Requirements
 
 Before you begin, you need to install the following tools:
