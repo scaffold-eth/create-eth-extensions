@@ -127,6 +127,22 @@ Go ahead and head over to your subgraph endpoint and take a look!
 
 > If all is well and you’ve sent a transaction to your smart contract then you will see a similar data output!
 
+#### ✅ Step 4: Create Graph Client Artifacts ✅
+
+The Graph Client is a tool used to query GraphQL based applications and contains a lot of advanced features, such as client side composition or automatic pagination. A complete list of features and goals of this project can be found [here].(https://github.com/graphprotocol/graph-client?tab=readme-ov-file#features-and-goals)
+
+In order to utilize Graph-Client in our application, we need to build the artifacts needed for our frontend. To do this simply run...
+
+\`\`\`
+yarn graphclient:build
+\`\`\`
+
+After doing so, navigate to http://localhost:3000/subgraph and you should be able to see the GraphQL rendered in your application. If you don't see anything, make sure you've triggered an event in your smart contract.
+
+If you want to look at the query code for this, it can be found the component located in the subgraph folder \`packages/nextjs/app/subgraph/_components/GreetingsTable.tsx\`
+
+
+
 #### ✅ Side Quest: Run a Matchstick Test ✅
 
 Matchstick is a [unit testing framework](https://thegraph.com/docs/en/developing/unit-testing-framework/), developed by [LimeChain](https://limechain.tech/), that enables subgraph developers to test their mapping logic in a sandboxed environment and deploy their subgraphs with confidence!
