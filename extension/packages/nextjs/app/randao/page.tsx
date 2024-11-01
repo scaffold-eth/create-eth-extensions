@@ -42,98 +42,106 @@ const Randao: NextPage = () => {
   }, [blockNumber, futureBlocks]);
 
   const generateRandomNumber = async () => {
-    await writeAsync(
-      {
-        functionName: "generateRandomNumber",
-      },
-      {
-        onBlockConfirmation: (txnReceipt: any) => {
-          console.log("Transaction blockHash", txnReceipt.blockHash);
-          notification.success("Random number generated. Wait for the future block and get the number.");
+    try {
+      await writeAsync(
+        {
+          functionName: "generateRandomNumber",
         },
-      },
-    );
+        {
+          onBlockConfirmation: (txnReceipt: any) => {
+            console.log("Transaction blockHash", txnReceipt.blockHash);
+            notification.success("Random number generated. Wait for the future block and get the number.");
+          },
+        },
+      );
+    } catch (e) {
+      console.error("Error generating random number: ", e);
+    }
   };
 
   const getRandomNumber = async () => {
-    console.log("currentBlockNumber: ", currentBlockNumber);
-    console.log("targetBlockNumber: ", targetBlockNumber);
+    try {
+      console.log("currentBlockNumber: ", currentBlockNumber);
+      console.log("targetBlockNumber: ", targetBlockNumber);
 
-    const blockData = await publicClient.getBlock({ blockNumber: targetBlockNumber });
+      const blockData = await publicClient.getBlock({ blockNumber: targetBlockNumber });
 
-    console.log("blockData: ", blockData);
+      console.log("blockData: ", blockData);
 
-    const values: `0x${string}`[] = [];
-    values.push(blockData.parentHash);
-    values.push(blockData.sha3Uncles);
-    values.push(blockData.miner as `0x${string}`);
-    values.push(blockData.stateRoot);
-    values.push(blockData.transactionsRoot);
-    values.push(blockData.receiptsRoot);
-    values.push(blockData.logsBloom);
-    values.push(`0x${blockData.difficulty.toString(16)}`);
-    values.push(`0x${blockData.number.toString(16)}`);
-    values.push(`0x${blockData.gasLimit.toString(16)}`);
-    values.push(`0x${blockData.gasUsed.toString(16)}`);
-    values.push(`0x${blockData.timestamp.toString(16)}`);
-    values.push(blockData.extraData);
-    values.push(blockData.mixHash);
-    values.push(blockData.nonce);
-    if ("baseFeePerGas" in blockData && blockData.baseFeePerGas !== null) {
-      values.push(`0x${blockData.baseFeePerGas.toString(16)}`);
-    }
-    if ("withdrawalsRoot" in blockData && blockData.withdrawalsRoot !== undefined) {
-      values.push(blockData.withdrawalsRoot);
-    } else {
-      values.push("0x");
-    }
-    if ("blobGasUsed" in blockData && blockData.blobGasUsed !== undefined && blockData.blobGasUsed !== null) {
-      values.push(toHex(blockData.blobGasUsed));
-    }
-    if ("excessBlobGas" in blockData && blockData.excessBlobGas !== undefined && blockData.excessBlobGas !== null) {
-      values.push(toHex(blockData.excessBlobGas));
-    }
-    if (
-      "parentBeaconBlockRoot" in blockData &&
-      blockData.parentBeaconBlockRoot !== undefined &&
-      blockData.parentBeaconBlockRoot !== null
-    ) {
-      values.push(blockData.parentBeaconBlockRoot as `0x${string}`);
-    }
-
-    console.log("blockData values: ", values);
-    for (let i = 0; i < values.length; i++) {
-      if (values[i] === "0x0") {
-        values[i] = "0x";
+      const values: `0x${string}`[] = [];
+      values.push(blockData.parentHash);
+      values.push(blockData.sha3Uncles);
+      values.push(blockData.miner as `0x${string}`);
+      values.push(blockData.stateRoot);
+      values.push(blockData.transactionsRoot);
+      values.push(blockData.receiptsRoot);
+      values.push(blockData.logsBloom);
+      values.push(`0x${blockData.difficulty.toString(16)}`);
+      values.push(`0x${blockData.number.toString(16)}`);
+      values.push(`0x${blockData.gasLimit.toString(16)}`);
+      values.push(`0x${blockData.gasUsed.toString(16)}`);
+      values.push(`0x${blockData.timestamp.toString(16)}`);
+      values.push(blockData.extraData);
+      values.push(blockData.mixHash);
+      values.push(blockData.nonce);
+      if ("baseFeePerGas" in blockData && blockData.baseFeePerGas !== null) {
+        values.push(`0x${blockData.baseFeePerGas.toString(16)}`);
       }
-      if (values[i].length % 2 === 1) {
-        values[i] = ("0x0" + values[i].substring(2)) as `0x${string}`;
+      if ("withdrawalsRoot" in blockData && blockData.withdrawalsRoot !== undefined) {
+        values.push(blockData.withdrawalsRoot);
+      } else {
+        values.push("0x");
       }
-    }
-    console.log("blockData values after: ", values);
+      if ("blobGasUsed" in blockData && blockData.blobGasUsed !== undefined && blockData.blobGasUsed !== null) {
+        values.push(toHex(blockData.blobGasUsed));
+      }
+      if ("excessBlobGas" in blockData && blockData.excessBlobGas !== undefined && blockData.excessBlobGas !== null) {
+        values.push(toHex(blockData.excessBlobGas));
+      }
+      if (
+        "parentBeaconBlockRoot" in blockData &&
+        blockData.parentBeaconBlockRoot !== undefined &&
+        blockData.parentBeaconBlockRoot !== null
+      ) {
+        values.push(blockData.parentBeaconBlockRoot as `0x${string}`);
+      }
 
-    const rlpEncodedValues = toRlp(values);
-    console.log("blockData RLP: ", rlpEncodedValues);
+      console.log("blockData values: ", values);
+      for (let i = 0; i < values.length; i++) {
+        if (values[i] === "0x0") {
+          values[i] = "0x";
+        }
+        if (values[i].length % 2 === 1) {
+          values[i] = ("0x0" + values[i].substring(2)) as `0x${string}`;
+        }
+      }
+      console.log("blockData values after: ", values);
 
-    const blockHash = keccak256(rlpEncodedValues);
-    console.log("blockData hash: ", blockHash);
+      const rlpEncodedValues = toRlp(values);
+      console.log("blockData RLP: ", rlpEncodedValues);
 
-    if (blockHash !== blockData.hash) {
-      notification.error("Block hash mismatch");
-      return;
-    }
+      const blockHash = keccak256(rlpEncodedValues);
+      console.log("blockData hash: ", blockHash);
 
-    await writeAsync(
-      {
-        functionName: "getRandomNumber",
-        args: [rlpEncodedValues],
-      },
-      {
-        onBlockConfirmation: (txnReceipt: any) => {
-          console.log("Transaction blockHash", txnReceipt.blockHash);
+      if (blockHash !== blockData.hash) {
+        notification.error("Block hash mismatch");
+        return;
+      }
+
+      await writeAsync(
+        {
+          functionName: "getRandomNumber",
+          args: [rlpEncodedValues],
         },
-      },
-    );
+        {
+          onBlockConfirmation: (txnReceipt: any) => {
+            console.log("Transaction blockHash", txnReceipt.blockHash);
+          },
+        },
+      );
+    } catch (e) {
+      console.error("Error getting random number: ", e);
+    }
   };
 
   const getRandomNumberDisabled =
