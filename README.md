@@ -12,7 +12,7 @@ npx create-eth@latest -e <extension-name>
 
 ## Available Extensions
 
-Explore our curated (by BuidlGuidl) and community-contributed extensions for Scaffold-ETH 2 at https://scaffoldeth.io/extensions.
+Explore our curated (by BuidlGuidl) and community-contributed extensions for Scaffold-ETH 2 at: https://scaffoldeth.io/extensions
 
 ## Create your own extension
 
