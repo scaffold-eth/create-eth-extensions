@@ -12,13 +12,7 @@ npx create-eth@latest -e <extension-name>
 
 ## Available Extensions
 
-- [subgraph](https://github.com/scaffold-eth/create-eth-extensions/tree/subgraph): This Scaffold-ETH 2 extension helps you build and test subgraphs locally for your contracts. It also enables interaction with the front-end and facilitates easy deployment to Subgraph Studio.
-- [eip-712](https://github.com/scaffold-eth/create-eth-extensions/tree/eip-712): An implementation of EIP-712, allowing you to send, sign, and verify typed messages in a user-friendly manner.
-- [ponder](https://github.com/scaffold-eth/create-eth-extensions/tree/ponder): This Scaffold-ETH 2 extension comes pre-configured with [ponder.sh](https://ponder.sh), providing an example to help you get started quickly.
-- [onchainkit](https://github.com/scaffold-eth/create-eth-extensions/tree/onchainkit): This Scaffold-ETH 2 extension comes pre-configured with [onchainkit](https://onchainkit.xyz/), providing an example to help you get started quickly.
-- [erc-20](https://github.com/scaffold-eth/create-eth-extensions/tree/erc-20): This extension introduces an ERC-20 token contract and demonstrates how to interact with it, including getting a holder balance and transferring tokens.
-- [eip-5792](https://github.com/scaffold-eth/create-eth-extensions/tree/eip-5792): This extension shows how to use [EIP-5792](https://eips.ethereum.org/EIPS/eip-5792) wallet capabilities. It comes with an example frontend interaction with the `EIP5792_Example.sol` contract. The code demonstrates how to make a batched transaction that sets new greetings and increments the counter in a single transaction using Wagmi's experimental hooks and Coinbase smart wallet.
-- [randao](https://github.com/scaffold-eth/create-eth-extensions/tree/randao): This extension shows how to use on-chain randomness using RANDAO for truly on-chain unpredictable random sources.
+Explore our curated (by BuidlGuidl) and community-contributed extensions for Scaffold-ETH 2 at: https://scaffoldeth.io/extensions
 
 ## Create your own extension
 
