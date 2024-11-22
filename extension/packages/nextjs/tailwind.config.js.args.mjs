@@ -1,4 +1,4 @@
-export const lightTheme = `{
+export const lightTheme = {
   primary: "#C8F5FF",
   "primary-content": "#026262",
   secondary: "#89d7e9",
@@ -19,16 +19,17 @@ export const lightTheme = `{
   "--rounded-btn": "9999rem",
 
   ".tooltip": {
-    "--tooltip-tail": "6px",
+    "--tooltip-tail": "6px"
   },
   ".link": {
-    textUnderlineOffset: "2px",
+    textUnderlineOffset: "2px"
   },
   ".link:hover": {
-    opacity: "80%",
-  },
-}`;
-export const darkTheme = `{
+    opacity: "80%"
+  }
+};
+
+export const darkTheme = {
   primary: "#026262",
   "primary-content": "#C8F5FF",
   secondary: "#107575",
@@ -50,12 +51,18 @@ export const darkTheme = `{
 
   ".tooltip": {
     "--tooltip-tail": "6px",
-    "--tooltip-color": "oklch(var(--p))",
+    "--tooltip-color": "oklch(var(--p))"
   },
   ".link": {
-    textUnderlineOffset: "2px",
+    textUnderlineOffset: "2px"
   },
   ".link:hover": {
-    opacity: "80%",
-  },
-}`;
+    opacity: "80%"
+  }
+};
+
+export const extendTheme = {
+  fontFamily: {
+    "space-grotesk": ["Space Grotesk", "sans-serif"]
+  }
+};

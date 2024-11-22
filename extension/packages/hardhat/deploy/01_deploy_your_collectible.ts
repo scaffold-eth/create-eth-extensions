@@ -8,9 +8,7 @@ import { Contract } from "ethers";
  *
  * @param hre HardhatRuntimeEnvironment object.
  */
-const deployYourCollectible: DeployFunction = async function (
-  hre: HardhatRuntimeEnvironment
-) {
+const deployYourCollectible: DeployFunction = async function (hre: HardhatRuntimeEnvironment) {
   /*
     On localhost, the deployer account is the one that comes with Hardhat, which is already funded.
 
@@ -35,10 +33,7 @@ const deployYourCollectible: DeployFunction = async function (
   });
 
   // Get the deployed contract to interact with it after deploying.
-  const yourCollectible = await hre.ethers.getContract<Contract>(
-    "YourCollectible",
-    deployer
-  );
+  const yourCollectible = await hre.ethers.getContract<Contract>("YourCollectible", deployer);
 };
 
 export default deployYourCollectible;
