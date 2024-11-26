@@ -6,6 +6,6 @@
     "graphql": "~16.8.1"
   },
   "devDependencies": {
-    "@graphprotocol/client-cli": "^3.0.4"
+    "@graphprotocol/client-cli": "3.0.7"
   }
 }
