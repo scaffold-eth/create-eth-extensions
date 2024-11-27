@@ -31,7 +31,6 @@ Then download the challenge to your computer and install dependencies by running
 ```sh
 npx create-eth@latest -e sre-challenge-0 challenge-0-simple-nft
 cd challenge-0-simple-nft
-yarn install
 ```
 
 > in the same terminal, start your local network (a local instance of a blockchain):
