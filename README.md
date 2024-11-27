@@ -29,7 +29,7 @@ Before you begin, you need to install the following tools:
 Then download the challenge to your computer and install dependencies by running:
 
 ```sh
-npx create-eth@0.0.60 -e sre-challenge-0 challenge-0-simple-nft
+npx create-eth@latest -e sre-challenge-0 challenge-0-simple-nft
 cd challenge-0-simple-nft
 yarn install
 ```
