@@ -1,3 +1,3 @@
 export const extraCompilerOptions = {
-  typeRoots: ["@serwist/next/typings"],
+  types: ["@serwist/next/typings"],
 };
