@@ -1,0 +1,13 @@
+{
+  "name": "@se-2/nextjs",
+  "scripts": {
+    "generate-vapid-keys": "web-push generate-vapid-keys --json"
+  },
+  "dependencies": {
+    "@serwist/next": "^9.0.9",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "serwist": "^9.0.9"
+  }
+}

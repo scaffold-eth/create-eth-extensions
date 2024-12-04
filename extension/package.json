@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "generate-vapid-keys": "yarn workspace @se-2/nextjs web-push generate-vapid-keys --json"
+  }
+}
