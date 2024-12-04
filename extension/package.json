@@ -1,14 +1,21 @@
 {
   "scripts": {
-    "subgraph:test": "yarn workspace @se-2/subgraph test",
-    "stop-node": "yarn workspace @se-2/subgraph stop-node",
-    "clean-node": "yarn workspace @se-2/subgraph clean-node",
-    "run-node": "yarn workspace @se-2/subgraph run-node",
-    "local-create": "yarn workspace @se-2/subgraph local-create",
-    "local-ship": "yarn workspace @se-2/subgraph local-ship",
-    "abi-copy": "yarn workspace @se-2/subgraph abi-copy",
-    "codegen": "yarn workspace @se-2/subgraph codegen",
+    "abi-copy": "echo 'DEPRECATED: use `yarn subgraph:abi-copy` instead' yarn subgraph:abi-copy",
+    "clean-node": "echo 'DEPRECATED: use `yarn subgraph:clean-node` instead' yarn subgraph:clean-node",
+    "codegen": "echo 'DEPRECATED: use `yarn subgraph:codegen` instead' yarn subgraph:codegen",
     "graph": "yarn workspace @se-2/subgraph graph",
-    "graphclient:build": "yarn workspace @se-2/nextjs client"
+    "graphclient:build": "yarn workspace @se-2/nextjs client",
+    "local-create": "echo 'DEPRECATED: use `yarn subgraph:create-local` instead' yarn subgraph:create-local",
+    "local-ship": "echo 'DEPRECATED: use `yarn subgraph:local-ship` instead' yarn subgraph:local-ship",
+    "run-node": "echo 'DEPRECATED: use `yarn subgraph:run-node` instead' yarn subgraph:run-node",
+    "stop-node": "echo 'DEPRECATED: use `yarn subgraph:stop-node` instead' yarn subgraph:stop-node",
+    "subgraph:abi-copy": "yarn workspace @se-2/subgraph abi-copy",
+    "subgraph:clean-node": "yarn workspace @se-2/subgraph clean-node",
+    "subgraph:codegen": "yarn workspace @se-2/subgraph codegen",
+    "subgraph:create-local": "yarn workspace @se-2/subgraph create-local",
+    "subgraph:local-ship": "yarn workspace @se-2/subgraph local-ship",
+    "subgraph:run-node": "yarn workspace @se-2/subgraph run-node",
+    "subgraph:stop-node": "yarn workspace @se-2/subgraph stop-node",
+    "subgraph:test": "yarn workspace @se-2/subgraph test"
   }
 }
