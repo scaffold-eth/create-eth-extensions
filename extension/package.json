@@ -1,14 +1,7 @@
 {
   "scripts": {
-    "abi-copy": "echo 'DEPRECATED: use `yarn subgraph:abi-copy` instead' yarn subgraph:abi-copy",
-    "clean-node": "echo 'DEPRECATED: use `yarn subgraph:clean-node` instead' yarn subgraph:clean-node",
-    "codegen": "echo 'DEPRECATED: use `yarn subgraph:codegen` instead' yarn subgraph:codegen",
     "graph": "yarn workspace @se-2/subgraph graph",
     "graphclient:build": "yarn workspace @se-2/nextjs client",
-    "local-create": "echo 'DEPRECATED: use `yarn subgraph:create-local` instead' yarn subgraph:create-local",
-    "local-ship": "echo 'DEPRECATED: use `yarn subgraph:local-ship` instead' yarn subgraph:local-ship",
-    "run-node": "echo 'DEPRECATED: use `yarn subgraph:run-node` instead' yarn subgraph:run-node",
-    "stop-node": "echo 'DEPRECATED: use `yarn subgraph:stop-node` instead' yarn subgraph:stop-node",
     "subgraph:abi-copy": "yarn workspace @se-2/subgraph abi-copy",
     "subgraph:clean-node": "yarn workspace @se-2/subgraph clean-node",
     "subgraph:codegen": "yarn workspace @se-2/subgraph codegen",
