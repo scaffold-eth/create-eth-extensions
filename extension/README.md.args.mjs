@@ -9,13 +9,13 @@ Now that we have spun up our blockchain, started our frontend application and de
 First run the following to clean up any old data. Do this if you need to reset everything.
 
 \`\`\`
-yarn clean-node
+yarn subgraph:clean-node
 \`\`\`
 
 > We can now spin up a graph node by running the following command… 🧑‍🚀
 
 \`\`\`
-yarn run-node
+yarn subgraph:run-node
 \`\`\`
 
 This will spin up all the containers for The Graph using docker-compose. You will want to keep this window open at all times so that you can see log output from Docker.
@@ -67,7 +67,7 @@ Now we can open up a fifth window to finish setting up The Graph. 😅 In this f
 > Note: You will only need to do this once.
 
 \`\`\`
-yarn local-create
+yarn subgraph:create-local
 \`\`\`
 
 > You should see some output stating your subgraph has been created along with a log output on your graph-node inside docker.
@@ -75,7 +75,7 @@ yarn local-create
 Next we will ship our subgraph! You will need to give your subgraph a version after executing this command. (e.g. 0.0.1).
 
 \`\`\`
-yarn local-ship
+yarn subgraph:local-ship
 \`\`\`
 
 > This command does the following all in one… 🚀🚀🚀
@@ -218,12 +218,20 @@ All 1 tests passed! 😎
    + const subgraphUri = 'YOUR_SUBGRAPH_ENDPOINT';
    \`\`\`
 
-## A list of all available commands
+## A list of all available root commands
+
+### graph
+
+\`\`\`sh
+yarn graph
+\`\`\`
+
+Shortcut to run \`@graphprotocol/graph-cli\` scoped to the subgraph package.
 
 ### run-node
 
 \`\`\`sh
-yarn run-node
+yarn subgraph:run-node
 \`\`\`
 
 Spin up a local graph node (requires Docker).
@@ -231,7 +239,7 @@ Spin up a local graph node (requires Docker).
 ### stop-node
 
 \`\`\`sh
-yarn stop-node
+yarn subgraph:stop-node
 \`\`\`
 
 Stop the local graph node.
@@ -247,7 +255,7 @@ Remove the data from the local graph node.
 ### local-create
 
 \`\`\`sh
-yarn local-create
+yarn subgraph:create-local
 \`\`\`
 
 Create your local subgraph (only required once).
@@ -255,7 +263,7 @@ Create your local subgraph (only required once).
 ### local-remove
 
 \`\`\`sh
-yarn local-remove
+yarn subgraph:remove-local
 \`\`\`
 
 Delete a local subgprah.
@@ -263,7 +271,7 @@ Delete a local subgprah.
 ### abi-copy
 
 \`\`\`sh
-yarn abi-copy
+yarn subgraph:abi-copy
 \`\`\`
 
 Copy the contracts ABI from the hardhat/deployments folder. Generates the networks.json file too.
@@ -271,7 +279,7 @@ Copy the contracts ABI from the hardhat/deployments folder. Generates the networ
 ### codegen
 
 \`\`\`sh
-yarn codegen
+yarn subgraph:codegen
 \`\`\`
 
 Generates AssemblyScript types from the subgraph schema and the contract ABIs.
@@ -279,7 +287,7 @@ Generates AssemblyScript types from the subgraph schema and the contract ABIs.
 ### build
 
 \`\`\`sh
-yarn build
+yarn subgraph:build
 \`\`\`
 
 Compile and check the mapping functions.
@@ -287,7 +295,7 @@ Compile and check the mapping functions.
 ### local-deploy
 
 \`\`\`sh
-yarn local-deploy
+yarn subgraph:deploy-local
 \`\`\`
 
 Deploy a local subgraph.
@@ -295,7 +303,7 @@ Deploy a local subgraph.
 ### local-ship
 
 \`\`\`sh
-yarn local-ship
+yarn subgraph:local-ship
 \`\`\`
 
 Run all the required commands to deploy a local subgraph (abi-copy, codegen, build and local-deploy).
@@ -303,7 +311,7 @@ Run all the required commands to deploy a local subgraph (abi-copy, codegen, bui
 ### deploy
 
 \`\`\`sh
-yarn deploy
+yarn subgraph:deploy
 \`\`\`
 
-Deploy a subgraph to TheGraph.`;
+Deploy a subgraph to The Graph Network.`;
