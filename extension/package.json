@@ -1,14 +1,15 @@
 {
   "scripts": {
-    "subgraph:test": "yarn workspace @se-2/subgraph test",
-    "stop-node": "yarn workspace @se-2/subgraph stop-node",
-    "clean-node": "yarn workspace @se-2/subgraph clean-node",
-    "run-node": "yarn workspace @se-2/subgraph run-node",
-    "local-create": "yarn workspace @se-2/subgraph local-create",
-    "local-ship": "yarn workspace @se-2/subgraph local-ship",
-    "abi-copy": "yarn workspace @se-2/subgraph abi-copy",
-    "codegen": "yarn workspace @se-2/subgraph codegen",
     "graph": "yarn workspace @se-2/subgraph graph",
-    "graphclient:build": "yarn workspace @se-2/nextjs client"
+    "graphclient:build": "yarn workspace @se-2/nextjs client",
+    "subgraph:abi-copy": "yarn workspace @se-2/subgraph abi-copy",
+    "subgraph:build": "yarn workspace @se-2/subgraph build",
+    "subgraph:clean-node": "yarn workspace @se-2/subgraph clean-node",
+    "subgraph:codegen": "yarn workspace @se-2/subgraph codegen",
+    "subgraph:create-local": "yarn workspace @se-2/subgraph create-local",
+    "subgraph:local-ship": "yarn workspace @se-2/subgraph local-ship",
+    "subgraph:run-node": "yarn workspace @se-2/subgraph run-node",
+    "subgraph:stop-node": "yarn workspace @se-2/subgraph stop-node",
+    "subgraph:test": "yarn workspace @se-2/subgraph test"
   }
 }

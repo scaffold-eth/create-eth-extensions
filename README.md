@@ -10,9 +10,9 @@ npx create-eth@latest -e subgraph
 
 [The Graph](https://thegraph.com/) is a protocol for building decentralized applications (dApps) quickly on Ethereum and IPFS using GraphQL.
 
--   🗃️ **Decentralized Indexing**: The Graph enables open APIs ("subgraphs") to efficiently index and organize blockchain data.
--   🔎 **Efficient Querying**: The protocol uses GraphQL for streamlined querying blockchain data.
--   🙌 **Community Ecosystem**: The Graph fosters collaboration by empowering developers to build, deploy, and share subgraphs!
+- 🗃️ **Decentralized Indexing**: The Graph enables open APIs ("subgraphs") to efficiently index and organize blockchain data.
+- 🔎 **Efficient Querying**: The protocol uses GraphQL for streamlined querying blockchain data.
+- 🙌 **Community Ecosystem**: The Graph fosters collaboration by empowering developers to build, deploy, and share subgraphs!
 
 For detailed instructions and more context, check out the [Getting Started Guide](https://thegraph.com/docs/en/cookbook/quick-start).
 
@@ -22,10 +22,10 @@ Having problems? Join the [👩‍🚀 🏗 Scaffold-ETH Subgraph Extension Supp
 
 Before you begin, you need to install the following tools:
 
--   [Node (>= v18.17)](https://nodejs.org/en/download/)
--   Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
--   [Git](https://git-scm.com/downloads)
--   [Docker](https://docs.docker.com/get-docker/)
+- [Node (>= v18.17)](https://nodejs.org/en/download/)
+- Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
+- [Git](https://git-scm.com/downloads)
+- [Docker](https://docs.docker.com/get-docker/)
 
 ## Quickstart
 
@@ -75,13 +75,13 @@ Now that we have spun up our blockchain, started our frontend application and de
 First run the following to clean up any old data. Do this if you need to reset everything.
 
 ```
-yarn clean-node
+yarn subgraph:clean-node
 ```
 
 > We can now spin up a graph node by running the following command… 🧑‍🚀
 
 ```
-yarn run-node
+yarn subgraph:run-node
 ```
 
 This will spin up all the containers for The Graph using docker-compose. You will want to keep this window open at all times so that you can see log output from Docker.
@@ -133,7 +133,7 @@ Now we can open up a fifth window to finish setting up The Graph. 😅 In this f
 > Note: You will only need to do this once.
 
 ```
-yarn local-create
+yarn subgraph:create-local
 ```
 
 > You should see some output stating your subgraph has been created along with a log output on your graph-node inside docker.
@@ -141,16 +141,16 @@ yarn local-create
 Next we will ship our subgraph! You will need to give your subgraph a version after executing this command. (e.g. 0.0.1).
 
 ```
-yarn local-ship
+yarn subgraph:local-ship
 ```
 
 > This command does the following all in one… 🚀🚀🚀
 
--   Copies the contracts ABI from the hardhat/deployments folder
--   Generates the networks.json file
--   Generates AssemblyScript types from the subgraph schema and the contract ABIs.
--   Compiles and checks the mapping functions.
--   … and deploy a local subgraph!
+- Copies the contracts ABI from the hardhat/deployments folder
+- Generates the networks.json file
+- Generates AssemblyScript types from the subgraph schema and the contract ABIs.
+- Compiles and checks the mapping functions.
+- … and deploy a local subgraph!
 
 > If you get an error ts-node you can install it with the following command
 
@@ -252,47 +252,47 @@ All 1 tests passed! 😎
 
 1. Update the `packages/subgraph/subgraph.yaml` file with your contract address, network name, start block number(optional) :
 
-    ```diff
-    ...
-    -     network: localhost
-    +     network: sepolia
-          source:
-            abi: YourContract
-    +       address: "0x54FE7f8Db97e102D3b7d86cc34D885B735E31E8e"
-    +       startBlock: 5889410
-    ...
-    ```
+   ```diff
+   ...
+   -     network: localhost
+   +     network: sepolia
+         source:
+           abi: YourContract
+   +       address: "0x54FE7f8Db97e102D3b7d86cc34D885B735E31E8e"
+   +       startBlock: 5889410
+   ...
+   ```
 
-    TIP: For `startBlock` you can use block number of your deployed contract, which can be found by visiting deployed transaction hash in blockexplorer.
+   TIP: For `startBlock` you can use block number of your deployed contract, which can be found by visiting deployed transaction hash in blockexplorer.
 
 2. Create a new subgraph on [Subgraph Studio](https://thegraph.com/studio) and get "SUBGRAPH SLUG" and "DEPLOY KEY".
 
 3. Authenticate with the graph CLI:
 
-    ```sh
-    yarn graph auth --studio <DEPLOY KEY>
-    ```
+   ```sh
+   yarn graph auth --studio <DEPLOY KEY>
+   ```
 
 4. Deploy the subgraph to TheGraph Studio:
 
-    ```sh
-    yarn graph deploy --studio <SUBGRAPH SLUG>
-    ```
+   ```sh
+   yarn graph deploy --studio <SUBGRAPH SLUG>
+   ```
 
-    Once deployed, the CLI should output the Subgraph endpoints. Copy the HTTP endpoint and test your queries.
+   Once deployed, the CLI should output the Subgraph endpoints. Copy the HTTP endpoint and test your queries.
 
 5. Update `packages/nextjs/components/ScaffoldEthAppWithProviders.tsx` to use the above HTTP subgraph endpoint:
-    ```diff
-    - const subgraphUri = "http://localhost:8000/subgraphs/name/scaffold-eth/your-contract";
-    + const subgraphUri = 'YOUR_SUBGRAPH_ENDPOINT';
-    ```
+   ```diff
+   - const subgraphUri = "http://localhost:8000/subgraphs/name/scaffold-eth/your-contract";
+   + const subgraphUri = 'YOUR_SUBGRAPH_ENDPOINT';
+   ```
 
-## A list of all available commands
+## A list of all available root commands
 
 ### run-node
 
 ```sh
-yarn run-node
+yarn subgraph:run-node
 ```
 
 Spin up a local graph node (requires Docker).
@@ -300,7 +300,7 @@ Spin up a local graph node (requires Docker).
 ### stop-node
 
 ```sh
-yarn stop-node
+yarn subgraph:stop-node
 ```
 
 Stop the local graph node.
@@ -316,7 +316,7 @@ Remove the data from the local graph node.
 ### local-create
 
 ```sh
-yarn local-create
+yarn subgraph:create-local
 ```
 
 Create your local subgraph (only required once).
@@ -324,7 +324,7 @@ Create your local subgraph (only required once).
 ### local-remove
 
 ```sh
-yarn local-remove
+yarn subgraph:remove-local
 ```
 
 Delete a local subgprah.
@@ -340,7 +340,7 @@ Copy the contracts ABI from the hardhat/deployments folder. Generates the networ
 ### codegen
 
 ```sh
-yarn codegen
+yarn subgraph:codegen
 ```
 
 Generates AssemblyScript types from the subgraph schema and the contract ABIs.
@@ -348,7 +348,7 @@ Generates AssemblyScript types from the subgraph schema and the contract ABIs.
 ### build
 
 ```sh
-yarn build
+yarn subgraph:build
 ```
 
 Compile and check the mapping functions.
@@ -356,7 +356,7 @@ Compile and check the mapping functions.
 ### local-deploy
 
 ```sh
-yarn local-deploy
+yarn subgraph:local-deploy
 ```
 
 Deploy a local subgraph.
@@ -364,7 +364,7 @@ Deploy a local subgraph.
 ### local-ship
 
 ```sh
-yarn local-ship
+yarn subgraph:local-ship
 ```
 
 Run all the required commands to deploy a local subgraph (abi-copy, codegen, build and local-deploy).
@@ -372,7 +372,7 @@ Run all the required commands to deploy a local subgraph (abi-copy, codegen, bui
 ### deploy
 
 ```sh
-yarn deploy
+yarn subgraph:deploy
 ```
 
-Deploy a subgraph to TheGraph.
+Deploy a subgraph to The Graph Network.
