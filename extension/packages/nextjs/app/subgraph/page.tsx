@@ -43,7 +43,7 @@ const Subgraph: NextPage = () => {
               <p className="text-center text-lg">
                 Start your subgraph environment using{" "}
                 <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-                  yarn run-node
+                  yarn subgraph:run-node
                 </code>
               </p>
             </div>
@@ -52,7 +52,7 @@ const Subgraph: NextPage = () => {
               <p className="text-center text-lg">
                 Create your subgraph on graph-node with{" "}
                 <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-                  yarn local-create
+                  yarn subgraph:create-local
                 </code>
               </p>
             </div>
@@ -61,7 +61,7 @@ const Subgraph: NextPage = () => {
               <p className="text-center text-lg">
                 Deploy your subgraph configuration with{" "}
                 <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-                  yarn local-ship
+                  yarn subgraph:local-ship
                 </code>
               </p>
             </div>
@@ -88,7 +88,7 @@ const Subgraph: NextPage = () => {
               </Link>{" "}
               Clean up any stale data using{" "}
               <code className="italic bg-base-300 text-base font-bold max-w-full break-words break-all inline-block">
-                yarn clean-node
+                yarn subgraph:clean-node
               </code>
             </div>
           </div>
