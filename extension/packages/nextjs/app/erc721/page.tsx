@@ -56,7 +56,7 @@ const ERC721: NextPage = () => {
               >
                 ERC-721 Enumerable extension
               </a>{" "}
-              from OpenZeppelin to list all tokens and all the tokens owned by an address. You can remove this if you
+              from OpenZeppelin to list all tokens from the collection and all the tokens owned by an address. You can remove this if you
               plan to use an indexer, like a Subgraph or Ponder (
               <a
                 target="_blank"
