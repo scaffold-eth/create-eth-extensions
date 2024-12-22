@@ -1,4 +1,4 @@
-# ERC-721 NFT Extension for Scaffold-ETH 2
+export const extraContents = `## 🚀 Setup ERC-721 NFT Extension
 
 This extension introduces an ERC-721 token contract and demonstrates how to use it, including getting the total supply and holder balance, listing all NFTs from the collection and NFTs from the connected address, and how to transfer NFTs.
 
@@ -8,18 +8,14 @@ The ERC-721 token contract is implemented using the [ERC-721 token implementatio
 
 The ERC-721 token implementation uses the [ERC-721 Enumerable extension](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721Enumerable.sol) from OpenZeppelin to list all tokens from the collection and all the tokens owned by an address. You can remove this if you plan to use an indexer, like a Subgraph or Ponder ([extensions available](https://scaffoldeth.io/extensions)).
 
-## Installation
+### Setup
 
-```bash
-npx create-eth@latest -e erc-721
-```
+Deploy your contract running \`\`\`yarn deploy\`\`\`
 
-## 🚀 Setup extension
+### Interact with the NFT
 
-Deploy your contract running `yarn deploy`
+Start the front-end with \`\`\`yarn start\`\`\` and go to the _/erc721_ page to interact with your deployed ERC-721 token.
 
-## Interact with the NFT
+You can check the code at \`\`\`packages/nextjs/app/erc721\`\`\`.
 
-Start the front-end with `yarn start` and go to the _/erc721_ page to interact with your deployed ERC-721 token.
-
-You can check the code at `packages/nextjs/app/erc721`.
+`;
