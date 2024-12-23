@@ -9,7 +9,7 @@ export const networks = `myFakeNetwork: {
       accounts: [deployerPrivateKey],
     }`;
 export const compilers = [{
-  version: "0.8.4",
+  version: "0.8.20",
   settings: {
     optimizer: {
       enabled: true,

@@ -1,4 +1,4 @@
-export const imports = 'import "../styles/green-font.css";';
+export const imports = 'import "../styles/font-color.css";';
 
 export const metadata = {
   title: "Scaffold-ETH 2 Example Extension App (ERC-20)",

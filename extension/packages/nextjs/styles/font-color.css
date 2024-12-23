@@ -1,0 +1,7 @@
+[data-theme="light"] {
+  color: green;
+}
+
+[data-theme="dark"] {
+  color: yellow;
+}
