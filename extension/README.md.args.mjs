@@ -1,6 +1,6 @@
 export const skipQuickStart = true;
 
-export const extraContents = `# Example Extension
+export const extraContents = `# Example Extension (ERC-20)
 
 ## Checkpoint 0: 📦 Environment 📚
 

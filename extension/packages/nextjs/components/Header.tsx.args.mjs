@@ -1,9 +1,9 @@
-export const menuIconImports = `import { BookOpenIcon } from "@heroicons/react/24/outline";`;
+export const menuIconImports = `import { BanknotesIcon } from "@heroicons/react/24/outline";`;
 export const menuObjects = `{
-  label: "Example",
+  label: "Example (ERC-20)",
   href: "/example",
-  icon: <BookOpenIcon className="h-4 w-4" />,
+  icon: <BanknotesIcon className="h-4 w-4" />,
 }`;
 
-export const logoTitle = "Scaffold-ETH";
-export const logoSubtitle = "Example App";
+export const logoTitle = "Create-eth";
+export const logoSubtitle = "Extension example (ERC-20)";
