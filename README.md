@@ -1,7 +1,15 @@
-Third-party extension example for create-eth
+# Example Extension for Scaffold-ETH 2
 
-Includes all the possible args files
+This extension demonstrates how to create a custom Scaffold-ETH 2 extension.
 
-```
-npx create-eth-app@latest -e example
+It includes examples of all possible `.args.mjs` files and demonstrates how to replace default contracts with custom implementations, add custom deployment scripts and contract tests, and integrate custom Next.js page.
+
+Based on [ERC-20 extension](https://github.com/scaffold-eth/create-eth-extensions/tree/erc-20) contracts.
+
+For general information about creating third party extensions, please see the [documentation](https://github.com/scaffold-eth/create-eth/blob/main/contributors/THIRD-PARTY-EXTENSION.md).
+
+## Installation
+
+```bash
+npx create-eth@latest -e example
 ```
