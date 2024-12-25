@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "your-script": "your-script"
+  },
+  "dependencies": {
+    "burner-connector": "0.0.9"
+  }
+}
