@@ -1,25 +1,15 @@
-# 🔌 create-eth Extensions
+# Example Extension for Scaffold-ETH 2
 
-This repository holds all the BG curated extensions for [create-eth](https://github.com/scaffold-eth/create-eth), so you can extend the functionality of your Scaffold-ETH project.
+This extension demonstrates how to create a custom Scaffold-ETH 2 extension.
 
-## Usage
+It includes examples of all possible `.args.mjs` files and demonstrates how to replace default contracts with custom implementations, add custom deployment scripts and contract tests, update `package.json` files,and integrate custom Next.js page.
 
-You can install any of the extensions in this repository by running the following command:
+Based on [ERC-20 extension](https://github.com/scaffold-eth/create-eth-extensions/tree/erc-20) contracts.
 
-```bash
-npx create-eth@latest -e <extension-name>
-```
+For general information about creating third party extensions, please see the [documentation](https://github.com/scaffold-eth/create-eth/blob/main/contributors/THIRD-PARTY-EXTENSION.md).
 
-## Available Extensions
-
-Explore our curated (by BuidlGuidl) and community-contributed extensions for Scaffold-ETH 2 at: https://scaffoldeth.io/extensions
-
-## Create your own extension
-
-You can extend Scaffold-ETH by creating your own extension. To do so, you need to create a new repository with the following structure:
-
-`ToDo`
+## Installation
 
 ```bash
-npx create-eth@latest -e your-github-username/your-extension-repository:branch-name # branch-name is optional
+npx create-eth@latest -e example
 ```
