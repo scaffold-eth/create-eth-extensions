@@ -14,7 +14,7 @@ You can define your Ponder data schema on the file at \`\`\`packages/ponder/pond
 
 ### Indexing data
 
-You can index events by adding files to \`\`\`packages/ponder/src/\`\`\` (https://ponder.sh/docs/indexing/create-update-records)
+You can index events by adding files to \`\`\`packages/ponder/src/\`\`\` (https://ponder.sh/docs/indexing/write-to-the-database)
 
 ### Start the development server
 
