@@ -27,8 +27,5 @@
     "@types/chalk": "^2.2.0",
     "@types/node": "^20.11.17",
     "matchstick-as": "~0.6.0"
-  },
-  "engines": {
-    "node": ">=20.18.1"
   }
 }
