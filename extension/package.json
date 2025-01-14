@@ -10,6 +10,9 @@
     "subgraph:local-ship": "yarn workspace @se-2/subgraph local-ship",
     "subgraph:run-node": "yarn workspace @se-2/subgraph run-node",
     "subgraph:stop-node": "yarn workspace @se-2/subgraph stop-node",
-    "subgraph:test": "yarn workspace @se-2/subgraph test"
+    "subgraph:test": "yarn workspace @se-2/subgraph test -d"
+  },
+  "engines": {
+    "node": ">=20.18.1"
   }
 }

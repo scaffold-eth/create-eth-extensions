@@ -12,16 +12,16 @@
     "remove-local": "graph remove --node http://localhost:8020/ scaffold-eth/your-contract",
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 scaffold-eth/your-contract",
     "local-ship": "yarn abi-copy && yarn codegen && yarn build --network localhost && yarn deploy-local",
-    "test": "graph test",
+    "test": "graph test -d",
     "run-node": "cd graph-node && docker-compose up",
     "stop-node": "cd graph-node && docker-compose down",
     "clean-node": "rm -rf graph-node/data/"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "~0.55.0",
-    "@graphprotocol/graph-ts": "~0.31.0",
-    "ts-node": "~10.9.1",
-    "typescript": "~5.0.4"
+    "@graphprotocol/graph-cli": "0.94.0",
+    "@graphprotocol/graph-ts": "0.37.0",
+    "ts-node": "10.9.2",
+    "typescript": "5.7.2"
   },
   "devDependencies": {
     "@types/chalk": "^2.2.0",
