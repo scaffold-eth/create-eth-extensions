@@ -13,6 +13,7 @@
     "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 scaffold-eth/your-contract",
     "local-ship": "yarn abi-copy && yarn codegen && yarn build --network localhost && yarn deploy-local",
     "test": "graph test -d",
+    "test": "graph test -d",
     "run-node": "cd graph-node && docker-compose up",
     "stop-node": "cd graph-node && docker-compose down",
     "clean-node": "rm -rf graph-node/data/"
