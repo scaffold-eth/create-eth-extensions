@@ -1,4 +1,4 @@
-import { createConfig } from "@ponder/core";
+import { createConfig } from "ponder";
 import { http } from "viem";
 import deployedContracts from "../nextjs/contracts/deployedContracts";
 import scaffoldConfig from "../nextjs/scaffold.config";
