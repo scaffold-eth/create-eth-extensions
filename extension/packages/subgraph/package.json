@@ -18,7 +18,7 @@
     "clean-node": "rm -rf graph-node/data/"
   },
   "dependencies": {
-    "@graphprotocol/graph-cli": "0.94.0",
+    "@graphprotocol/graph-cli": "0.95.0",
     "@graphprotocol/graph-ts": "0.37.0",
     "ts-node": "10.9.2",
     "typescript": "5.7.2"
