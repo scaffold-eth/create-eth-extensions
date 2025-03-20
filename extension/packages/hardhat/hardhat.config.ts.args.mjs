@@ -1,20 +1,41 @@
-export const imports = 'import "./tasks"';
-export const solidityVersion = "0.8.20";
-export const networks = `myFakeNetwork: {
-      url: \`https://my-fake-network.alchemyapi.io/v2/\${providerApiKey}\`,
-      accounts: [deployerPrivateKey],
+export const preConfigContent = `
+import "./tasks"
+
+// Custom variables
+const CUSTOM_API_KEY = process.env.CUSTOM_API_KEY;
+`;
+
+export const configOverrides = {
+  solidity: {
+    compilers: [
+      {
+        version: "0.8.20",
+        settings: {
+          optimizer: {
+            enabled: true,
+            // https://docs.soliditylang.org/en/latest/using-the-compiler.html#optimizer-options
+            runs: 200,
+          },
+        },
+      },
+    ],
+  },
+  networks: {
+    hardhat: {
+      forking: {
+        blockNumber: 1234567
+      }
     },
-    myFakeNetwork2: {
-      url: \`https://my-fake-network2.alchemyapi.io/v2/\${providerApiKey}\`,
-      accounts: [deployerPrivateKey],
-    }`;
-export const compilers = [{
-  version: "0.8.20",
-  settings: {
-    optimizer: {
-      enabled: true,
-      // https://docs.soliditylang.org/en/latest/using-the-compiler.html#optimizer-options
-      runs: 200,
-    },
-  }
-}];
+    customNetwork: {
+      url: "https://custom.network",
+      accounts: ["$$deployerPrivateKey$$"],
+      blah: `test \${CUSTOM_API_KEY}`,
+      verify: {
+        etherscan: {
+          apiUrl: "https://api.custom-explorer.io",
+          apiKey: "$$etherscanApiKey$$",
+        }
+      }
+    }
+  },
+};
