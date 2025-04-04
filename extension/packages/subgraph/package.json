@@ -1,31 +1,31 @@
 {
-  "name": "@se-2/subgraph",
-  "version": "0.0.1",
-  "type": "module",
-  "scripts": {
-    "abi-copy": "node --loader ts-node/esm --experimental-specifier-resolution=node scripts/abi_copy.ts",
-    "codegen": "graph codegen",
-    "build": "graph build",
-    "graph": "graph",
-    "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ your-contract",
-    "create-local": "graph create --node http://localhost:8020/ scaffold-eth/your-contract",
-    "remove-local": "graph remove --node http://localhost:8020/ scaffold-eth/your-contract",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 scaffold-eth/your-contract",
-    "local-ship": "yarn abi-copy && yarn codegen && yarn build --network localhost && yarn deploy-local",
-    "test": "graph test -d",
-    "run-node": "cd graph-node && docker-compose up",
-    "stop-node": "cd graph-node && docker-compose down",
-    "clean-node": "rm -rf graph-node/data/"
-  },
-  "dependencies": {
-    "@graphprotocol/graph-cli": "0.95.0",
-    "@graphprotocol/graph-ts": "0.37.0",
-    "ts-node": "10.9.2",
-    "typescript": "5.7.2"
-  },
-  "devDependencies": {
-    "@types/chalk": "^2.2.0",
-    "@types/node": "^20.11.17",
-    "matchstick-as": "~0.6.0"
-  }
+    "name": "@se-2/subgraph",
+    "version": "0.0.1",
+    "type": "module",
+    "scripts": {
+        "abi-copy": "node --loader ts-node/esm --experimental-specifier-resolution=node scripts/abi_copy.ts",
+        "codegen": "graph codegen",
+        "build": "graph build",
+        "graph": "graph",
+        "deploy": "graph deploy --node https://api.studio.thegraph.com/deploy/ your-contract",
+        "create-local": "graph create --node http://localhost:8020/ scaffold-eth/your-contract",
+        "remove-local": "graph remove --node http://localhost:8020/ scaffold-eth/your-contract",
+        "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 scaffold-eth/your-contract",
+        "local-ship": "yarn abi-copy && yarn codegen && yarn build --network localhost && yarn deploy-local",
+        "test": "graph test -d",
+        "run-node": "cd graph-node && docker compose up",
+        "stop-node": "cd graph-node && docker compose down",
+        "clean-node": "rm -rf graph-node/data/"
+    },
+    "dependencies": {
+        "@graphprotocol/graph-cli": "0.95.0",
+        "@graphprotocol/graph-ts": "0.37.0",
+        "ts-node": "10.9.2",
+        "typescript": "5.7.2"
+    },
+    "devDependencies": {
+        "@types/chalk": "^2.2.0",
+        "@types/node": "^20.11.17",
+        "matchstick-as": "~0.6.0"
+    }
 }
