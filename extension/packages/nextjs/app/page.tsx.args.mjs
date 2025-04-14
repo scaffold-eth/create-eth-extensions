@@ -9,5 +9,5 @@ export const description = `
 
 export const externalExtensionName = "Example (ERC-20)";
 
-// This will override the full content of the page.tsx file
+// If this is passed it will override the full content of the page.tsx file
 export const fullContentOverride = ""
