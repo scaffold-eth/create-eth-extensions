@@ -1,6 +1,6 @@
 export const skipQuickStart = true;
 
-export const extraContents = `# Example Extension (ERC-20)
+export const extraContent = `# Example Extension (ERC-20)
 
 ## Checkpoint 0: 📦 Environment 📚
 
@@ -24,3 +24,6 @@ yarn start
 
 📱 Open [http://localhost:3000](http://localhost:3000) to see the app.
 `;
+
+// If this is passed it will override the full content of the README file
+export const fullContentOverride = ""
