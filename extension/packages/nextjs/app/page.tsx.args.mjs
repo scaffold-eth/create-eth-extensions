@@ -1,4 +1,4 @@
-export const imports = `import { RocketLaunchIcon } from '@heroicons/react/24/outline'`;
+export const preConfigContent = `import { RocketLaunchIcon } from '@heroicons/react/24/outline'`;
 
 export const description = `
 <div className="flex mt-4 bg-green-100 gap-2 p-4 justify-center items-center rounded-lg">
