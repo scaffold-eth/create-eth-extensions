@@ -1,4 +1,4 @@
-type Greeting @entity {
+type Greeting @entity(immutable:true) {
   id: ID!
   sender: Sender!
   greeting: String!
@@ -8,7 +8,7 @@ type Greeting @entity {
   transactionHash: String!
 }
 
-type Sender @entity {
+type Sender @entity(immutable:true) {
   id: ID!
   address: Bytes!
   greetings: [Greeting!] @derivedFrom(field: "sender")
