@@ -18,3 +18,6 @@ export const configOverrides = {
   onlyLocalBurnerWallet: false,
   customApiKey: "$$CUSTOM_API_KEY$$",
 };
+
+// (default false) If true, then selected solidityFramework network will not be added in targetNetworks array.
+export const skipLocalChainInTargetNetworks = false;
