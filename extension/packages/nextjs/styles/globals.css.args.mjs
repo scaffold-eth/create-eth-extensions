@@ -1,4 +1,4 @@
-export const overrideContent = `
+export const overrideCSS = `
 @plugin "daisyui/theme" {
   name: "light";
 
