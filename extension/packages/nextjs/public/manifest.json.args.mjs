@@ -1,7 +1,7 @@
 export const name = "My Test DApp"
 export const description = "Testing manifest template"
 export const iconPath = "" // allows to omit default SE-2 icons in manifest.json
-export const extraContent = {
+export const extraContents = {
   short_name: "My Test DApp",
   display: "standalone",
   orientation: "portrait",
