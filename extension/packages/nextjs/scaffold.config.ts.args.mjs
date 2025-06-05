@@ -1,6 +1,6 @@
 export const extraConfigTypeName = "ExtraConfig";
 
-export const preConfigContent = `
+export const preContent = `
 import { customChain } from "./utils/customChain";
 
 // Custom variables

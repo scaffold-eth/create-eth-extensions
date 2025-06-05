@@ -1,4 +1,4 @@
-export const preConfigContent = `import { BanknotesIcon } from "@heroicons/react/24/outline";`;
+export const preContent = `import { BanknotesIcon } from "@heroicons/react/24/outline";`;
 
 export const extraMenuLinksObjects = [
   {
@@ -8,5 +8,5 @@ export const extraMenuLinksObjects = [
   },
 ];
 
-export const logoTitle = "Create-eth";
+export const logoTitle = ["Create-eth"];
 export const logoSubtitle = "Extension example (ERC-20)";

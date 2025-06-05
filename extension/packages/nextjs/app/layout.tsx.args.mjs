@@ -1,4 +1,4 @@
-export const preConfigContent = `
+export const preContent = `
 import "../styles/font-color.css";
 import { Space_Grotesk } from "next/font/google";
 
