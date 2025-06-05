@@ -8,5 +8,5 @@ export const extraMenuLinksObjects = [
   },
 ];
 
-export const logoTitle = ["Create-eth"];
+export const logoTitle = "Create-eth";
 export const logoSubtitle = "Extension example (ERC-20)";
