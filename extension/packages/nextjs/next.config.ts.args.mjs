@@ -6,9 +6,7 @@ const {
 `
 
 export const configOverrides = {
-  experimental: {
-    serverComponentsExternalPackages: ["some-package"],
-  },
+  serverExternalPackages: ["some-package"],
 }
 
 export const postConfigContent = `
