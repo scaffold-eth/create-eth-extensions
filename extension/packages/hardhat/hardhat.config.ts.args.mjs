@@ -1,4 +1,4 @@
-export const preConfigContent = `
+export const preContent = `
 import "./tasks"
 
 // Custom variables

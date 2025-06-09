@@ -1,4 +1,4 @@
-export const preConfigContent = `import { BanknotesIcon } from "@heroicons/react/24/outline";`;
+export const preContent = `import { BanknotesIcon } from "@heroicons/react/24/outline";`;
 
 export const extraMenuLinksObjects = [
   {
