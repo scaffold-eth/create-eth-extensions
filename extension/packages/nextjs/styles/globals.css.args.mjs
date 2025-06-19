@@ -57,4 +57,4 @@ export const postContent = `
 
 @theme inline {
   --font-space-grotesk: var(--font-space-grotesk);
-}`
+}`;
