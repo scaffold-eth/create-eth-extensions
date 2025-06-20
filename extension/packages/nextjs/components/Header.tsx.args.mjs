@@ -1,5 +1,5 @@
 export const preContent = `import { PhotoIcon } from "@heroicons/react/24/outline";`;
-export const menuObjects = [
+export const extraMenuLinksObjects = [
   {
     label: "ERC-721",
     href: "/erc721",
