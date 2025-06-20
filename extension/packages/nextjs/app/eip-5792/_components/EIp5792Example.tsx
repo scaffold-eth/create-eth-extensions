@@ -65,9 +65,12 @@ export const EIP5792Example = () => {
             : undefined,
       });
 
-      notification.success(<EIP5972TxNotification message="Transaction completed successfully!" statusId={txnId} />, {
-        duration: 10_000,
-      });
+      notification.success(
+        <EIP5972TxNotification message="Transaction completed successfully!" statusId={txnId.id} />,
+        {
+          duration: 10_000,
+        },
+      );
     } catch (error) {
       const parsedError = getParsedError(error);
       notification.error(parsedError);
