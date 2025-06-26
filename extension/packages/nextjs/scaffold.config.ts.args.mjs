@@ -1,1 +1,3 @@
-export const chainName = 'base';
+export const configOverrides = {
+  targetNetworks: ["$$chains.base$$"],
+};

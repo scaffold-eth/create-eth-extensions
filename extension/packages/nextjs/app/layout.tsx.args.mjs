@@ -1,1 +1,1 @@
-export const imports = 'import "@coinbase/onchainkit/styles.css";';
+export const preContent = 'import "@coinbase/onchainkit/styles.css";';
