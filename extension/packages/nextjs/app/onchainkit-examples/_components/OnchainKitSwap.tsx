@@ -1,4 +1,4 @@
-import { Swap, SwapAmountInput, SwapButton, SwapMessage, SwapToggleButton } from "@coinbase/onchainkit/swap";
+import { Swap, SwapAmountInput, SwapButton, SwapMessage, SwapToast, SwapToggleButton } from "@coinbase/onchainkit/swap";
 import type { Token } from "@coinbase/onchainkit/token";
 import { ConnectWallet } from "@coinbase/onchainkit/wallet";
 import { useAccount } from "wagmi";
@@ -27,12 +27,13 @@ export function OnchainKitSwap() {
   const swappableTokens: Token[] = [ETHToken, USDCToken];
 
   return address ? (
-    <Swap address={address}>
+    <Swap>
       <SwapAmountInput label="Sell" swappableTokens={swappableTokens} token={ETHToken} type="from" />
       <SwapToggleButton />
       <SwapAmountInput label="Buy" swappableTokens={swappableTokens} token={USDCToken} type="to" />
       <SwapButton />
       <SwapMessage />
+      <SwapToast />
     </Swap>
   ) : (
     <ConnectWallet />

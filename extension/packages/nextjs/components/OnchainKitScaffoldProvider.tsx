@@ -7,7 +7,7 @@ export const OnchainKitScaffoldProvider = ({ children }: PropsWithChildren) => {
   const { chain } = useAccount();
 
   return (
-    <OnchainKitProvider chain={chain || base} apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}>
+    <OnchainKitProvider chain={(chain as any) || base} apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}>
       {children}
     </OnchainKitProvider>
   );
