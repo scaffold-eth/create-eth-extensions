@@ -1,5 +1,8 @@
 {
   "scripts": {
     "your-script": "your-script"
+  },
+  "dependencies": {
+    "solady": "0.1.22"
   }
 }
