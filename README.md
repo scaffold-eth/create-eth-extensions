@@ -32,7 +32,7 @@ You can query data on a page using `@tanstack/react-query`. Check the code at `p
 
 ### Deploy
 
-To deploy the Ponder indexer please refer to the Ponder Deploy documentation https://ponder.sh/docs/production/deploy
+To deploy the Ponder indexer please refer to the Ponder Deploy documentation https://ponder.sh/docs/production/railway
 
 At **Settings** -> **Deploy** -> you must set **Custom Start Command** to `yarn ponder:start`.
 
