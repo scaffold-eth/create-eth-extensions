@@ -9,18 +9,16 @@ const EIP5792Page = () => {
           <span className="block text-4xl font-bold">EIP-5792 example</span>
         </h1>
         <p className="my-0 text-center">
-          This extension demonstrates how to use{" "}
+          This extension demonstrates an example on how to ask a{""}
           <a href="https://eips.ethereum.org/EIPS/eip-5792" className="underline-offset-1 underline" target="_blank">
             EIP-5792
           </a>{" "}
-          wallet capabilities. This EIP introduces new JSON-RPC methods for communication between apps and wallets. This
-          allows for more advanced interactions like submitting multiple onchain calls as part of a single transaction
-          or sponsoring users transactions via ERC-4337 paymasters.
+          compliant wallet to process a batch of onchain write calls and to check on the status of those calls.
         </p>
         <p className="my-0 text-center">
-          Below you can see an example of interacting with a contract using EIP-5792 compliant wallet (Coinbase Smart
-          Wallet). We can change the state of the contract by setting new greetings or incrementing the counter
-          individually or use the &quot;Batch(setGreetings + increment)&quot; button to send batched transaction.
+          Below you can see an example of interacting with a contract using EIP-5792 compliant wallet (burner wallet).
+          We can change the state of the contract by setting new greetings or incrementing the counter individually or
+          use the &quot;Batch(setGreetings + increment)&quot; button to send batched transaction.
         </p>
       </div>
       <ContractReadVariables />
