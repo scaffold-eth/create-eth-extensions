@@ -1,6 +1,16 @@
-export const imports = 'import "../styles/font-color.css";';
+export const preContent = `
+import "../styles/font-color.css";
+import { Space_Grotesk } from "next/font/google";
 
-export const metadata = {
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-space-grotesk",
+});
+`;
+
+export const metadataOverrides = {
   title: "Scaffold-ETH 2 Example Extension App (ERC-20)",
   description: "Built with 🏗 Scaffold-ETH 2",
 };
+
+export const htmlClassNames = "${spaceGrotesk.variable}";
