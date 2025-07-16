@@ -2,7 +2,7 @@ export const preContent = `
 import "./tasks"
 
 // Custom variables
-const CUSTOM_API_KEY = process.env.CUSTOM_API_KEY;
+// const CUSTOM_API_KEY = process.env.CUSTOM_API_KEY;
 `;
 
 export const configOverrides = {
