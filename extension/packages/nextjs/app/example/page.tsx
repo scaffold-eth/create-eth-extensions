@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { NextPage } from "next";
-import { formatEther, parseEther } from "viem";
+import { Address,formatEther, parseEther } from "viem";
 import { useAccount } from "wagmi";
 import { AddressInput, InputBase } from "~~/components/scaffold-eth";
 import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
@@ -136,7 +136,7 @@ const ERC20: NextPage = () => {
                 disabled={!toAddress || !amount}
                 onClick={async () => {
                   try {
-                    await writeSE2TokenAsync({ functionName: "transfer", args: [toAddress, parseEther(amount)] });
+                    await writeSE2TokenAsync({ functionName: "transfer", args: [toAddress as Address, parseEther(amount)] });
                     setToAddress("");
                     setAmount("");
                   } catch (e) {
