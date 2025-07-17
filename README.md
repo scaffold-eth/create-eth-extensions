@@ -16,10 +16,4 @@ Explore our curated (by BuidlGuidl) and community-contributed extensions for Sca
 
 ## Create your own extension
 
-You can extend Scaffold-ETH by creating your own extension. To do so, you need to create a new repository with the following structure:
-
-`ToDo`
-
-```bash
-npx create-eth@latest -e your-github-username/your-extension-repository:branch-name # branch-name is optional
-```
+Extend Scaffold-ETH by building and publishing your own extension. For a step-by-step guide, see the [official documentation](https://docs.scaffoldeth.io/extensions/createExtensions).
