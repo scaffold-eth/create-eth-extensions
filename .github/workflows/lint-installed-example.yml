@@ -47,17 +47,17 @@ jobs:
 
       - name: Install application (Hardhat with extension configuration)
         if: matrix.config == 'hardhat_with_extension'
-        run: npx create-eth@latest --yes new_project_hardhat_with_extension -s hardhat -e scaffold-eth/create-eth-extensions:example
+        run: npx --yes create-eth@latest new_project_hardhat_with_extension -s hardhat -e scaffold-eth/create-eth-extensions:example
 
       - name: Install application (Foundry with extension configuration)
         if: matrix.config == 'foundry_with_extension'
         run: |
           export PATH="$HOME/.config/.foundry/bin:$PATH"
-          npx create-eth@latest --yes new_project_foundry_with_extension -s foundry -e scaffold-eth/create-eth-extensions:example
+          npx --yes create-eth@latest new_project_foundry_with_extension -s foundry -e scaffold-eth/create-eth-extensions:example
 
       - name: Install application (No solidity framework with extension configuration)
         if: matrix.config == 'no_solidity_framework_with_extension'
-        run: npx create-eth@latest --yes new_project_no_solidity_framework_with_extension -s none -e scaffold-eth/create-eth-extensions:example
+        run: npx --yes create-eth@latest new_project_no_solidity_framework_with_extension -s none -e scaffold-eth/create-eth-extensions:example
 
       - name: Run chain and deploy
         working-directory: new_project_${{ matrix.config }}
