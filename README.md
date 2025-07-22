@@ -1,10 +1,12 @@
 # Ponder Extension for Scaffold-ETH 2
 
-Ponder is an open-source framework for blockchain application backends. With Ponder, you can rapidly build & deploy an API that serves custom data from smart contracts on any EVM blockchain.
+This extension integrates Ponder with Scaffold-ETH 2, making it easy to build and deploy a custom API that serves data from your smart contracts on any EVM chain. Ponder is an open-source backend framework for blockchain apps, helping you deliver custom data to your frontend quickly.
 
 ## Installation
 
-`npx create-eth@latest -e ponder`
+```bash
+npx create-eth@latest -e ponder
+```
 
 ## 🚀 Setup Ponder Extension
 
@@ -36,6 +38,6 @@ To deploy the Ponder indexer please refer to the Ponder Deploy documentation htt
 
 At **Settings** -> **Deploy** -> you must set **Custom Start Command** to `yarn ponder:start`.
 
-For faster indexing, you can add the ***startBlock*** to each deployed contract on the file `packages/nextjs/contracts/deployedContracts.ts`.
+For faster indexing, you can add the **_startBlock_** to each deployed contract on the file `packages/nextjs/contracts/deployedContracts.ts`.
 
 And then you have to set up the `NEXT_PUBLIC_PONDER_URL` env variable on your SE-2 dapp to use the deployed ponder indexer.
