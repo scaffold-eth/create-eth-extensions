@@ -1,8 +1,10 @@
-# 🏗 Scaffold-ETH 2 and The Graph
+# Subgraph Extension for Scaffold-ETH 2
 
-Uses a subgraph from The Graph to index and query blockchain data.
+This extension adds subgraph support to Scaffold-ETH 2, letting you index and query blockchain data efficiently using The Graph. Build rich UIs with fast, flexible access to on-chain information, and deploy your subgraph locally or to Subgraph Studio with ease.
 
-```shell
+## Installation
+
+```bash
 npx create-eth@latest -e subgraph
 ```
 
@@ -22,7 +24,7 @@ Having problems? Join the [👩‍🚀 🏗 Scaffold-ETH Subgraph Extension Supp
 
 Before you begin, you need to install the following tools:
 
-- [Node (>= v18.17)](https://nodejs.org/en/download/)
+- [Node (>= v20.18.3)](https://nodejs.org/en/download/)
 - Yarn ([v1](https://classic.yarnpkg.com/en/docs/install/) or [v2+](https://yarnpkg.com/getting-started/install))
 - [Git](https://git-scm.com/downloads)
 - [Docker](https://docs.docker.com/get-docker/)
