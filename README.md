@@ -1,12 +1,6 @@
-# ERC-721 NFT Extension for Scaffold-ETH 2
+# ERC-721 Extension for Scaffold-ETH 2
 
-This extension introduces an ERC-721 token contract and demonstrates how to use it, including getting the total supply and holder balance, listing all NFTs from the collection and NFTs from the connected address, and how to transfer NFTs.
-
-The ERC-721 Token Standard introduces a standard for Non-Fungible Tokens ([EIP-721](https://eips.ethereum.org/EIPS/eip-721)), in other words, each token is unique.
-
-The ERC-721 token contract is implemented using the [ERC-721 token implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol) from OpenZeppelin.
-
-The ERC-721 token implementation uses the [ERC-721 Enumerable extension](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721Enumerable.sol) from OpenZeppelin to list all tokens from the collection and all the tokens owned by an address. You can remove this if you plan to use an indexer, like a Subgraph or Ponder ([extensions available](https://scaffoldeth.io/extensions)).
+This extension brings ERC-721 NFT support to Scaffold-ETH 2, letting you deploy and interact with a standard non-fungible token contract. Mint, transfer, and list NFTs, check balances and total supply. Based on the [OpenZeppelin ERC-721 implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol) and [Enumerable extension](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721Enumerable.sol). [Learn more about ERC-721](https://eips.ethereum.org/EIPS/eip-721).
 
 ## Installation
 
