@@ -1,8 +1,6 @@
-# Randao Random Generator Extension for Scaffold-ETH 2
+# Randao Extension for Scaffold-ETH 2
 
-This extension shows how to use on-chain randomness using RANDAO for truly on-chain unpredictable random sources.
-
-Ethereum PoS introduces randomness using block.mixHash (prevRandao). Look at [EIP-4399](https://eips.ethereum.org/EIPS/eip-4399) for more information.
+This extension adds on-chain randomness to Scaffold-ETH 2 using RANDAO, giving your dapp access to unpredictable random values from Ethereum’s PoS protocol. Perfect for games, lotteries, or any app that needs secure randomness. See [EIP-4399](https://eips.ethereum.org/EIPS/eip-4399) for more details.
 
 ## Installation
 
