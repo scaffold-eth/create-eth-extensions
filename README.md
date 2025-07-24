@@ -1,6 +1,6 @@
-# EIP-712 extension
+# EIP-712 Extension for Scaffold-ETH 2
 
-This extension provides an example implementation of EIP-712, allowing you to send, sign, and verify typed messages in a user-friendly manner.
+This extension brings EIP-712 support to Scaffold-ETH 2, allowing you to send, sign, and verify typed messages in a user-friendly way. Perfect for projects that need secure, structured off-chain signatures. [Learn more about EIP-712](https://eips.ethereum.org/EIPS/eip-712).
 
 ## Installation
 
