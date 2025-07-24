@@ -1,10 +1,12 @@
 # Ponder Extension for Scaffold-ETH 2
 
-Ponder is an open-source framework for blockchain application backends. With Ponder, you can rapidly build & deploy an API that serves custom data from smart contracts on any EVM blockchain.
+This extension integrates Ponder with Scaffold-ETH 2, making it easy to build and deploy a custom API that serves data from your smart contracts on any EVM chain. Ponder is an open-source backend framework for blockchain apps, helping you deliver custom data to your frontend quickly.
 
 ## Installation
 
-`npx create-eth@latest -e ponder`
+```bash
+npx create-eth@latest -e ponder
+```
 
 ## 🚀 Setup Ponder Extension
 
