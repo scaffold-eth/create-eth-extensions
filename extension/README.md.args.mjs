@@ -10,6 +10,8 @@ export const extraContents = `# Example Extension (ERC-20)
 yarn chain
 \`\`\`
 
+${"$$solidityFrameWork$$" === "hardhat" ? `This will start hardhat local chain` : `This will start foundry chain`}
+
 > in a second terminal window, 🛰 deploy your contract (locally):
 
 \`\`\`
@@ -26,4 +28,4 @@ yarn start
 `;
 
 // If this is passed it will override the full content of the README file
-export const fullContentOverride = ""
+export const fullContentOverride = "";
