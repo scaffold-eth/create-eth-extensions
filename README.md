@@ -8,4 +8,4 @@ This extension brings [Porto](https://porto.sh/) SDK to Scaffold-ETH 2. Porto SD
 npx create-eth@latest -e porto
 ```
 
-Since porto currently [only supports](https://porto.sh/sdk/api/chains#supported-chains) one chain, just `baseSepolia` is enabled in `targetNetworks` of `scffold.config.ts`.
+> NOTE: porto currently [only supports](https://porto.sh/sdk/api/chains#supported-chains) `baseSepolia`.
