@@ -7,7 +7,7 @@ This repository holds all the BG curated extensions for [create-eth](https://git
 You can install any of the extensions in this repository by running the following command:
 
 ```bash
-npx create-eth@latest -e <extension-name>
+npx create-eth@latest -e porto
 ```
 
 ## Available Extensions

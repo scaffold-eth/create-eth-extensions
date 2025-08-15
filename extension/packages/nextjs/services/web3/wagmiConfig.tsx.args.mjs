@@ -1,0 +1,7 @@
+export const preContent = `
+import { porto } from "porto/wagmi";
+`;
+
+export const configOverrides = {
+  connectors: ["$$...wagmiConnectors$$", "$$porto()$$"],
+}
