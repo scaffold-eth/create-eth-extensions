@@ -1,19 +1,11 @@
-# 🔌 create-eth Extensions
+# Porto Extension for Scaffold-ETH 2
 
-This repository holds all the BG curated extensions for [create-eth](https://github.com/scaffold-eth/create-eth), so you can extend the functionality of your Scaffold-ETH project.
+This extension brings [Porto](https://porto.sh/) SDK to Scaffold-ETH 2. Porto SDK is a TypeScript library designed for Applications and Wallets to create, manage, and interact with universal next-gen accounts on Ethereum.
 
-## Usage
-
-You can install any of the extensions in this repository by running the following command:
+## Installation
 
 ```bash
 npx create-eth@latest -e porto
 ```
 
-## Available Extensions
-
-Explore our curated (by BuidlGuidl) and community-contributed extensions for Scaffold-ETH 2 at: https://scaffoldeth.io/extensions
-
-## Create your own extension
-
-Extend Scaffold-ETH by building and publishing your own extension. For a step-by-step guide, see the [official documentation](https://docs.scaffoldeth.io/extensions/createExtensions).
+Since porto currently [only supports](https://porto.sh/sdk/api/chains#supported-chains) one chain, just `baseSepolia` is enabled in `targetNetworks` of `scffold.config.ts`.
