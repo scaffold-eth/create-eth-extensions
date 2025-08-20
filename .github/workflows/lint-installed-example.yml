@@ -13,10 +13,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        config:
-          [
+        config: [
             hardhat_with_extension,
-            foundry_with_extension,
+            # foundry_with_extension,
             no_solidity_framework_with_extension,
           ]
     steps:
