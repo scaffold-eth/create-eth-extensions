@@ -3,7 +3,7 @@ name: Lint Installed Example
 on:
   push:
     branches:
-      - example-gh-action
+      - example
   pull_request:
     branches:
       - example
