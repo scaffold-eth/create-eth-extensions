@@ -1,4 +1,4 @@
-name: Lint Installed Example
+name: Lint Create-eth instances with example extension
 
 on:
   push:
