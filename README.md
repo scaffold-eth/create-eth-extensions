@@ -11,5 +11,13 @@ For general information about creating third party extensions, please see the [d
 ## Installation
 
 ```bash
-npx create-eth@latest -e example
+npx create-eth@latest -e <extension-name>
 ```
+
+## Available Extensions
+
+Explore our curated (by BuidlGuidl) and community-contributed extensions for Scaffold-ETH 2 at: https://scaffoldeth.io/extensions
+
+## Create your own extension
+
+Extend Scaffold-ETH by building and publishing your own extension. For a step-by-step guide, see the [official documentation](https://docs.scaffoldeth.io/extensions/createExtensions).
