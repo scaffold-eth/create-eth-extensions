@@ -47,16 +47,25 @@ jobs:
 
       - name: Install application (Hardhat with extension configuration)
         if: matrix.config == 'hardhat_with_extension'
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+          YARN_ENABLE_INLINE_BUILDS: false
         run: npx --yes create-eth@latest new_project_hardhat_with_extension -s hardhat -e scaffold-eth/create-eth-extensions:example
 
       - name: Install application (Foundry with extension configuration)
         if: matrix.config == 'foundry_with_extension'
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+          YARN_ENABLE_INLINE_BUILDS: false
         run: |
           export PATH="$HOME/.config/.foundry/bin:$PATH"
           npx --yes create-eth@latest new_project_foundry_with_extension -s foundry -e scaffold-eth/create-eth-extensions:example
 
       - name: Install application (No solidity framework with extension configuration)
         if: matrix.config == 'no_solidity_framework_with_extension'
+        env:
+          YARN_ENABLE_IMMUTABLE_INSTALLS: false
+          YARN_ENABLE_INLINE_BUILDS: false
         run: npx --yes create-eth@latest new_project_no_solidity_framework_with_extension -s none -e scaffold-eth/create-eth-extensions:example
 
       - name: Run chain and deploy
