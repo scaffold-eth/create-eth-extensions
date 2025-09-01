@@ -71,16 +71,16 @@ const Randao: NextPage = () => {
       values.push(blockData.transactionsRoot);
       values.push(blockData.receiptsRoot);
       values.push(blockData.logsBloom);
-      values.push(`0x${blockData.difficulty.toString(16)}`);
-      values.push(`0x${blockData.number.toString(16)}`);
-      values.push(`0x${blockData.gasLimit.toString(16)}`);
-      values.push(`0x${blockData.gasUsed.toString(16)}`);
-      values.push(`0x${blockData.timestamp.toString(16)}`);
+      values.push(toHex(blockData.difficulty));
+      values.push(toHex(blockData.number));
+      values.push(toHex(blockData.gasLimit));
+      values.push(toHex(blockData.gasUsed));
+      values.push(toHex(blockData.timestamp));
       values.push(blockData.extraData);
       values.push(blockData.mixHash);
       values.push(blockData.nonce);
       if ("baseFeePerGas" in blockData && blockData.baseFeePerGas !== null) {
-        values.push(`0x${blockData.baseFeePerGas.toString(16)}`);
+        values.push(toHex(blockData.baseFeePerGas));
       }
       if ("withdrawalsRoot" in blockData && blockData.withdrawalsRoot !== undefined) {
         values.push(blockData.withdrawalsRoot);
