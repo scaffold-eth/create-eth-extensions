@@ -61,12 +61,7 @@ const Randao: NextPage = () => {
 
   const getRandomNumber = async () => {
     try {
-      console.log("currentBlockNumber: ", currentBlockNumber);
-      console.log("targetBlockNumber: ", targetBlockNumber);
-
       const blockData = await publicClient.getBlock({ blockNumber: targetBlockNumber });
-
-      console.log("blockData: ", blockData);
 
       const values: `0x${string}`[] = [];
       values.push(blockData.parentHash);
@@ -106,7 +101,6 @@ const Randao: NextPage = () => {
         values.push(blockData.parentBeaconBlockRoot as `0x${string}`);
       }
 
-      console.log("blockData values: ", values);
       if ("requestsHash" in blockData && blockData.requestsHash !== undefined && blockData.requestsHash !== null) {
         values.push(blockData.requestsHash as `0x${string}`);
       }
@@ -119,13 +113,9 @@ const Randao: NextPage = () => {
           values[i] = ("0x0" + values[i].substring(2)) as `0x${string}`;
         }
       }
-      console.log("blockData values after: ", values);
 
       const rlpEncodedValues = toRlp(values);
-      console.log("blockData RLP: ", rlpEncodedValues);
-
       const blockHash = keccak256(rlpEncodedValues);
-      console.log("blockData hash: ", blockHash);
 
       if (blockHash !== blockData.hash) {
         notification.error("Block hash mismatch");
