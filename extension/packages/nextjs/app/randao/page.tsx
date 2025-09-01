@@ -107,6 +107,10 @@ const Randao: NextPage = () => {
       }
 
       console.log("blockData values: ", values);
+      if ("requestsHash" in blockData && blockData.requestsHash !== undefined && blockData.requestsHash !== null) {
+        values.push(blockData.requestsHash as `0x${string}`);
+      }
+
       for (let i = 0; i < values.length; i++) {
         if (values[i] === "0x0") {
           values[i] = "0x";
