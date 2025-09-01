@@ -18,7 +18,7 @@ const Randao: NextPage = () => {
     transport: http(),
   });
 
-  const { writeContractAsync: writeAsync } = useScaffoldWriteContract("RandomGenerator");
+  const { writeContractAsync: writeAsync } = useScaffoldWriteContract({ contractName: "RandomGenerator" });
 
   const { data: futureBlocks } = useScaffoldReadContract({
     contractName: "RandomGenerator",
