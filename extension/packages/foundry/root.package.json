@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "solidity-framework-root-script": "yarn workspace @se-2/foundry your-script",
     "foundry:your-script": "yarn workspace @se-2/foundry your-script"
   }
 }

@@ -1,6 +1,5 @@
 {
   "scripts": {
-    "solidity-framework-root-script": "yarn workspace @se-2/hardhat your-script",
     "hardhat:your-script": "yarn workspace @se-2/hardhat your-script"
   }
 }
