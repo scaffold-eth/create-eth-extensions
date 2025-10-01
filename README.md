@@ -1,6 +1,6 @@
 # Porto Extension for Scaffold-ETH 2
 
-This extension brings [Porto](https://porto.sh/) SDK to Scaffold-ETH 2. Porto SDK is a TypeScript library designed for Applications and Wallets to create, manage, and interact with universal next-gen accounts on Ethereum.
+This extension adds [Porto](https://porto.sh/) to the list of available wallets user can connect to in Scaffold-ETH 2.
 
 ## Installation
 
@@ -8,4 +8,4 @@ This extension brings [Porto](https://porto.sh/) SDK to Scaffold-ETH 2. Porto SD
 npx create-eth@latest -e porto
 ```
 
-> NOTE: porto currently [only supports](https://porto.sh/sdk/api/chains#supported-chains) `baseSepolia`.
+> NOTE: porto currently [only supports](https://porto.sh/sdk/api/chains#supported-chains) certain chain, so make sure to include only those chains in `scaffold.config.ts#targetNetworks`.
