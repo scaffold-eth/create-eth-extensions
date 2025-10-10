@@ -1,0 +1,17 @@
+name: envio-indexer
+contracts:
+  - name: YourContract
+    handler: src/EventHandlers.ts
+    events:
+      - event: GreetingChange(address indexed greetingSetter, string newGreeting, bool premium, uint256 value)
+networks:
+  - id: 31337
+    start_block: 1
+    rpc_config:
+      url: http://localhost:8545
+    contracts:
+      - name: YourContract
+        address:
+          - '0x5FbDB2315678afecb367f032d93F642f64180aa3'
+unordered_multichain_mode: true
+preload_handlers: true
