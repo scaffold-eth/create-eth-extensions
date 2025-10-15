@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "envio:update": "yarn workspace @se-2/envio-indexer-indexer update",
-    "envio:codegen": "yarn workspace @se-2/envio-indexer-indexer codegen",
-    "envio:dev": "yarn workspace @se-2/envio-indexer-indexer dev",
+    "envio:update": "yarn workspace @se-2/envio-indexer update",
+    "envio:codegen": "yarn workspace @se-2/envio-indexer codegen",
+    "envio:dev": "yarn workspace @se-2/envio-indexer dev",
     "envio:start": "yarn workspace @se-2/envio-indexer start",
     "envio:test": "yarn workspace @se-2/envio-indexer test",
     "envio:clean": "yarn workspace @se-2/envio-indexer clean",
