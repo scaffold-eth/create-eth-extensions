@@ -1,0 +1,8 @@
+type YourContract_GreetingChange {
+  id: ID!
+  greetingSetter: String!
+  newGreeting: String!
+  premium: Boolean!
+  value: BigInt!
+}
+
