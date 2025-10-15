@@ -17,6 +17,8 @@ npx create-eth@latest -e envio
 - **[Docker Desktop](https://www.docker.com/products/docker-desktop/)** _(required to run the Envio indexer locally)_
 - **[Yarn](https://yarnpkg.com/getting-started/install)** _(for Scaffold-ETH)_
 
+> **Note for Windows users** make sure to use [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) as your terminal.
+
 ### Step 1: Start the Local Blockchain
 
 ```bash
