@@ -5,7 +5,7 @@
 ### Run
 
 ```bash
-pnpm dev
+yarn envio:dev
 ```
 
 Visit http://localhost:8080 to see the GraphQL Playground, local password is `testing`.
@@ -13,7 +13,7 @@ Visit http://localhost:8080 to see the GraphQL Playground, local password is `te
 ### Generate files from `config.yaml` or `schema.graphql`
 
 ```bash
-pnpm codegen
+yarn envio:codegen
 ```
 
 ### Pre-requisites

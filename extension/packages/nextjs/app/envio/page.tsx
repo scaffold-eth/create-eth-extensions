@@ -148,11 +148,7 @@ const EnvioPage = () => {
         {/* Header */}
         <div className="text-center mb-8">
           <div className="flex items-center justify-center mb-4">
-            <img 
-              src="https://docs.envio.dev/img/envio-logo.png" 
-              alt="Envio Logo" 
-              className="h-16 w-auto"
-            />
+            <img src="https://docs.envio.dev/img/envio-logo.png" alt="Envio Logo" className="h-16 w-auto" />
           </div>
           <p className="text-lg text-base-content/70">The fastest, most flexible way to get on-chain data.</p>
         </div>
@@ -201,8 +197,8 @@ const EnvioPage = () => {
               <p className="text-sm text-base-content/70">
                 {indexerStatus === "inactive" ? (
                   <>
-                    Indexer is not running. Start the indexer by running <code>pnpm dev</code> in the{" "}
-                    <code>packages/envio</code> directory.
+                    Indexer is not running. Start the indexer by running <code>yarn envio:dev</code> from the project
+                    root.
                     <br />
                     (be sure to generate it first if you haven&apos;t already)
                   </>
@@ -465,14 +461,12 @@ const EnvioPage = () => {
                   ready to index all events from your deployed contracts. You can regenerate this at any time.
                 </p>
                 <p>
-                  <strong>Step 3:</strong> Run <code className="bg-base-200 px-1 rounded">pnpm dev</code> in the{" "}
-                  <code className="bg-base-200 px-1 rounded">packages/envio</code> directory to start the indexer. This
-                  will begin indexing your contract events.
+                  <strong>Step 3:</strong> Run <code className="bg-base-200 px-1 rounded">yarn envio:dev</code> from the
+                  project root to start the indexer. This will begin indexing your contract events.
                 </p>
                 <p>
                   <strong>Step 4:</strong> Customize your indexer in the{" "}
-                  <code className="bg-base-200 px-1 rounded">packages/envio</code> folder. All Envio commands should be
-                  run from this directory as your working root.
+                  <code className="bg-base-200 px-1 rounded">packages/envio</code> folder.
                   <br />
                   <strong>
                     *Note: Until the indexer has an event to process it will look like it&apos;s permanently loading.
@@ -495,7 +489,7 @@ const EnvioPage = () => {
                   <p className="text-sm text-base-content/80">
                     <strong>Note:</strong> If you regenerate the boilerplate indexer after making changes, you&apos;ll
                     need to stop the running indexer (Ctrl+C) and restart it with{" "}
-                    <code className="bg-base-200 px-1 rounded">pnpm dev</code>
+                    <code className="bg-base-200 px-1 rounded">yarn envio:dev</code>
                     for the changes to take effect.
                   </p>
                 </div>

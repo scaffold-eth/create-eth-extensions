@@ -14,10 +14,6 @@ This will create a complete Scaffold-ETH 2 project with the Envio indexer extens
 
 This extension adds **automatic Envio indexer generation** to your Scaffold-ETH 2 project, allowing you to index all your deployed smart contracts and query their data through a GraphQL API.
 
-
-
-
-
 ## ✨ What It Does
 
 - 🔍 **Generates boilerplate Envio indexer** from your deployed Scaffold-ETH contracts
@@ -26,46 +22,40 @@ This extension adds **automatic Envio indexer generation** to your Scaffold-ETH 
 - 🎯 **Automatic event detection** from your contract ABIs
 - 📈 **GraphQL API** for querying your indexed blockchain data
 
-
-
-
 ## 🔧 Available Commands
 
-> **Note:** These commands are for the Envio indexer within the Scaffold-ETH project and must be run from the `packages/envio` folder.
+All commands can be run from the project root:
 
 ```bash
-cd packages/envio
-
-pnpm update   # Generate indexer from deployed contracts
-pnpm codegen  # Generate TypeScript types
-pnpm dev      # Start indexer in development mode
-pnpm start    # Start indexer in production mode
-pnpm test     # Run indexer tests
+yarn envio:update   # Generate indexer from deployed contracts
+yarn envio:codegen  # Generate TypeScript types
+yarn envio:dev      # Start indexer in development mode
+yarn envio:start    # Start indexer in production mode
+yarn envio:test     # Run indexer tests
+yarn envio:clean    # Clean TypeScript build
+yarn envio:build    # Build TypeScript
 ```
-
-
-
-
 
 ## 🚀 Quick Start
 
 ### Prerequisites
+
 - **Node.js v20** (required)
-- **pnpm** (for Envio indexer)
 - **Docker** (for running the indexer)
 - **Yarn** (for Scaffold-ETH)
 
 ### Setup (After Creating Project with Extension)
+
 1. Deploy your contracts: `yarn deploy`
-2. Generate the indexer: `cd packages/envio && pnpm install && pnpm update && pnpm codegen`
-3. Start the indexer: `pnpm dev`
+2. Generate the indexer: `yarn envio:update && yarn envio:codegen`
+3. Start the indexer: `yarn envio:dev`
 4. Access the dashboard at `http://localhost:3000/envio`
 
 ## 🔄 Regenerating the Indexer
 
 **Via Frontend:** Go to the envio page (`http://localhost:3000/envio`) and click the "Generate" button.
 
-**Via Command Line:** `cd packages/envio && pnpm update && pnpm codegen`
+**Via Command Line:** `yarn envio:update && yarn envio:codegen`
 
 ---
 

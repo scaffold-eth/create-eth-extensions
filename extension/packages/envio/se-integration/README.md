@@ -13,6 +13,7 @@ The integration consists of three main components:
 ## Usage
 
 ### Manual Update (Recommended)
+
 The integration is designed to be triggered manually from the Scaffold-ETH frontend:
 
 1. Deploy your contracts using `yarn deploy`
@@ -20,28 +21,25 @@ The integration is designed to be triggered manually from the Scaffold-ETH front
 3. Click "Regenerate Boilerplate Indexer" button
 
 ### Command Line Update
+
 You can also run the update manually from the command line:
 
 ```bash
-# From the packages/envio directory
+# From the project root
+yarn envio:update
+
+# Or from the packages/envio directory
 pnpm update
-```
-
-### Custom Paths
-```bash
-# Specify custom scaffold-eth path
-pnpm run update -- --scaffold-path=/path/to/your/scaffold-eth
-
-# Specify custom envio directory
-pnpm run update -- --envio-dir=/path/to/your/envio
 ```
 
 ## What Files Are Parsed
 
 The integration reads only one scaffold-eth file:
+
 - `packages/nextjs/contracts/deployedContracts.ts` - Contract addresses, ABIs, events, and chain information
 
 This file contains all the necessary information including:
+
 - Chain IDs (from the object keys)
 - Contract addresses and ABIs
 - Event signatures (extracted from ABIs)
@@ -52,26 +50,29 @@ This file contains all the necessary information including:
 The integration generates these Envio files:
 
 ### config.yaml
+
 ```yaml
 name: envio-indexer
 networks:
-  - id: 31337  # Chain ID from scaffold.config.ts
-    start_block: 1  # Minimum deployed block
+  - id: 31337 # Chain ID from scaffold.config.ts
+    start_block: 1 # Minimum deployed block
     contracts:
-      - name: YourContract  # Contract name
+      - name: YourContract # Contract name
         address:
-          - '0x...'  # Contract address
+          - "0x..." # Contract address
         handler: src/EventHandlers.ts
         events:
-          - event: EventName(type1 param1, type2 param2)  # Event signatures
+          - event: EventName(type1 param1, type2 param2) # Event signatures
 unordered_multichain_mode: true
 preload_handlers: true
 ```
 
 ### schema.graphql
+
 GraphQL schema with entity definitions for each contract event.
 
 ### src/EventHandlers.ts
+
 TypeScript event handlers for processing blockchain events.
 
 ## Features
@@ -99,14 +100,15 @@ TypeScript event handlers for processing blockchain events.
 
 After running the update:
 
-1. Run `pnpm codegen` to generate TypeScript types
-2. Run `pnpm dev` to start the indexer
+1. Run `yarn envio:codegen` to generate TypeScript types
+2. Run `yarn envio:dev` to start the indexer
 3. Access the Envio console at http://localhost:9898
 4. Access the Hasura console at http://localhost:8080
 
 ## Troubleshooting
 
 ### Envio Codegen Errors
+
 If you see errors about missing RPC endpoints or HyperSync configuration, this is expected for local networks like hardhat. You may need to:
 
 1. Add RPC configuration to your envio config
@@ -114,29 +116,38 @@ If you see errors about missing RPC endpoints or HyperSync configuration, this i
 3. Configure historical sync with RPC URLs
 
 ### File Not Found Errors
+
 Make sure the scaffold-eth path is correct and the expected files exist:
+
 - `packages/nextjs/contracts/deployedContracts.ts`
 - `packages/nextjs/scaffold.config.ts`
 
 ### TypeScript Compilation Errors
-Ensure all dependencies are installed:
+
+Ensure all dependencies are installed from the project root:
+
 ```bash
-pnpm install
+yarn install
 ```
 
 ## Development
 
 ### Testing Individual Components
+
+From the envio package directory:
+
 ```bash
 # Test parser only
 ts-node se-integration/parseFiles.ts
 
 # Test config generation
-ts-node se-integration/updateConfig.ts
+ts-node se-integration/updateEnvio.ts
 ```
 
 ### Adding New Chain Support
+
 Edit the `getDefaultRpcUrl` function in `parseFiles.ts` to add support for new chains.
 
 ### Customizing Config Generation
+
 Modify the `generateEnvioConfig` function in `configGenerator.ts` to customize the generated config structure.
