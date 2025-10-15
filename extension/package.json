@@ -1,11 +1,11 @@
 {
   "scripts": {
-    "envio:update": "yarn workspace @se-2/envio update",
-    "envio:codegen": "yarn workspace @se-2/envio codegen",
-    "envio:dev": "yarn workspace @se-2/envio dev",
-    "envio:start": "yarn workspace @se-2/envio start",
-    "envio:test": "yarn workspace @se-2/envio test",
-    "envio:clean": "yarn workspace @se-2/envio clean",
-    "envio:build": "yarn workspace @se-2/envio build"
+    "envio:update": "yarn workspace @se-2/envio-indexer-indexer update",
+    "envio:codegen": "yarn workspace @se-2/envio-indexer-indexer codegen",
+    "envio:dev": "yarn workspace @se-2/envio-indexer-indexer dev",
+    "envio:start": "yarn workspace @se-2/envio-indexer start",
+    "envio:test": "yarn workspace @se-2/envio-indexer test",
+    "envio:clean": "yarn workspace @se-2/envio-indexer clean",
+    "envio:build": "yarn workspace @se-2/envio-indexer build"
   }
 }

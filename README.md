@@ -1,26 +1,80 @@
-# 🔍 Scaffold-ETH 2 + Envio Indexer Extension
+# Envio Indexer Extension for Scaffold-ETH 2
 
-> **⚠️ Important:** This repository contains the **extension code** that gets merged into Scaffold-ETH 2 projects. This codebase is not useful on its own - it's only what gets integrated when you create a new Scaffold-ETH project with this extension.
+This extension integrates Envio Indexer with Scaffold-ETH 2, it makes indexing your deployed smart contracts as simple as possible. Generate a boilerplate indexer for your deployed contracts with a single click and start indexing their events immediately and query their data through a GraphQL API.
 
-## 🚀 How to Use This Extension
-
-To create a new Scaffold-ETH 2 project with this Envio extension:
+## Installation
 
 ```bash
-npx create-eth@latest -e enviodev/scaffold-eth-2-extension
+npx create-eth@latest -e envio
 ```
 
-This will create a complete Scaffold-ETH 2 project with the Envio indexer extension already integrated.
+## 🚀 Quick Start
 
-This extension adds **automatic Envio indexer generation** to your Scaffold-ETH 2 project, allowing you to index all your deployed smart contracts and query their data through a GraphQL API.
+### Prerequisites
 
-## ✨ What It Does
+- **[Node.js v20](https://nodejs.org/en/download/current)** _(v20 or newer required)_
+- **[pnpm](https://pnpm.io/installation)** _(for Envio indexer)_
+- **[Docker Desktop](https://www.docker.com/products/docker-desktop/)** _(required to run the Envio indexer locally)_
+- **[Yarn](https://yarnpkg.com/getting-started/install)** _(for Scaffold-ETH)_
 
-- 🔍 **Generates boilerplate Envio indexer** from your deployed Scaffold-ETH contracts
-- 📊 **Status dashboard** with links to Envio metrics and database
-- 🔄 **One-click regeneration** to update the indexer when you deploy new contracts
-- 🎯 **Automatic event detection** from your contract ABIs
-- 📈 **GraphQL API** for querying your indexed blockchain data
+### Step 1: Start the Local Blockchain
+
+```bash
+cd your-project-name
+yarn chain
+```
+
+This will start a local blockchain node for development.
+
+### Step 2: Deploy Your Contracts
+
+In a new terminal window, navigate to your project directory and deploy the default smart contracts:
+
+```bash
+cd your-project-name
+yarn deploy
+```
+
+This will deploy the default contracts to the local blockchain. This step is optional and can also be done once you've created your own smart contracts and deployed them using `yarn deploy`.
+
+### Step 3: Start Scaffold-ETH Frontend
+
+From your project directory, start the Scaffold-ETH frontend:
+
+```bash
+yarn start
+```
+
+This will start the Scaffold-ETH frontend at `http://localhost:3000`.
+
+### Step 4: Generate the Indexer
+
+Navigate to the Envio page in your Scaffold-ETH frontend at `http://localhost:3000/envio` and click the **"Generate"** button. This should only be done once you've created a smart contract and ran `yarn deploy`. This will create the boilerplate indexer from your deployed contracts.
+
+The Envio page also includes a helpful "How to Use" section with step-by-step instructions.
+
+## Step 5: Start the Indexer
+
+To start the indexer:
+
+```bash
+yarn envio:dev
+```
+
+This will begin indexing your contract events.
+
+## Regenerating the Indexer
+
+When you deploy new contracts or make changes to existing ones, you'll need to regenerate the indexer:
+
+### Via Frontend Dashboard
+1. Go to the Envio page at `http://localhost:3000/envio`
+2. Click "Generate" to regenerate the boilerplate indexer
+
+### Via Command Line
+```bash
+yarn envio:update && yarn envio:codegen
+```
 
 ## 🔧 Available Commands
 
@@ -35,27 +89,6 @@ yarn envio:test     # Run indexer tests
 yarn envio:clean    # Clean TypeScript build
 yarn envio:build    # Build TypeScript
 ```
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- **Node.js v20** (required)
-- **Docker** (for running the indexer)
-- **Yarn** (for Scaffold-ETH)
-
-### Setup (After Creating Project with Extension)
-
-1. Deploy your contracts: `yarn deploy`
-2. Generate the indexer: `yarn envio:update && yarn envio:codegen`
-3. Start the indexer: `yarn envio:dev`
-4. Access the dashboard at `http://localhost:3000/envio`
-
-## 🔄 Regenerating the Indexer
-
-**Via Frontend:** Go to the envio page (`http://localhost:3000/envio`) and click the "Generate" button.
-
-**Via Command Line:** `yarn envio:update && yarn envio:codegen`
 
 ---
 

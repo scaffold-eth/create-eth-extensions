@@ -9,7 +9,7 @@ export async function POST() {
     console.log("🔄 API: Starting Envio config update...");
 
     // Run the update script using pnpm
-    const { stdout, stderr } = await execAsync("cd ../envio && pnpm run update");
+    const { stdout, stderr } = await execAsync("yarn envio:update");
 
     console.log("📊 Update script output:", stdout);
 

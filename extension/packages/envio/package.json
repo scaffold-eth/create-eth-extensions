@@ -1,5 +1,5 @@
 {
-  "name": "envio-indexer",
+  "name": "@se-2/envio-indexer",
   "version": "0.1.0",
   "private": true,
   "scripts": {
