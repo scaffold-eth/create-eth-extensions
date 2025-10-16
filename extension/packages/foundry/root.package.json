@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "foundry:your-script": "yarn workspace @se-2/foundry your-script"
+  }
+}

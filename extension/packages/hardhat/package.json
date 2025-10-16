@@ -1,5 +1,5 @@
 {
   "scripts": {
-    "your-script": "your-script"
+    "your-script": "echo 'Hardhat'"
   }
 }
