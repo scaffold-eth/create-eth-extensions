@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "hardhat:your-script": "yarn workspace @se-2/hardhat your-script"
+  }
+}

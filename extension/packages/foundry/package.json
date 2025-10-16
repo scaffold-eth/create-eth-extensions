@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "your-script": "your-script"
+    "your-script": "echo 'Foundry'"
   },
   "dependencies": {
     "solady": "0.1.22"
