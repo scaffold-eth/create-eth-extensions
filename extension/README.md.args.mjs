@@ -1,10 +1,10 @@
 export const skipQuickStart = true;
 
-export const extraContents = `# Example Extension (ERC-20)
+export const extraContents = ({ solidityFramework }) => `# Example Extension (ERC-20)
 
 ## Checkpoint 0: 📦 Environment 📚
 
-> Start your local network (a local instance of a blockchain):
+> Start your local ${solidityFramework} network (a local instance of a blockchain):
 
 \`\`\`
 yarn chain
@@ -26,4 +26,4 @@ yarn start
 `;
 
 // If this is passed it will override the full content of the README file
-export const fullContentOverride = ""
+export const fullContentOverride = "";
