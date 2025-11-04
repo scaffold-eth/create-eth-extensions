@@ -5,7 +5,7 @@ import { AllNfts } from "./components/AllNfts";
 import { MyNfts } from "./components/MyNfts";
 import type { NextPage } from "next";
 import { useAccount } from "wagmi";
-import { AddressInput, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
+import { AddressInput, RainbowKitCustomConnectButton } from "@scaffold-ui/components";
 import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
 const ERC721: NextPage = () => {

@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { Collectible } from "./MyNfts";
-import { Address, AddressInput } from "~~/components/scaffold-eth";
+import { Address, AddressInput } from "@scaffold-ui/components";
+import { hardhat } from "viem/chains";
 import { useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
+import { useTargetNetwork } from "~~/hooks/scaffold-eth";
 
 export const NFTCard = ({ nft, transfer }: { nft: Collectible; transfer?: boolean }) => {
   const [transferToAddress, setTransferToAddress] = useState("");
+  const { targetNetwork } = useTargetNetwork();
 
   const { writeContractAsync } = useScaffoldWriteContract("SE2NFT");
 
@@ -23,7 +26,13 @@ export const NFTCard = ({ nft, transfer }: { nft: Collectible; transfer?: boolea
         </div>
         <div className="flex space-x-3 mt-1 items-center">
           <span className="text-lg font-semibold">Owner : </span>
-          <Address address={nft.owner} />
+          <Address
+            address={nft.owner}
+            chain={targetNetwork}
+            blockExplorerAddressLink={
+              targetNetwork.id === hardhat.id ? `/blockexplorer/address/${nft.owner}` : undefined
+            }
+          />
         </div>
         {transfer && (
           <>
