@@ -1,12 +1,15 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Address } from "~~/components/scaffold-eth";
+import { Address } from "@scaffold-ui/components";
+import { hardhat } from "viem/chains";
 import { GetGreetingsDocument, execute } from "~~/.graphclient";
+import { useTargetNetwork } from "~~/hooks/scaffold-eth";
 
 const GreetingsTable = () => {
   const [greetingsData, setGreetingsData] = useState<any>(null);
   const [error, setError] = useState<any>(null);
+  const { targetNetwork } = useTargetNetwork();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -46,7 +49,15 @@ const GreetingsTable = () => {
               <tr key={greeting.id}>
                 <th>{index + 1}</th>
                 <td>
-                  <Address address={greeting?.sender?.address} />
+                  <Address
+                    address={greeting?.sender?.address}
+                    chain={targetNetwork}
+                    blockExplorerAddressLink={
+                      targetNetwork.id === hardhat.id
+                        ? `/blockexplorer/address/${greeting?.sender?.address}`
+                        : undefined
+                    }
+                  />
                 </td>
                 <td>{greeting.greeting}</td>
               </tr>
