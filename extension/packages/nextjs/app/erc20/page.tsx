@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { NextPage } from "next";
 import { formatEther, parseEther } from "viem";
 import { useAccount } from "wagmi";
-import { AddressInput, InputBase } from "~~/components/scaffold-eth";
+import { AddressInput, BaseInput as InputBase } from "@scaffold-ui/components";
 import { useScaffoldReadContract, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 
 const ERC20: NextPage = () => {
