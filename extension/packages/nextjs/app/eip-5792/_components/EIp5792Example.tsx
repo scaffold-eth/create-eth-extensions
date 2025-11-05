@@ -4,7 +4,7 @@ import { useState } from "react";
 import { EIP5972TxNotification } from "./EIP5792TxNotification";
 import { useAccount, useConnect } from "wagmi";
 import { useCapabilities, useWriteContracts } from "wagmi/experimental";
-import { InputBase } from "~~/components/scaffold-eth";
+import { BaseInput as InputBase } from "@scaffold-ui/components";
 import { useDeployedContractInfo, useScaffoldWriteContract } from "~~/hooks/scaffold-eth";
 import { getParsedError, notification } from "~~/utils/scaffold-eth";
 
