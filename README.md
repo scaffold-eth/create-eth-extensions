@@ -22,7 +22,7 @@ Before you begin, you need to install the following tools:
 1. Install the extension with
 
 ```
-npx create-eth@latest -e carletex/x402-extension
+npx create-eth@latest -e x402
 ```
 
 2. Go to the destination directory and start the frontend:
