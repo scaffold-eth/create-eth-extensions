@@ -22,7 +22,7 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
   ipfs:
-    image: ipfs/go-ipfs:v0.39.0
+    image: ipfs/kubo:v0.39.0
     ports:
       - "5001:5001"
     volumes:
