@@ -78,8 +78,8 @@ const PonderGreetings: NextPage = () => {
                 packages / ponder / ponder.schema.tsx
               </code>{" "}
               following the Ponder documentation at{" "}
-              <a target="_blank" href="https://ponder.sh/docs/schema" className="underline font-bold text-nowrap">
-                https://ponder.sh/docs/schema
+              <a target="_blank" href="https://ponder.sh/docs/schema/tables" className="underline font-bold text-nowrap">
+                https://ponder.sh/docs/schema/tables
               </a>
             </p>
             <p>
@@ -90,10 +90,10 @@ const PonderGreetings: NextPage = () => {
               (
               <a
                 target="_blank"
-                href="https://ponder.sh/docs/indexing/create-update-records"
+                href="https://ponder.sh/docs/indexing/overview"
                 className="underline font-bold text-nowrap"
               >
-                https://ponder.sh/docs/indexing/create-update-records
+                https://ponder.sh/docs/indexing/overview
               </a>
               )
             </p>
