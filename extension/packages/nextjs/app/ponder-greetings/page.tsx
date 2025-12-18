@@ -36,7 +36,7 @@ const fetchGreetings = async () => {
     }
   `;
   const data = await request<GreetingsData>(
-    process.env.NEXT_PUBLIC_PONDER_URL || "http://localhost:42069",
+    `${process.env.NEXT_PUBLIC_PONDER_URL || "http://localhost:42069"}/graphql`,
     GreetingsQuery,
   );
   return data;
