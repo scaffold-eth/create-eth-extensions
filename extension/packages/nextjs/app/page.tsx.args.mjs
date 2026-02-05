@@ -109,7 +109,7 @@ const Home: NextPage = () => {
 
             <div className="grid md:grid-cols-3 gap-6">
               <a
-                href="https://x402.gitbook.io/x402"
+                href="https://docs.cdp.coinbase.com/x402/welcome"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start bg-base-200 px-6 py-6 rounded-2xl hover:shadow-lg transition-all"
@@ -141,17 +141,17 @@ const Home: NextPage = () => {
               </a>
 
               <a
-                href="https://www.npmjs.com/package/x402-next"
+                href="https://www.npmjs.com/package/@x402/next"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-start bg-base-200 px-6 py-6 rounded-2xl hover:shadow-lg transition-all"
               >
                 <div>
                   <h3 className="text-lg font-bold mb-2 flex items-center">
-                    x402-next Package
+                    @x402/next Package
                     <ArrowTopRightOnSquareIcon className="h-4 w-4 ml-2" />
                   </h3>
-                  <p className="text-sm text-base-content/70">Next.js middleware for payment-gated routes</p>
+                  <p className="text-sm text-base-content/70">Next.js middleware for payment-gated routes (v2)</p>
                 </div>
               </a>
             </div>
