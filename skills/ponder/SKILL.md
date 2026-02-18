@@ -1,3 +1,8 @@
+---
+name: ponder
+description: "Integrate Ponder into a Scaffold-ETH 2 project for blockchain event indexing. Use when the user wants to: index contract events, add a blockchain backend, set up GraphQL for onchain data, use Ponder with SE-2, or build an indexer for their dApp."
+---
+
 # Ponder Integration for Scaffold-ETH 2
 
 ## Overview

@@ -10,13 +10,7 @@ AI skills for extending [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffol
 
 ## Usage
 
-Install a skill using the sandgarden CLI:
-
-```bash
-npx skills add ponder
-```
-
-Or point your AI agent directly at the skill file (`skills/ponder/SKILL.md`) for the full integration knowledge.
+Point your AI agent directly at the skill file (`skills/ponder/SKILL.md`) for the full integration knowledge.
 
 ## How Skills Work
 
