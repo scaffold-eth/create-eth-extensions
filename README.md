@@ -1,41 +1,25 @@
-# Ponder Extension for Scaffold-ETH 2
+# Scaffold-ETH 2 Extensions — AI Skills
 
-This extension integrates Ponder with Scaffold-ETH 2, making it easy to build and deploy a custom API that serves data from your smart contracts on any EVM chain. Ponder is an open-source backend framework for blockchain apps, helping you deliver custom data to your frontend quickly.
+AI skills for extending [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffold-eth-2) projects. Each skill gives an AI agent the knowledge it needs to integrate a technology into an SE-2 app.
 
-## Installation
+## Available Skills
+
+| Skill | Description |
+|-------|-------------|
+| [Ponder](./skills/ponder/SKILL.md) | Blockchain event indexing with [Ponder](https://ponder.sh/) — automatically indexes deployed contract events and serves data via GraphQL |
+
+## Usage
+
+Install a skill using the sandgarden CLI:
 
 ```bash
-npx create-eth@latest -e ponder
+npx skills add ponder
 ```
 
-## 🚀 Setup Ponder Extension
+Or point your AI agent directly at the skill file (`skills/ponder/SKILL.md`) for the full integration knowledge.
 
-### Config
+## How Skills Work
 
-Ponder config (`packages/ponder/ponder.config.ts`) is set automatically from the deployed contracts and using the first blockchain network setup at `packages/nextjs/scaffold.config.ts`.
+Unlike traditional template-based extensions that merge files mechanically, skills are **knowledge documents**. They contain everything an AI agent needs to know — dependencies, configuration patterns, integration points, and examples — organized by concern rather than as rigid step-by-step instructions.
 
-### Design your schema
-
-You can define your Ponder data schema on the file at `packages/ponder/ponder.schema.ts` following the Ponder documentation (https://ponder.sh/docs/schema).
-
-### Indexing data
-
-You can index events by adding files to `packages/ponder/src/` (https://ponder.sh/docs/indexing/write-to-the-database)
-
-### Start the development server
-
-Run `yarn ponder:dev` to start the Ponder development server, for indexing and serving the GraphQL API endpoint at http://localhost:42069
-
-### Query the GraphQL API
-
-With the dev server running, open http://localhost:42069 in your browser to use the GraphiQL interface. GraphiQL is a useful tool for exploring your schema and testing queries during development. (https://ponder.sh/docs/query/graphql)
-
-You can query data on a page using `@tanstack/react-query`. Check the code at `packages/nextjs/app/greetings/page.ts` to get the greetings updates data and show it.
-
-### Deploy
-
-To deploy the Ponder indexer please refer to the Ponder Deploy documentation https://ponder.sh/docs/production/railway
-
-At **Settings** -> **Deploy** -> you must set **Custom Start Command** to `yarn ponder:start`.
-
-And then you have to set up the `NEXT_PUBLIC_PONDER_URL` env variable on your SE-2 dapp to use the deployed ponder indexer.
+The AI reads the skill and applies it intelligently to the specific project, adapting to existing code and user preferences.
