@@ -8,7 +8,12 @@ For anything not covered here, refer to the [Ponder docs](https://ponder.sh/docs
 
 ## SE-2 Project Context
 
-SE-2 is a yarn (v3) monorepo. The packages relevant to Ponder integration:
+Scaffold-ETH 2 (SE-2) is a yarn (v3) monorepo for building dApps on Ethereum. It comes in two flavors based on the Solidity framework:
+
+- **Hardhat flavor** — contracts at `packages/hardhat/contracts/`, deploy scripts at `packages/hardhat/deploy/`
+- **Foundry flavor** — contracts at `packages/foundry/contracts/`, deploy scripts at `packages/foundry/script/`
+
+Check which exists in the project to know the flavor. Both flavors share:
 
 - **`packages/nextjs/`** — React frontend (Next.js App Router, Tailwind + DaisyUI, RainbowKit, Wagmi, Viem). Uses `~~` path alias for imports.
 - **`packages/nextjs/contracts/deployedContracts.ts`** — auto-generated after `yarn deploy`, contains ABIs, addresses, and deployment block numbers for all contracts, keyed by chain ID.
