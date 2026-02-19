@@ -9,31 +9,31 @@ description: "Integrate Ponder into a Scaffold-ETH 2 project for blockchain even
 
 [Ponder](https://ponder.sh/) is an open-source framework for blockchain application backends. It indexes smart contract events and serves the data via a GraphQL API. This skill covers integrating Ponder into a Scaffold-ETH 2 (SE-2) project.
 
-For anything not covered here, refer to the [Ponder docs](https://ponder.sh/docs/get-started) or search the web — this skill provides the SE-2-specific integration knowledge, not a complete Ponder reference.
+For anything not covered here, refer to the [Ponder docs](https://ponder.sh/docs/get-started) or search the web. This skill provides the SE-2-specific integration knowledge, not a complete Ponder reference.
 
 ## SE-2 Project Context
 
 Scaffold-ETH 2 (SE-2) is a yarn (v3) monorepo for building dApps on Ethereum. It comes in two flavors based on the Solidity framework:
 
-- **Hardhat flavor** — contracts at `packages/hardhat/contracts/`, deploy scripts at `packages/hardhat/deploy/`
-- **Foundry flavor** — contracts at `packages/foundry/contracts/`, deploy scripts at `packages/foundry/script/`
+- **Hardhat flavor**: contracts at `packages/hardhat/contracts/`, deploy scripts at `packages/hardhat/deploy/`
+- **Foundry flavor**: contracts at `packages/foundry/contracts/`, deploy scripts at `packages/foundry/script/`
 
 Check which exists in the project to know the flavor. Both flavors share:
 
-- **`packages/nextjs/`** — React frontend (Next.js App Router, Tailwind + DaisyUI, RainbowKit, Wagmi, Viem). Uses `~~` path alias for imports.
-- **`packages/nextjs/contracts/deployedContracts.ts`** — auto-generated after `yarn deploy`, contains ABIs, addresses, and deployment block numbers for all contracts, keyed by chain ID.
-- **`packages/nextjs/scaffold.config.ts`** — project config including `targetNetworks` (array of viem chain objects).
-- **Root `package.json`** — monorepo scripts that proxy into workspaces (e.g. `yarn chain`, `yarn deploy`, `yarn start`).
+- **`packages/nextjs/`**: React frontend (Next.js App Router, Tailwind + DaisyUI, RainbowKit, Wagmi, Viem). Uses `~~` path alias for imports.
+- **`packages/nextjs/contracts/deployedContracts.ts`**: auto-generated after `yarn deploy`, contains ABIs, addresses, and deployment block numbers for all contracts, keyed by chain ID.
+- **`packages/nextjs/scaffold.config.ts`**: project config including `targetNetworks` (array of viem chain objects).
+- **Root `package.json`**: monorepo scripts that proxy into workspaces (e.g. `yarn chain`, `yarn deploy`, `yarn start`).
 
-Ponder gets added as a new workspace at `packages/ponder/`. The key integration point is that Ponder reads `deployedContracts` and `scaffold.config` from the nextjs package — so it automatically knows about all deployed contracts without duplicating ABIs or addresses.
+Ponder gets added as a new workspace at `packages/ponder/`. The key integration point is that Ponder reads `deployedContracts` and `scaffold.config` from the nextjs package, so it automatically knows about all deployed contracts without duplicating ABIs or addresses.
 
-Look at the actual project structure and contracts before setting things up — adapt to what's there rather than following this skill rigidly.
+Look at the actual project structure and contracts before setting things up. Adapt to what's there rather than following this skill rigidly.
 
 ## Dependencies & Scripts
 
 ### Ponder package (`packages/ponder/`)
 
-The `packages/ponder/package.json` should follow SE-2's workspace naming convention (`@se-2/ponder`). Reference structure with minimum version requirements — check [npm](https://www.npmjs.com/package/ponder) or the [Ponder docs](https://ponder.sh/docs/requirements) for the latest versions before installing:
+The `packages/ponder/package.json` should follow SE-2's workspace naming convention (`@se-2/ponder`). Reference structure with minimum version requirements. Check [npm](https://www.npmjs.com/package/ponder) or the [Ponder docs](https://ponder.sh/docs/requirements) for the latest versions before installing:
 
 ```json
 {
@@ -113,9 +113,9 @@ The frontend uses `NEXT_PUBLIC_PONDER_URL` to know where the Ponder API lives (d
 
 ## Ponder Package Configuration
 
-### ponder.config.ts — bridging SE-2 and Ponder
+### ponder.config.ts - bridging SE-2 and Ponder
 
-The config needs to read SE-2's deployed contracts and scaffold config so Ponder is aware of what to index. Here's a reference implementation that dynamically builds the Ponder config from SE-2's data — adapt it based on the project's actual setup (e.g., if multiple networks are needed, or if contracts should be filtered):
+The config needs to read SE-2's deployed contracts and scaffold config so Ponder is aware of what to index. Here's a reference implementation that dynamically builds the Ponder config from SE-2's data. Adapt it based on the project's actual setup (e.g., if multiple networks are needed, or if contracts should be filtered):
 
 ```ts
 import { createConfig } from "ponder";
@@ -155,7 +155,7 @@ export default createConfig({
 
 ### Schema definition
 
-The schema in `ponder.schema.ts` should reflect the project's actual contract events — look at what events the deployed contracts emit and design tables to capture that data. Each `onchainTable` defines a table that Ponder populates during indexing.
+The schema in `ponder.schema.ts` should reflect the project's actual contract events. Look at what events the deployed contracts emit and design tables to capture that data. Each `onchainTable` defines a table that Ponder populates during indexing.
 
 Solidity-to-Ponder type reference:
 
@@ -170,7 +170,7 @@ Solidity-to-Ponder type reference:
 
 Additional column types: `t.real()` (floats), `t.timestamp()` (Date), `t.json()` (arbitrary JSON). Columns support modifiers: `.primaryKey()`, `.notNull()`, `.default(value)`, `.array()`. See [schema docs](https://ponder.sh/docs/schema/tables) for the full API including composite primary keys, indexes, and enums.
 
-Syntax example (for a greeting event — your schema will differ based on the actual contracts):
+Syntax example (for a greeting event, your schema will differ based on the actual contracts):
 
 ```ts
 import { onchainTable } from "ponder";
@@ -209,7 +209,7 @@ ponder.on("YourContract:GreetingChange", async ({ event, context }) => {
 
 ### GraphQL API
 
-Ponder serves data via a Hono-based API. This is mostly boilerplate — a minimal `packages/ponder/src/api/index.ts`:
+Ponder serves data via a Hono-based API. This is mostly boilerplate. A minimal `packages/ponder/src/api/index.ts`:
 
 ```ts
 import { db } from "ponder:api";
@@ -224,25 +224,25 @@ app.use("/graphql", graphql({ db, schema }));
 export default app;
 ```
 
-Custom API routes can be added to this Hono app if GraphQL alone isn't sufficient — see [Ponder API docs](https://ponder.sh/docs/query/api-endpoints).
+Custom API routes can be added to this Hono app if GraphQL alone isn't sufficient. See [Ponder API docs](https://ponder.sh/docs/query/api-endpoints).
 
 ### Boilerplate files
 
-These are standard Ponder project files — nothing SE-2-specific, just needed for Ponder to work:
+These are standard Ponder project files, nothing SE-2-specific, just needed for Ponder to work:
 
-- **`ponder-env.d.ts`** — type declarations for Ponder's virtual modules (`ponder:registry`, `ponder:schema`, `ponder:api`, etc.)
-- **`tsconfig.json`** — standard strict TS config with `moduleResolution: "bundler"`, `module: "ESNext"`, `target: "ES2022"`
-- **`.gitignore`** — should include `node_modules`, `.ponder`, `/generated/`
+- **`ponder-env.d.ts`**: type declarations for Ponder's virtual modules (`ponder:registry`, `ponder:schema`, `ponder:api`, etc.)
+- **`tsconfig.json`**: standard strict TS config with `moduleResolution: "bundler"`, `module: "ESNext"`, `target: "ES2022"`
+- **`.gitignore`**: should include `node_modules`, `.ponder`, `/generated/`
 
 ## SE-2 Integration
 
 ### Header navigation
 
-The SE-2 header has a menu links array — add a navigation tab for the Ponder page. Pick an appropriate icon from `@heroicons/react/24/outline` that fits the context of data indexing.
+The SE-2 header has a menu links array. Add a navigation tab for the Ponder page. Pick an appropriate icon from `@heroicons/react/24/outline` that fits the context of data indexing.
 
 ### Frontend page
 
-The frontend needs a page to display Ponder-indexed data. Use `graphql-request` and `@tanstack/react-query` (both available in SE-2) to query the Ponder API. The GraphQL query shape depends on what you defined in `ponder.schema.ts` — Ponder auto-generates queries from your schema, with each `onchainTable` getting a pluralized query with `items`, `orderBy`, and `orderDirection` support.
+The frontend needs a page to display Ponder-indexed data. Use `graphql-request` and `@tanstack/react-query` (both available in SE-2) to query the Ponder API. The GraphQL query shape depends on what you defined in `ponder.schema.ts`. Ponder auto-generates queries from your schema, with each `onchainTable` getting a pluralized query with `items`, `orderBy`, and `orderDirection` support.
 
 Fetch pattern for reference:
 
@@ -265,9 +265,9 @@ const fetchData = async () => {
 const { data } = useQuery({ queryKey: ["ponder-data"], queryFn: fetchData });
 ```
 
-Build out the UI based on the indexed data and the project's existing patterns — SE-2 uses `@scaffold-ui/components` for blockchain/Ethereum components (addresses, balances, etc.) and DaisyUI + Tailwind for general component and styling. Whether this is a new page or integrated into an existing one depends on the project.
+Build out the UI based on the indexed data and the project's existing patterns. SE-2 uses `@scaffold-ui/components` for blockchain/Ethereum components (addresses, balances, etc.) and DaisyUI + Tailwind for general component and styling. Whether this is a new page or integrated into an existing one depends on the project.
 
 ## Development & Deployment
 
-- `yarn ponder:dev` starts the dev server with hot reload — GraphiQL explorer available at `http://localhost:42069` for testing queries interactively.
+- `yarn ponder:dev` starts the dev server with hot reload. GraphiQL explorer available at `http://localhost:42069` for testing queries interactively.
 - For production deployment, see [Ponder deployment docs](https://ponder.sh/docs/production/railway). Key things: set `PONDER_RPC_URL_{chainId}` with a production RPC, optionally configure `DATABASE_URL` for Postgres (defaults to PGlite in dev), and point the frontend's `NEXT_PUBLIC_PONDER_URL` to the deployed Ponder URL.
