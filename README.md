@@ -1,19 +1,14 @@
-# ERC-20 Extension for Scaffold-ETH 2
+# ERC-20 Token - AI Skill for Scaffold-ETH 2
 
-This extension adds ERC-20 token support to Scaffold-ETH 2, letting you deploy and interact with a standard fungible token contract. It comes with example usage and helpful components, serving as a starter kit for building ERC-20-based dApps. Check balances, transfer tokens, and explore how ERC-20 works in practice. Based on the [OpenZeppelin ERC-20 implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC20/ERC20.sol). [Learn more about ERC-20](https://eips.ethereum.org/EIPS/eip-20).
+AI skill for adding [ERC-20](https://eips.ethereum.org/EIPS/eip-20) token support to [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffold-eth-2) projects. Deploy and interact with a standard fungible token contract using [OpenZeppelin's ERC-20 implementation](https://docs.openzeppelin.com/contracts/5.x/erc20).
 
-## Installation
+## Usage
 
-```bash
-npx create-eth@latest -e erc-20
-```
+Point your AI agent at [`skills/erc-20/SKILL.md`](./skills/erc-20/SKILL.md) for the full integration knowledge.
 
-## 🚀 Setup extension
+## What It Covers
 
-Deploy your contract running `yarn deploy`
-
-## Interact with the token
-
-Start the front-end with `yarn start` and go to the _/erc20_ page to interact with your deployed ERC-20 token.
-
-You can check the code at `packages/nextjs/app/erc20/page.tsx`.
+- ERC-20 token contract setup with OpenZeppelin
+- Deployment scripts for both Hardhat and Foundry flavors
+- Frontend page for minting, balance checks, and token transfers
+- SE-2 scaffold hooks integration (`useScaffoldReadContract`, `useScaffoldWriteContract`)
