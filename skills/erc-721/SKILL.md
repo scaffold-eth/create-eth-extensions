@@ -27,7 +27,7 @@ Check which exists in the project to know the flavor. Both flavors share:
 
 SE-2 uses `@scaffold-ui/components` for blockchain/Ethereum components (addresses, balances, etc.) and DaisyUI + Tailwind for general component and styling.
 
-An ERC-721 contract is a standard smart contract, so it lives directly in the existing contracts package (Hardhat or Foundry). No new workspace is needed. The deployment scripts go alongside the existing deploy scripts, and the frontend page goes in the nextjs package. After deployment, `deployedContracts.ts` auto-generates the ABI and address, so the frontend can interact with the NFT contract using SE-2's scaffold hooks (`useScaffoldReadContract`, `useScaffoldWriteContract`, `useScaffoldContract`).
+The deployment scripts go alongside the existing deploy scripts, and the frontend page goes in the nextjs package. After deployment, `deployedContracts.ts` auto-generates the ABI and address, so the frontend can interact with the NFT contract using SE-2's scaffold hooks (`useScaffoldReadContract`, `useScaffoldWriteContract`, `useScaffoldContract`).
 
 Look at the actual project structure and contracts before setting things up. Adapt to what's there rather than following this skill rigidly.
 
