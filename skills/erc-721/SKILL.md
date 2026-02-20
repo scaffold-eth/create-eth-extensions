@@ -200,10 +200,6 @@ Mitigations: Update state before `_safeMint`/`safeTransferFrom` (checks-effects-
 
 NFTs used for governance (each NFT = 1 vote) can be manipulated via flash loans: borrow NFTs, vote, return them. Use `ERC721Votes` with checkpoints and voting delays rather than raw `balanceOf()` for governance.
 
-### `_mint` vs `_safeMint`
-
-`_mint` does not call `onERC721Received` and has no reentrancy risk, but if the recipient is a contract that can't handle ERC-721, the token is stuck forever. `_safeMint` checks the recipient but opens the reentrancy vector. OpenZeppelin recommends `_safeMint` with proper reentrancy protection.
-
 ## Royalties (ERC-2981)
 
 ERC-2981 defines a standard `royaltyInfo(tokenId, salePrice)` function that returns the royalty receiver and amount. OpenZeppelin provides `ERC721Royalty` to implement this.
@@ -230,8 +226,6 @@ function _update(address to, uint256 tokenId, address auth)
 }
 ```
 
-This allows minting and burning but blocks all transfers.
-
 ## Well-Known NFT Contracts (Ethereum Mainnet)
 
 | Collection | Address | Notes |
@@ -242,12 +236,10 @@ This allows minting and burning but blocks all transfers.
 | Azuki | `0xED5AF388653567Af2F388E6224dC7C4b3241C544` | Uses ERC721A for gas-optimized batch minting |
 | Pudgy Penguins | `0xBd3531dA5CF5857e7CfAA92426877b022e612cf8` | 8,888 penguins |
 
-Note: CryptoPunks is the most famous NFT collection but is not actually ERC-721 compliant. It was deployed before the standard existed.
-
 ## Development
 
 1. `yarn chain` to start the local blockchain
 2. `yarn deploy` to deploy the NFT contract (generates `deployedContracts.ts`)
 3. `yarn start` to run the frontend
 
-Add a page and navigation link for interacting with the NFT. The frontend typically needs: a mint button, a gallery of all minted NFTs (with images loaded from metadata), a view of the connected user's NFTs, and transfer functionality. SE-2's scaffold hooks and components handle the contract interaction out of the box.
+Add a page and navigation link for interacting with the NFT. SE-2's scaffold hooks and components handle the contract interaction out of the box.
