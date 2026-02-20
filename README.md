@@ -1,19 +1,17 @@
-# ERC-721 Extension for Scaffold-ETH 2
+# ERC-721 NFT - AI Skill for Scaffold-ETH 2
 
-This extension brings ERC-721 NFT support to Scaffold-ETH 2, letting you deploy and interact with a standard non-fungible token contract. Mint, transfer, and list NFTs, check balances and total supply. Based on the [OpenZeppelin ERC-721 implementation](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/ERC721.sol) and [Enumerable extension](https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC721/extensions/ERC721Enumerable.sol). [Learn more about ERC-721](https://eips.ethereum.org/EIPS/eip-721).
+AI skill for adding [ERC-721](https://eips.ethereum.org/EIPS/eip-721) NFT support to [Scaffold-ETH 2](https://github.com/scaffold-eth/scaffold-eth-2) projects. Deploy and interact with a non-fungible token contract using [OpenZeppelin's ERC-721 implementation](https://docs.openzeppelin.com/contracts/5.x/erc721).
 
-## Installation
+## Usage
 
-```bash
-npx create-eth@latest -e erc-721
-```
+Point your AI agent at [`skills/erc-721/SKILL.md`](./skills/erc-721/SKILL.md) for the full integration knowledge.
 
-## 🚀 Setup extension
+## What It Covers
 
-Deploy your contract running `yarn deploy`
-
-## Interact with the NFT
-
-Start the front-end with `yarn start` and go to the _/erc721_ page to interact with your deployed ERC-721 token.
-
-You can check the code at `packages/nextjs/app/erc721`.
+- ERC-721 NFT contract setup with OpenZeppelin (including Enumerable, URIStorage, Royalty extensions)
+- Deployment scripts for both Hardhat and Foundry flavors
+- Metadata patterns (on-chain vs IPFS, JSON schema, base URI gotchas)
+- Security pitfalls (safeMint reentrancy, setApprovalForAll phishing, flash loan governance)
+- Gas optimization trade-offs (ERC721Enumerable vs ERC721A)
+- ERC-2981 royalties and marketplace enforcement reality
+- Soulbound tokens (ERC-5192)
