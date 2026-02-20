@@ -20,12 +20,14 @@ Scaffold-ETH 2 (SE-2) is a yarn (v3) monorepo for building dApps on Ethereum. It
 
 Check which exists in the project to know the flavor. Both flavors share:
 
-- **`packages/nextjs/`**: React frontend (Next.js App Router, Tailwind + DaisyUI, RainbowKit, Wagmi, Viem). Uses `~~` path alias for imports.
+- **`packages/nextjs/`**: React frontend (Next.js App Router, @scaffold-ui/components, Tailwind + DaisyUI, RainbowKit, Wagmi, Viem). Uses `~~` path alias for imports.
 - **`packages/nextjs/contracts/deployedContracts.ts`**: auto-generated after `yarn deploy`, contains ABIs, addresses, and deployment block numbers for all contracts, keyed by chain ID.
 - **`packages/nextjs/scaffold.config.ts`**: project config including `targetNetworks` (array of viem chain objects).
 - **Root `package.json`**: monorepo scripts that proxy into workspaces (e.g. `yarn chain`, `yarn deploy`, `yarn start`).
 
-An ERC-20 token is a standard smart contract, so it lives directly in the existing contracts package (Hardhat or Foundry). No new workspace is needed. The deployment scripts go alongside the existing deploy scripts, and the frontend page goes in the nextjs package. After deployment, `deployedContracts.ts` auto-generates the ABI and address, so the frontend can interact with the token using SE-2's scaffold hooks (`useScaffoldReadContract`, `useScaffoldWriteContract`).
+SE-2 uses `@scaffold-ui/components` for blockchain/Ethereum components (addresses, balances, etc.) and DaisyUI + Tailwind for general component and styling.
+
+The deployment scripts go alongside the existing deploy scripts, and the frontend page goes in the nextjs package. After deployment, `deployedContracts.ts` auto-generates the ABI and address, so the frontend can interact with the token using SE-2's scaffold hooks (`useScaffoldReadContract`, `useScaffoldWriteContract`).
 
 Look at the actual project structure and contracts before setting things up. Adapt to what's there rather than following this skill rigidly.
 
@@ -99,7 +101,6 @@ ERC-20 tokens default to 18 decimals, but many major tokens use different values
 | USDC | 6 | The most used stablecoin in DeFi uses 6, not 18 |
 | USDT | 6 | Same as USDC |
 | WBTC | 8 | Mirrors Bitcoin's satoshi precision |
-| GUSD | 2 | Gemini Dollar, lowest commonly seen |
 | DAI | 18 | Standard |
 | WETH | 18 | Standard |
 
@@ -131,10 +132,6 @@ token.forceApprove(spender, amount);  // handles USDT's approve-to-zero requirem
 
 USDT's `approve` function reverts if you set a non-zero allowance when the current allowance is already non-zero. You must first `approve(spender, 0)` then `approve(spender, newAmount)`. SafeERC20's `forceApprove()` handles this automatically.
 
-### Blocklists and pausability
-
-USDC and USDT have admin-controlled blocklists. Addresses on the blocklist cannot send or receive tokens. Both tokens can also be globally paused by their admin. If your contract holds these tokens in escrow and that address gets blocklisted, the funds are permanently frozen.
-
 ### Upgradeable proxies
 
 USDC and USDT are deployed behind upgradeable proxies. The token admin can change the implementation at any time, potentially altering transfer semantics or adding fees. USDC and USDT both have fee infrastructure built in (currently set to 0%) that could be activated in the future.
@@ -152,14 +149,6 @@ uint256 received = token.balanceOf(address(this)) - balanceBefore;
 ### Rebasing tokens
 
 Tokens like stETH and AMPL change balances without any transfer event. `balanceOf()` returns different values at different times for the same holder. Any contract that caches balances will have wrong accounting. Use the wrapped version (wstETH instead of stETH) which has stable balances.
-
-### UNI/COMP uint96 overflow
-
-UNI and COMP internally use `uint96` for balances. Approving `type(uint256).max` (a common "infinite approval" pattern) will revert on these tokens.
-
-### MKR's non-string metadata
-
-MKR encodes `name()` and `symbol()` as `bytes32` instead of `string`. Calling `IERC20Metadata(mkr).name()` through the standard interface returns garbage.
 
 ## Security Considerations
 
@@ -194,13 +183,3 @@ For reference when integrating with existing tokens. All verified on [Etherscan]
 | WETH | `0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2` | 18 | Has `deposit()`/`withdraw()`, no permit |
 | WBTC | `0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599` | 8 | Standard ERC-20 |
 | LINK | `0x514910771AF9Ca656af840dff83E8264EcF986CA` | 18 | Implements ERC-677 (`transferAndCall`) |
-| UNI | `0x1f9840a85d5aF5bf1D1762F925BDADdC4201F984` | 18 | uint96 internal balances, reverts on large approvals |
-| MKR | `0x9f8F72aA9304c8B593d555F12eF6589cC3A579A2` | 18 | name/symbol are bytes32, not string |
-
-## Development
-
-1. `yarn chain` to start the local blockchain
-2. `yarn deploy` to deploy the token contract (generates `deployedContracts.ts`)
-3. `yarn start` to run the frontend
-
-Add a page and navigation link for interacting with the token. SE-2's scaffold hooks and components handle balance display, minting, and transfers out of the box once the contract is deployed.
