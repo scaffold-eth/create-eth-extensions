@@ -235,11 +235,3 @@ function _update(address to, uint256 tokenId, address auth)
 | Bored Ape Yacht Club | `0xBC4CA0EdA7647A8aB7C2061c2E118A18a936f13D` | 10,000 apes, standard ERC-721 |
 | Azuki | `0xED5AF388653567Af2F388E6224dC7C4b3241C544` | Uses ERC721A for gas-optimized batch minting |
 | Pudgy Penguins | `0xBd3531dA5CF5857e7CfAA92426877b022e612cf8` | 8,888 penguins |
-
-## Development
-
-1. `yarn chain` to start the local blockchain
-2. `yarn deploy` to deploy the NFT contract (generates `deployedContracts.ts`)
-3. `yarn start` to run the frontend
-
-Add a page and navigation link for interacting with the NFT. SE-2's scaffold hooks and components handle the contract interaction out of the box.
