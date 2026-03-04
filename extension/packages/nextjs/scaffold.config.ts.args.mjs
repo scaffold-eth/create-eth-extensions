@@ -15,7 +15,7 @@ export type ${extraConfigTypeName} = {
 export const configOverrides = {
   targetNetworks: ["$$customChain$$", "$$chains.sepolia$$"],
   pollingInterval: 12_345,
-  onlyLocalBurnerWallet: false,
+  burnerWalletMode: "allNetworks",
   customApiKey: "$$CUSTOM_API_KEY$$",
 };
 
