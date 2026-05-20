@@ -1,8 +1,5 @@
 export const preContent = `
-const {
-  PHASE_DEVELOPMENT_SERVER,
-  PHASE_PRODUCTION_BUILD,
-} = require("next/constants");
+import { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } from "next/constants";
 `;
 
 export const configOverrides = {
