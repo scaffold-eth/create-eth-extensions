@@ -1,69 +1,57 @@
 import { expect } from "chai";
-import { ethers } from "hardhat";
-import { SE2Token } from "../typechain-types";
-import { SignerWithAddress } from "@nomicfoundation/hardhat-ethers/signers";
+import { network } from "hardhat";
+import type { Abi_SE2Token } from "../generated/abis/SE2Token.js";
+import { loadAndExecuteDeploymentsFromFiles } from "../rocketh/environment.js";
+
+const { provider, networkHelpers, ethers } = await network.create();
+
+// We define a fixture to reuse the same setup in every test.
+async function deployFixture() {
+  const env = await loadAndExecuteDeploymentsFromFiles({ provider });
+  const { address, abi } = env.get<Abi_SE2Token>("SE2Token");
+  const [, user1, user2] = await ethers.getSigners();
+  const token = await ethers.getContractAt(abi, address);
+  return { token, address, abi, user1, user2 };
+}
 
 describe("SE2Token", function () {
-  let token: SE2Token;
-  let owner: SignerWithAddress;
-  let user1: SignerWithAddress;
-  let user2: SignerWithAddress;
-
-  beforeEach(async function () {
-    // Get signers
-    [owner, user1, user2] = await ethers.getSigners();
-
-    // Deploy the token
-    const SE2Token = await ethers.getContractFactory("SE2Token");
-    token = await SE2Token.deploy();
-    await token.waitForDeployment();
-  });
-
   describe("Initial Setup", function () {
     it("should have correct name, symbol and initial supply", async function () {
-      const name = await token.name();
-      const symbol = await token.symbol();
-      const supply = await token.totalSupply();
+      const { token } = await networkHelpers.loadFixture(deployFixture);
 
-      expect(name).to.equal("SE2Token");
-      expect(symbol).to.equal("SE2");
-      expect(supply).to.equal(0n);
+      expect(await token.name()).to.equal("SE2Token");
+      expect(await token.symbol()).to.equal("SE2");
+      expect(await token.totalSupply()).to.equal(0n);
     });
   });
 
   describe("Minting", function () {
     it("should mint tokens correctly", async function () {
+      const { token, user1 } = await networkHelpers.loadFixture(deployFixture);
       const mintAmount = 100n * 10n ** 18n; // 100 tokens
 
-      // Mint tokens to user1
-      await token.connect(owner).mint(user1.address, mintAmount);
+      // Minting is open to anyone; the default signer mints to user1
+      await token.mint(user1.address, mintAmount);
 
-      // Check balance
-      const balance = await token.balanceOf(user1.address);
-      const totalSupply = await token.totalSupply();
-
-      expect(balance).to.equal(mintAmount);
-      expect(totalSupply).to.equal(mintAmount);
+      expect(await token.balanceOf(user1.address)).to.equal(mintAmount);
+      expect(await token.totalSupply()).to.equal(mintAmount);
     });
   });
 
   describe("Transfer", function () {
     it("should transfer tokens correctly", async function () {
+      const { address, abi, user1, user2 } = await networkHelpers.loadFixture(deployFixture);
       const mintAmount = 100n * 10n ** 18n; // 100 tokens
       const transferAmount = 30n * 10n ** 18n; // 30 tokens
 
-      // Mint tokens to user1
-      await token.connect(owner).mint(user1.address, mintAmount);
+      const tokenAsUser1 = await ethers.getContractAt(abi, address, user1);
 
-      // Transfer from user1 to user2
-      await token.connect(user1).transfer(user2.address, transferAmount);
+      // Mint to user1, then transfer user1 -> user2
+      await tokenAsUser1.mint(user1.address, mintAmount);
+      await tokenAsUser1.transfer(user2.address, transferAmount);
 
-      // Check balances
-      const user1Balance = await token.balanceOf(user1.address);
-      const user2Balance = await token.balanceOf(user2.address);
-
-      expect(user1Balance).to.equal(mintAmount - transferAmount);
-      expect(user2Balance).to.equal(transferAmount);
+      expect(await tokenAsUser1.balanceOf(user1.address)).to.equal(mintAmount - transferAmount);
+      expect(await tokenAsUser1.balanceOf(user2.address)).to.equal(transferAmount);
     });
   });
 });

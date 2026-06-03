@@ -1,5 +1,5 @@
 export const preContent = `
-import "./tasks"
+import { sayHelloTask } from "./tasks/index.js"
 
 // Custom variables
 // const CUSTOM_API_KEY = process.env.CUSTOM_API_KEY;
@@ -20,6 +20,22 @@ export const configOverrides = {
       },
     ],
   },
+  // In Hardhat v3, custom block explorers are declared per-chain via top-level
+  // `chainDescriptors` (keyed by chainId), not a per-network `verify` block.
+  // The Etherscan API key stays at the top level (base config's `verify.etherscan.apiKey`).
+  // `hardhat verify` resolves the explorer by the live network's chainId.
+  chainDescriptors: {
+    99999: {
+      name: "Custom Network",
+      blockExplorers: {
+        etherscan: {
+          name: "Custom Explorer",
+          url: "https://custom-explorer.io",
+          apiUrl: "https://api.custom-explorer.io",
+        },
+      },
+    },
+  },
   networks: {
     hardhat: {
       forking: {
@@ -27,14 +43,12 @@ export const configOverrides = {
       }
     },
     customNetwork: {
+      type: "http",
       url: "https://custom.network",
       accounts: ["$$deployerPrivateKey$$"],
-      verify: {
-        etherscan: {
-          apiUrl: "https://api.custom-explorer.io",
-          apiKey: "$$etherscanApiKey$$",
-        }
-      }
+      chainId: 99999,
     }
   },
+  // Append the extension's task to the base `deployTasks` array.
+  tasks: "$$[...deployTasks, sayHelloTask]$$",
 };
