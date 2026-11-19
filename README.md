@@ -1,6 +1,6 @@
 # 🔌 create-eth Extensions
 
-This repository holds all the BG curated extensions for [create-eth](https://github.com/scaffold-eth/create-eth), so you can extend the functionality of your Scaffold-ETH project.
+This repository holds all the BG curated extensions for [create-eth](https://github.com/scaffold-eth/scaffold-eth-2) (the Scaffold-ETH 2 CLI), so you can extend the functionality of your Scaffold-ETH project.
 
 ## Usage
 
